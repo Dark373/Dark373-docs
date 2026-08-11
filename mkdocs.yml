@@ -65,7 +65,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - 2026 Theme:
+  - 2026:
       - Overview: project-1/index.md
       - Gallery: project-1/gallery.md
       - Known Bugs: project-1/known-bugs.md
