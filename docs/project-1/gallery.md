@@ -1,4 +1,4 @@
-# Project 1 — Gallery
+# 2026 — Gallery
 
 Click any image to zoom in. Replace the placeholders below with real
 screenshots once you have them.
