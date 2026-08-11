@@ -1,0 +1,79 @@
+site_name: Dark373 Docs
+site_description: Documentation for Racing League Tool (RLT) Flex Renderer theme/layout projects
+site_url: https://dark373.github.io/Dark373-docs/
+repo_name: Dark373/Dark373-docs
+repo_url: https://github.com/Dark373/Dark373-docs
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: [docs/includes]
+      check_paths: true
+
+nav:
+  - Home: index.md
+  - Project 1:
+      - Overview: project-1/index.md
+      - Gallery: project-1/gallery.md
+      - Known Bugs: project-1/known-bugs.md
+  - Project 2:
+      - Overview: project-2/index.md
+      - Gallery: project-2/gallery.md
+      - Known Bugs: project-2/known-bugs.md
+  - Project 3:
+      - Overview: project-3/index.md
+      - Gallery: project-3/gallery.md
+      - Known Bugs: project-3/known-bugs.md
