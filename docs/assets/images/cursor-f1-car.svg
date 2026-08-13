@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Mini F1 car, used as the site-wide custom cursor (see extra.css). -->
+  <g transform="translate(16,16) rotate(-35) scale(0.55)">
+    <!-- rear wing -->
+    <rect x="-17" y="-7" width="3" height="14" rx="1" fill="#141414"/>
+    <!-- front wing -->
+    <rect x="10" y="-7.5" width="3" height="15" rx="1" fill="#141414"/>
+    <!-- rear wheels (wider stance) -->
+    <circle cx="-9" cy="-6.5" r="2.6" fill="#141414"/>
+    <circle cx="-9" cy="6.5" r="2.6" fill="#141414"/>
+    <!-- front wheels -->
+    <circle cx="9" cy="-6.2" r="2.2" fill="#141414"/>
+    <circle cx="9" cy="6.2" r="2.2" fill="#141414"/>
+    <!-- body, nose pointing toward the hotspot -->
+    <path d="M -13 -4 L 5 -4.5 L 14 -3 L 20 0 L 14 3 L 5 4.5 L -13 4 Z" fill="#d21f1f" stroke="#141414" stroke-width="0.6"/>
+    <!-- cockpit -->
+    <ellipse cx="1" cy="0" rx="4" ry="2.2" fill="#f5f5f5"/>
+  </g>
+</svg>
