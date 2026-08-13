@@ -1,6 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <!-- Mini F1 car, used as the site-wide custom cursor (see extra.css). -->
+  <!-- Mini F1 car, used as the site-wide fallback cursor (see extra.css).
+       A white halo layer sits behind the coloured car so it stays visible
+       against dark (slate) backgrounds. -->
   <g transform="translate(16,16) rotate(-35) scale(0.55)">
+    <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="-17" y="-7" width="3" height="14" rx="1"/>
+      <rect x="10" y="-7.5" width="3" height="15" rx="1"/>
+      <circle cx="-9" cy="-6.5" r="2.6"/>
+      <circle cx="-9" cy="6.5" r="2.6"/>
+      <circle cx="9" cy="-6.2" r="2.2"/>
+      <circle cx="9" cy="6.2" r="2.2"/>
+      <path d="M -13 -4 L 5 -4.5 L 14 -3 L 20 0 L 14 3 L 5 4.5 L -13 4 Z"/>
+      <ellipse cx="1" cy="0" rx="4" ry="2.2"/>
+    </g>
     <!-- rear wing -->
     <rect x="-17" y="-7" width="3" height="14" rx="1" fill="#141414"/>
     <!-- front wing -->

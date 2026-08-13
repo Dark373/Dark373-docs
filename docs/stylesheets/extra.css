@@ -36,6 +36,100 @@
   cursor: url("../assets/images/cursor-f1-car.svg") 25 10, auto !important;
 }
 
+/* Progressive enhancement (javascripts/racing.js): once JS confirms a
+   fine (non-touch) pointer and no reduced-motion preference, it hides the
+   native cursor entirely and drives a rotating div instead, so the car
+   can turn to face the direction you're moving. Everyone else keeps the
+   static SVG cursor above. */
+html.f1-cursor-active,
+html.f1-cursor-active * {
+  cursor: none !important;
+}
+
+#f1-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+#f1-cursor-rotor {
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  width: 32px;
+  height: 32px;
+  transition: transform 0.12s cubic-bezier(0.22, 0.68, 0.32, 1);
+}
+
+#f1-cursor-rotor svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* Fading trail dots spawned behind the cursor as it moves — each one
+   removes itself from the DOM when its fade-out animation ends, so
+   nothing lingers. */
+#f1-trail-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+@keyframes f1-trail-fade {
+  from {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+.f1-trail-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--md-accent-fg-color);
+  animation: f1-trail-fade 0.6s ease-out forwards;
+}
+
+/* Mini track graphic, injected under the 2025 section's sidebar nav
+   (see javascripts/racing.js) purely for fun. Monochrome via currentColor
+   so it adapts to light/dark like everything else. */
+#f1-track {
+  margin: 1.25rem 0.8rem 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.12));
+  color: var(--md-default-fg-color--light);
+}
+
+.f1-track-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+#f1-track svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ==========================================================================
    F1 2025 Theme section — racing-flavoured accents.
    Opt-in classes (attr_list / raw HTML), scoped to this project's pages so
