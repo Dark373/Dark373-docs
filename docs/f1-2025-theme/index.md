@@ -1,3 +1,8 @@
+<div class="f1-hero">
+  <span class="f1-hero-kicker">Round <em>01</em> · 2025 Season</span>
+  <span class="f1-hero-flag">🏁</span>
+</div>
+
 # 2025 — Overview
 
 The F1 2025 Theme is a custom theme developed by Dark373 for the Racing
@@ -15,24 +20,24 @@ the official Formula One graphics.
     tribute to motorsport design, without intent to infringe upon
     trademarks or intellectual property.
 
-## At a glance
+## At a glance {: .f1-heading }
 
-| | |
-| --- | --- |
-| **Author** | Dark373 |
-| **Version** | 1.0.1 |
-| **RLT Version** | 9.6 Hotfix - 2 |
-| **Renders** | 35 |
-| **Development time** | 65 hours |
+<div class="stat-strip">
+  <div class="stat"><span class="stat-label">Author</span><span class="stat-value">Dark373</span></div>
+  <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.0.1</span></div>
+  <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.6 HF-2</span></div>
+  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">35</span></div>
+  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">65h</span></div>
+</div>
 
-## Links
+## Links {: .f1-heading }
 
 - [Installation & Setup](installation.md)
 - [Theme Options](theme-options.md)
 - [Gallery](gallery.md)
 - [Known Bugs](known-bugs.md)
 
-## Copyright Notice
+## Copyright Notice {: .f1-heading }
 
 © 2025 Adam Kessels. All rights reserved.
 
@@ -65,11 +70,14 @@ with the use of this code.
 Due to the nature of this work, the buyer agrees there will be no refunds
 after purchasing the work. All applications for permission to reproduce
 any part of this work should be addressed to
-[kesselsadam@gmail.com](mailto:kesselsadam@gmail.com).
+<!-- TODO: replace with your real contact email -->
+[your-email@example.com](mailto:your-email@example.com).
 
 The moral rights of the author(s) under the Copyright, Designs and Patents
 Act 1988 are unaffected by the rights granted in this Copyright Notice.
 
-## Support
+<div class="checker-divider"></div>
+
+## Support {: .f1-heading }
 
 --8<-- "buttons.md"

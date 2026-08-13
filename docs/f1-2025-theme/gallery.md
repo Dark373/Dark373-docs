@@ -22,6 +22,8 @@ with real screenshots once you have them.
     for details; it's worth adding both variants here once you have
     screenshots.
 
-## Support
+<div class="checker-divider"></div>
+
+## Support {: .f1-heading }
 
 --8<-- "buttons.md"

@@ -27,3 +27,113 @@
   transform: scale(1.02);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
+
+/* ==========================================================================
+   F1 2025 Theme section — racing-flavoured accents.
+   Opt-in classes (attr_list / raw HTML), scoped to this project's pages so
+   the rest of the site is unaffected.
+   ========================================================================== */
+
+/* Kicker banner used above the H1 on the section's Overview page. */
+.f1-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1.1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.3rem;
+  background: var(--md-primary-fg-color);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0 18px,
+    transparent 18px 36px
+  );
+  overflow: hidden;
+}
+
+.f1-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: var(--md-accent-fg-color);
+}
+
+.f1-hero-kicker {
+  font-family: var(--md-code-font-family, monospace);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--md-primary-bg-color);
+}
+
+.f1-hero-kicker em {
+  font-style: normal;
+  color: var(--md-accent-fg-color);
+}
+
+.f1-hero-flag {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Motorsport-graphic-style section headers: `## Heading {: .f1-heading }` */
+h2.f1-heading {
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-left: 4px solid var(--md-accent-fg-color);
+  padding-left: 0.6rem;
+}
+
+/* Spec strip on the Overview page — driver-card-style stat chips. */
+.stat-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.stat-strip .stat {
+  flex: 1 1 130px;
+  text-align: center;
+  padding: 0.85rem 1rem;
+  border-radius: 0.35rem;
+  background: var(--md-code-bg-color);
+}
+
+.stat-strip .stat-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light);
+}
+
+.stat-strip .stat-value {
+  display: block;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--md-accent-fg-color);
+}
+
+/* Checkered-flag divider, used ahead of each page's Support section. */
+.checker-divider {
+  height: 14px;
+  margin: 2.25rem 0 1.5rem;
+  border-radius: 2px;
+  opacity: 0.85;
+  background-image:
+    linear-gradient(45deg, var(--md-default-fg-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--md-default-fg-color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--md-default-fg-color) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--md-default-fg-color) 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+}

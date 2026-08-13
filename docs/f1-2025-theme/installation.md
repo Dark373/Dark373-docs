@@ -1,6 +1,6 @@
 # 2025 — Installation & Setup
 
-## Installing and updates
+## Installing and updates {: .f1-heading }
 
 After purchasing, the theme ZIP file archive can be found within your
 shared Google Drive.
@@ -17,7 +17,7 @@ shared Google Drive.
 1. Delete the existing theme folder.
 2. Follow the installation process again.
 
-## App render locations
+## App render locations {: .f1-heading }
 
 Most renders don't appear on the "Render Graphics" menu at the top of the
 app — the following locations across the app give you access to the full
@@ -33,6 +33,8 @@ rendering potential of the theme.
 | **Penalties Summary** | Button at the top right-hand side. |
 | **Standings** | Top right-hand side drop-down menus (Driver standings / Team standings). |
 
-## Support
+<div class="checker-divider"></div>
+
+## Support {: .f1-heading }
 
 --8<-- "buttons.md"

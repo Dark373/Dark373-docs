@@ -23,6 +23,9 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+  font:
+    text: Titillium Web
+    code: JetBrains Mono
   features:
     - navigation.instant
     - navigation.tracking
