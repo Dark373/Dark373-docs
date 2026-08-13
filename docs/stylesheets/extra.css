@@ -113,10 +113,12 @@ html.f1-cursor-active * {
   animation: f1-trail-fade 0.6s ease-out forwards;
 }
 
-/* Mini track graphic, injected under the 2025 section's sidebar nav
-   (see javascripts/racing.js) purely for fun. Monochrome via currentColor
-   so it adapts to light/dark like everything else. */
-#f1-track {
+/* Mini track graphics (see javascripts/racing.js) — one under the 2025
+   section's sidebar nav, one on the homepage — purely for fun. Monochrome
+   via currentColor so each adapts to light/dark like everything else.
+   Hover the track: it counts a lap and pops a confetti burst. */
+.f1-track {
+  max-width: 420px;
   margin: 1.25rem 0.8rem 0.5rem;
   padding-top: 0.85rem;
   border-top: 1px dashed var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.12));
@@ -132,10 +134,54 @@ html.f1-cursor-active * {
   text-align: center;
 }
 
-#f1-track svg {
+.f1-track svg {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.f1-track-laps {
+  margin: 0.4rem 0 0;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--md-accent-fg-color);
+  text-align: center;
+}
+
+/* Confetti burst, spawned on track hover. Each piece removes itself from
+   the DOM the instant its animation ends, so nothing lingers. */
+#f1-confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  overflow: hidden;
+}
+
+@keyframes f1-confetti-burst {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--drift, 0px), calc(var(--rise, 140px) * -1)) rotate(var(--rot, 360deg));
+    opacity: 0;
+  }
+}
+
+.f1-confetti {
+  position: fixed;
+  bottom: 0;
+  width: 7px;
+  height: 11px;
+  box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.35);
+  animation-name: f1-confetti-burst;
+  animation-timing-function: cubic-bezier(0.15, 0.7, 0.3, 1);
+  animation-fill-mode: forwards;
 }
 
 /* ==========================================================================
@@ -188,6 +234,29 @@ html.f1-cursor-active * {
 .f1-hero-flag {
   font-size: 1.1rem;
   line-height: 1;
+}
+
+/* Bigger treatment for the homepage hero — first thing visitors see. */
+.f1-hero--home {
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.4rem;
+}
+
+.f1-hero--home .f1-hero-kicker {
+  font-size: 0.78rem;
+}
+
+.f1-hero--home .f1-hero-flag {
+  font-size: 1.4rem;
+}
+
+/* Homepage title: `# Dark373 Docs {: .f1-title }` */
+h1.f1-title {
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  padding-bottom: 0.4rem;
+  border-bottom: 4px solid var(--md-accent-fg-color);
 }
 
 /* Motorsport-graphic-style section headers: `## Heading {: .f1-heading }` */
