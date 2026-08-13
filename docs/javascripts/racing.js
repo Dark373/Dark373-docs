@@ -47,29 +47,51 @@
     );
   }
 
-  // Simple oval/stadium loop — used in the 2025 section's sidebar.
-  function ovalTrackMarkup() {
+  // Both tracks share one rendering style — two concentric outlines (a
+  // "ring" lane) at the same stroke weights, a checkered finish-line
+  // patch, and a red start dot — so they read as the same theme. Only
+  // the outline shapes (and therefore the turns) differ between them.
+  // outerShape/innerShape are complete <rect>/<path> elements, so each
+  // track can use whichever primitive suits its layout.
+  function trackSVG(label, outerShape, innerShape, finishRectAttrs, dotCx, dotCy, checkerId) {
     return (
-      '<svg viewBox="0 0 200 104" role="img" aria-label="A little race track, just for fun">' +
-      "<defs>" + checkerPatternMarkup("f1-checker-oval") + "</defs>" +
-      '<rect x="4" y="10" width="192" height="84" rx="42" fill="none" stroke="currentColor" stroke-width="3"/>' +
-      '<rect x="28" y="30" width="144" height="44" rx="22" fill="none" stroke="currentColor" stroke-width="2"/>' +
-      '<rect x="92" y="10" width="16" height="20" fill="url(#f1-checker-oval)" stroke="currentColor" stroke-width="1"/>' +
-      '<circle cx="100" cy="10" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8"/>' +
+      '<svg viewBox="0 0 200 104" role="img" aria-label="' + label + '">' +
+      "<defs>" + checkerPatternMarkup(checkerId) + "</defs>" +
+      outerShape +
+      innerShape +
+      '<rect class="f1-finish-line" ' + finishRectAttrs + ' fill="url(#' + checkerId + ')" stroke="currentColor" stroke-width="1"/>' +
+      '<circle cx="' + dotCx + '" cy="' + dotCy + '" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8"/>' +
       "</svg>"
     );
   }
 
-  // A trickier circuit with a small chicane — used on the homepage.
+  var RING_OUTER = 'fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
+  var RING_INNER = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"';
+
+  // Simple oval/stadium loop — used in the 2025 section's sidebar.
+  function ovalTrackMarkup() {
+    return trackSVG(
+      "A little race track, just for fun — hover the checkered patch for a lap",
+      '<rect x="4" y="10" width="192" height="84" rx="42" ' + RING_OUTER + "/>",
+      '<rect x="28" y="30" width="144" height="44" rx="22" ' + RING_INNER + "/>",
+      'x="92" y="10" width="16" height="20"',
+      100,
+      10,
+      "f1-checker-oval"
+    );
+  }
+
+  // A trickier circuit with a chicane — used on the homepage. Same twin
+  // outline + finish-line treatment as the oval, different turns.
   function circuitTrackMarkup() {
-    return (
-      '<svg viewBox="0 0 200 104" role="img" aria-label="A second, trickier circuit, just for fun">' +
-      "<defs>" + checkerPatternMarkup("f1-checker-circuit") + "</defs>" +
-      '<path d="M20,88 L20,32 L38,16 L92,16 L102,28 L112,16 L162,16 L182,32 L182,72 L162,88 L58,88 Z" ' +
-      'fill="none" stroke="currentColor" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>' +
-      '<rect x="12" y="54" width="16" height="14" fill="url(#f1-checker-circuit)" stroke="currentColor" stroke-width="1"/>' +
-      '<circle cx="20" cy="61" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8"/>' +
-      "</svg>"
+    return trackSVG(
+      "A second, trickier circuit, just for fun — hover the checkered patch for a lap",
+      '<path d="M20,90 L20,26 L40,10 L80,10 L92,24 L104,10 L160,10 L180,26 L180,70 L155,90 L45,90 Z" ' + RING_OUTER + "/>",
+      '<path d="M40,74 L40,40 L52,28 L78,28 L86,36 L96,28 L148,28 L162,40 L162,58 L145,74 L60,74 Z" ' + RING_INNER + "/>",
+      'x="12" y="52" width="16" height="20"',
+      20,
+      62,
+      "f1-checker-circuit"
     );
   }
 
@@ -77,19 +99,22 @@
     return (
       '<p class="f1-track-label">' + label + "</p>" +
       svgMarkup +
-      '<p class="f1-track-laps">Hover for a lap</p>'
+      '<p class="f1-track-laps">Cross the finish line</p>'
     );
   }
 
   // Wires up lap-counting + confetti on a freshly-built track widget.
-  // Independent per widget: each track keeps its own lap count.
+  // Independent per widget: each track keeps its own lap count. The
+  // listener sits on the checkered finish-line patch specifically (not
+  // the whole SVG's bounding box), so a lap only counts — and confetti
+  // only fires — exactly when the cursor crosses the finish line.
   function wireTrackWidget(container) {
-    var svg = container.querySelector("svg");
+    var finish = container.querySelector(".f1-finish-line");
     var lapEl = container.querySelector(".f1-track-laps");
-    if (!svg || !lapEl) return;
+    if (!finish || !lapEl) return;
 
     var laps = 0;
-    svg.addEventListener("mouseenter", function () {
+    finish.addEventListener("mouseenter", function () {
       laps += 1;
       lapEl.textContent = "Lap " + (laps < 10 ? "0" + laps : laps);
       burstConfetti();
@@ -177,14 +202,26 @@
    * Rotating, trailing cursor. Progressive enhancement only: skipped on
    * touch devices and when the user prefers reduced motion, in which
    * case the static cursor from extra.css is simply left in place.
-   * Only ever initialised once, even across instant-navigations.
+   *
+   * The DOM element + listeners are only ever built once, but the
+   * `f1-cursor-active` class (which is what actually hides the native
+   * cursor) is re-applied on *every* call. Instant-navigation re-syncs
+   * <html>'s attributes from each freshly-fetched page, which silently
+   * strips any class only JS ever added — without re-adding it here,
+   * the native cursor would come back to stay after the first click
+   * while our floating car (whose listeners are still alive) keeps
+   * drawing underneath it.
    * ------------------------------------------------------------------ */
   function initRacingCursor() {
-    if (window.__f1CursorInit) return;
-
     var coarsePointer = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-    if (coarsePointer || prefersReducedMotion()) return;
+    if (coarsePointer || prefersReducedMotion()) {
+      document.documentElement.classList.remove("f1-cursor-active");
+      return;
+    }
 
+    document.documentElement.classList.add("f1-cursor-active");
+
+    if (window.__f1CursorInit) return;
     window.__f1CursorInit = true;
 
     var CAR_SVG =
@@ -222,8 +259,6 @@
     var trailLayer = document.createElement("div");
     trailLayer.id = "f1-trail-layer";
     document.body.appendChild(trailLayer);
-
-    document.documentElement.classList.add("f1-cursor-active");
 
     var mouseX = window.innerWidth / 2;
     var mouseY = window.innerHeight / 2;
