@@ -10,6 +10,7 @@ they look, and their current known issues.
 ## Projects
 
 - [Project 1](project-1/index.md) — overview, gallery, and known bugs
+- [F1 2025 Theme](f1-2025-theme/index.md) — overview, installation, theme options, gallery, and known bugs
 - [Project 2](project-2/index.md) — overview, gallery, and known bugs
 - [Project 3](project-3/index.md) — overview, gallery, and known bugs
 
