@@ -31,9 +31,17 @@
 /* Site-wide custom cursor — a mini F1 car in place of the default pointer.
    !important + universal selector so it wins over Material's own component
    cursor rules; gallery thumbnails opt back out to keep their zoom-in hint
-   above (also marked !important, and more specific, so it takes priority). */
+   above (also marked !important, and more specific, so it takes priority).
+   Two image values are listed before the generic keyword: SVG cursors
+   render in Chromium (Chrome, Edge, Opera/Opera GX) and Firefox, but
+   WebKit/Safari has long-standing bugs where an SVG cursor silently fails —
+   the browser then falls through to the PNG, and only to plain "auto" if
+   neither image loads at all. */
 *, *::before, *::after {
-  cursor: url("../assets/images/cursor-f1-car.svg") 25 10, auto !important;
+  cursor:
+    url("../assets/images/cursor-f1-car.svg") 25 10,
+    url("../assets/images/cursor-f1-car.png") 25 10,
+    auto !important;
 }
 
 /* Progressive enhancement (javascripts/racing.js): once JS confirms a
