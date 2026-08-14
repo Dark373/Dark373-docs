@@ -81,11 +81,5 @@ nav:
       - Theme Options: f1-2025-theme/theme-options.md
       - Gallery: f1-2025-theme/gallery.md
       - Known Bugs: f1-2025-theme/known-bugs.md
-  - Project 2:
-      - Overview: project-2/index.md
-      - Gallery: project-2/gallery.md
-      - Known Bugs: project-2/known-bugs.md
-  - Project 3:
-      - Overview: project-3/index.md
-      - Gallery: project-3/gallery.md
-      - Known Bugs: project-3/known-bugs.md
+  - 2027: 2027/index.md
+  - Commissions: commissions/index.md
