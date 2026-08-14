@@ -9,6 +9,8 @@
  *  4. Three tiny cars race across every checkered divider, trailing dust.
  *  5. A local leaderboard on the homepage sidebar: save your session's
  *     top speed and career laps under a username, stored on this device.
+ *  6. Numeric stat values count up from 0 on page load instead of just
+ *     appearing.
  *
  * Runs via document$, Material's observable that fires after every page
  * load *and* every instant-navigation swap, so everything keeps working
@@ -42,6 +44,7 @@
     initWordHover();
     initCheckerRace();
     initLeaderboard();
+    initCountUp();
     initRacingCursor();
   });
 
@@ -94,9 +97,11 @@
     var purple = /\/f1-2025-theme\//.test(location.pathname);
     var blue = !purple && /\/project-1\//.test(location.pathname);
     var green = !purple && !blue && /\/commissions\//.test(location.pathname);
+    var yellow = !purple && !blue && !green && /\/2027\//.test(location.pathname);
     html.classList.toggle("f1-section-purple", purple);
     html.classList.toggle("f1-section-blue", blue);
     html.classList.toggle("f1-section-green", green);
+    html.classList.toggle("f1-section-yellow", yellow);
   }
 
   /* ------------------------------------------------------------------
@@ -115,7 +120,7 @@
     // Purely decorative, already-animated elements — wrapping their text
     // would just double up unused spans (pointer-events:none up the
     // chain means they can never actually be hovered anyway).
-    var SKIP_ANCESTOR_SELECTOR = ".f1-floating-hearts, .f1-mini-race";
+    var SKIP_ANCESTOR_SELECTOR = ".f1-floating-hearts, .f1-mini-race, .stat-strip";
 
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
@@ -148,6 +153,46 @@
         }
       });
       node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  /* ------------------------------------------------------------------
+   * Numeric stat values (the "At a glance" strip) count up from 0
+   * instead of just appearing — only for values that actually start
+   * with digits ("35", "65h"); anything else ("Dark373", "1.0.1") is
+   * left alone rather than animating something that isn't really a
+   * count. Any non-digit suffix after the number ("h") is preserved and
+   * only appended once the count finishes.
+   * ------------------------------------------------------------------ */
+  function initCountUp() {
+    if (prefersReducedMotion()) return;
+
+    var values = document.querySelectorAll(".stat-strip .stat-value");
+    values.forEach(function (el) {
+      if (el.dataset.f1Counted) return;
+      el.dataset.f1Counted = "1";
+
+      var match = /^(\d+)(.*)$/.exec(el.textContent);
+      if (!match) return;
+      var target = parseInt(match[1], 10);
+      var suffix = match[2];
+      if (!target) return;
+
+      var duration = 700;
+      var start = null;
+
+      function frame(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          el.textContent = target + suffix; // land exactly on the real value
+        }
+      }
+      requestAnimationFrame(frame);
     });
   }
 

@@ -21,6 +21,12 @@ html.f1-section-blue {
 html.f1-section-green {
   --f1-accent: #22c55e;
 }
+html.f1-section-yellow {
+  /* A deep goldenrod rather than a pure lemon yellow — this token also
+     doubles as text colour in a few spots (stat values, lap text), and
+     bright yellow on a white background is a classic legibility trap. */
+  --f1-accent: #b8860b;
+}
 
 /* Bullet points, but racing-themed: cars, a checkered flag, a wheel,
    cycling every three items so a long list doesn't repeat the same icon
@@ -234,7 +240,7 @@ html.f1-cursor-active * {
 
 .md-typeset .md-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22), 0 0 16px -2px var(--f1-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -475,6 +481,10 @@ html.f1-cursor-active * {
   background-size: 200% 200%;
   animation: f1-hero-drift 6s linear infinite;
   overflow: hidden;
+  /* Under-the-stadium-lights glow in the section's own accent, plus a
+     hairline rim so the banner reads as lit from within rather than
+     just a flat block of colour. */
+  box-shadow: 0 0 22px -4px var(--f1-accent), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 @keyframes f1-hero-drift {
@@ -497,7 +507,8 @@ html.f1-cursor-active * {
   position: absolute;
   inset: 0 auto 0 0;
   width: 6px;
-  background: var(--f1-accent);
+  background: linear-gradient(180deg, var(--f1-accent), transparent, var(--f1-accent));
+  box-shadow: 0 0 10px var(--f1-accent);
 }
 
 .f1-hero-kicker {
@@ -566,11 +577,47 @@ h2.f1-heading {
 }
 
 .stat-strip .stat {
+  position: relative;
   flex: 1 1 130px;
   text-align: center;
   padding: 0.85rem 1rem;
   border-radius: 0.35rem;
   background: var(--md-code-bg-color);
+  border-top: 2px solid var(--f1-accent);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* A faint carbon-fibre weave (two crossed diagonal hatches) instead of a
+   flat panel — the kind of texture on an actual car's trim, not just a
+   generic card background. */
+.stat-strip .stat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image: repeating-linear-gradient(
+      45deg,
+      var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.05)) 0 1px,
+      transparent 1px 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.05)) 0 1px,
+      transparent 1px 6px
+    );
+  pointer-events: none;
+}
+
+.stat-strip .stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -4px var(--f1-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-strip .stat {
+    transition: none;
+  }
 }
 
 .stat-strip .stat-label {
