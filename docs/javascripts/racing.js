@@ -61,7 +61,11 @@
       outerShape +
       innerShape +
       '<rect class="f1-finish-line" ' + finishRectAttrs + ' fill="url(#' + checkerId + ')" stroke="currentColor" stroke-width="1"/>' +
-      '<circle cx="' + dotCx + '" cy="' + dotCy + '" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8"/>' +
+      // Purely decorative — sits on top of (overlaps) the finish-line
+      // rect by design, so it must not intercept hover, or it silently
+      // steals the hit-test from the rect underneath and the mouseenter
+      // listener never fires no matter how precisely you hover the line.
+      '<circle cx="' + dotCx + '" cy="' + dotCy + '" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8" pointer-events="none"/>' +
       "</svg>"
     );
   }
