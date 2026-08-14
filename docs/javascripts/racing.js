@@ -6,7 +6,7 @@
  *     laps and pops a confetti burst every time you hover it.
  *  3. Every word on every page is wrapped so hovering one briefly makes
  *     it bigger and bolder.
- *  4. A tiny car drives across every checkered divider, trailing dust.
+ *  4. Three tiny cars race across every checkered divider, trailing dust.
  *
  * Runs via document$, Material's observable that fires after every page
  * load *and* every instant-navigation swap, so everything keeps working
@@ -38,24 +38,32 @@
   });
 
   /* ------------------------------------------------------------------
-   * Drops a tiny car + trailing dust/smoke into every .checker-divider
-   * on the current page (there's usually one, ahead of Support). Pure
-   * CSS animation from here (see extra.css) — this just builds the
-   * markup once per divider; prefers-reduced-motion is handled entirely
-   * in CSS (display: none on .f1-mini-race), so nothing extra to check
-   * here.
+   * Drops three cars, each trailing dust/smoke, into every
+   * .checker-divider on the current page (there's usually one, ahead of
+   * Support) — a proper little race, not one car alone. Pure CSS
+   * animation from here (see extra.css, .f1-racer--1/2/3 for the
+   * per-lane speed/offset that makes them actually race instead of
+   * moving in lockstep); this just builds the markup once per divider.
+   * prefers-reduced-motion is handled entirely in CSS (display: none on
+   * .f1-mini-race), so nothing extra to check here.
    * ------------------------------------------------------------------ */
   function initCheckerRace() {
+    function racerMarkup(laneClass) {
+      return (
+        '<div class="f1-racer ' + laneClass + '">' +
+        '<span class="f1-mini-car">🏎️</span>' +
+        '<span class="f1-mini-dust"></span>' +
+        '<span class="f1-mini-dust"></span>' +
+        "</div>"
+      );
+    }
+
     var dividers = document.querySelectorAll(".checker-divider:not([data-f1-race])");
     dividers.forEach(function (divider) {
       divider.setAttribute("data-f1-race", "1");
       var race = document.createElement("div");
       race.className = "f1-mini-race";
-      race.innerHTML =
-        '<span class="f1-mini-car">🏎️</span>' +
-        '<span class="f1-mini-dust"></span>' +
-        '<span class="f1-mini-dust"></span>' +
-        '<span class="f1-mini-dust"></span>';
+      race.innerHTML = racerMarkup("f1-racer--1") + racerMarkup("f1-racer--2") + racerMarkup("f1-racer--3");
       divider.appendChild(race);
     });
   }

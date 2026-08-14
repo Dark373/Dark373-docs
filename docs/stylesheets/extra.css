@@ -19,7 +19,7 @@ html.f1-section-blue {
   --f1-accent: #2f6fed;
 }
 
-/* Bullet points, but racing-themed: cars, a checkered flag, a helmet,
+/* Bullet points, but racing-themed: cars, a checkered flag, a wheel,
    cycling every three items so a long list doesn't repeat the same icon
    back to back. ::marker keeps this to actual <li> bullets — ordered
    (numbered) lists are untouched, since steps need to stay numeric. */
@@ -30,7 +30,7 @@ html.f1-section-blue {
   content: "🏁  ";
 }
 .md-typeset ul li:nth-child(3n+3)::marker {
-  content: "🪖  ";
+  content: "🛞  ";
 }
 
 /* Reusable image gallery grid.
@@ -449,9 +449,12 @@ h2.f1-heading {
   color: var(--f1-accent);
 }
 
-/* Checkered-flag divider, used ahead of each page's Support section. A
-   tiny car (javascripts/racing.js injects it into every .checker-divider
-   on the page) drives past on a loop, trailing a few dust/smoke puffs. */
+/* Checkered-flag divider, used ahead of each page's Support section.
+   javascripts/racing.js injects three cars into every .checker-divider,
+   each on its own lane/speed/start offset so they actually race — pass
+   each other, don't move in lockstep — riding on top of the strip
+   (deliberately taller than the 14px bar, not clipped to it) trailing
+   dust/smoke behind them. */
 .checker-divider {
   position: relative;
   height: 14px;
@@ -469,51 +472,83 @@ h2.f1-heading {
 
 .f1-mini-race {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+  overflow: visible;
   pointer-events: none;
 }
 
-.f1-mini-car {
+.f1-racer {
   position: absolute;
-  top: 50%;
-  left: -8%;
-  font-size: 0.95rem;
-  line-height: 1;
-  transform: translateY(-50%) scaleX(-1);
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
-  animation: f1-mini-drive 5s linear infinite;
+  left: -10%;
+  top: -9px;
+  animation-name: f1-mini-drive;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Three lanes, stacked above/on/below the strip's centreline, each at a
+   different speed and start offset so they genuinely race rather than
+   travelling in a single frozen formation. */
+.f1-racer--1 {
+  top: -13px;
+  animation-duration: 4.4s;
+}
+.f1-racer--2 {
+  top: -1px;
+  animation-duration: 5.2s;
+  animation-delay: -1.7s;
+}
+.f1-racer--3 {
+  top: 11px;
+  animation-duration: 4.8s;
+  animation-delay: -3.1s;
 }
 
 @keyframes f1-mini-drive {
   from {
-    left: -8%;
+    left: -10%;
   }
   to {
-    left: 104%;
+    left: 106%;
   }
+}
+
+.f1-mini-car {
+  position: relative;
+  display: block;
+  font-size: 1.3rem;
+  line-height: 1;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
 }
 
 .f1-mini-dust {
   position: absolute;
   top: 50%;
-  left: -8%;
+  left: -6px;
   width: 5px;
   height: 5px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(140, 140, 140, 0.65), transparent 70%);
   opacity: 0;
-  animation: f1-mini-drive 5s linear infinite, f1-mini-dust-fade 5s linear infinite;
+  animation-name: f1-mini-dust-fade;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
 }
 
+/* Behind the car, since it's flipped to face right (direction of
+   travel): more negative left = further back. */
 .f1-mini-dust:nth-of-type(2) {
-  animation-delay: 0.18s, 0.18s;
+  left: -6px;
+  animation-duration: 0.6s;
 }
 .f1-mini-dust:nth-of-type(3) {
-  animation-delay: 0.34s, 0.34s;
-}
-.f1-mini-dust:nth-of-type(4) {
-  animation-delay: 0.5s, 0.5s;
+  left: -12px;
+  animation-duration: 0.75s;
+  animation-delay: 0.2s;
   background: radial-gradient(circle, rgba(200, 200, 200, 0.55), transparent 70%);
 }
 
@@ -522,7 +557,7 @@ h2.f1-heading {
     opacity: 0;
     transform: translateY(-50%) scale(0.5);
   }
-  15% {
+  25% {
     opacity: 0.7;
   }
   100% {
