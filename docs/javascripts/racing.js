@@ -11,6 +11,7 @@
  *     top speed and career laps under a username, stored on this device.
  *  6. Numeric stat values count up from 0 on page load instead of just
  *     appearing.
+ *  7. A password gate on the hidden love page.
  *
  * Runs via document$, Material's observable that fires after every page
  * load *and* every instant-navigation swap, so everything keeps working
@@ -45,8 +46,145 @@
     initCheckerRace();
     initLeaderboard();
     initCountUp();
+    initLovePasswordGate();
     initRacingCursor();
   });
+
+  /* ------------------------------------------------------------------
+   * Password gate on the hidden love page — genuinely encrypted, not
+   * just hidden. The message was encrypted once, offline (AES-256-GCM,
+   * key derived from the password via PBKDF2-SHA256 at 250,000
+   * iterations), and only the salt, IV, and ciphertext are in the page
+   * — none of which are secret; that's how password-based encryption is
+   * supposed to work. Without the password, deriving the right key is
+   * infeasible, and AES-GCM's built-in authentication tag means a wrong
+   * key doesn't produce readable garbage, it just fails to decrypt at
+   * all, so decryption success/failure *is* the password check, no
+   * separate comparison needed. Still true, and worth saying plainly:
+   * this is real cryptography, but it protects against someone reading
+   * the page, not against someone willing to run an offline
+   * password-cracker against that ciphertext, so it's only as strong as
+   * the password itself. A successful unlock caches the decrypted text
+   * in localStorage (this device only) so it doesn't ask again.
+   * ------------------------------------------------------------------ */
+  function initLovePasswordGate() {
+    var gate = document.getElementById("f1-love-gate");
+    var content = document.getElementById("f1-love-content");
+    var payloadEl = document.getElementById("f1-love-payload");
+    if (!gate || !content || !payloadEl) return; // not on this page
+
+    var CACHE_KEY = "f1-love-decrypted";
+
+    var payload;
+    try {
+      payload = JSON.parse(payloadEl.textContent);
+    } catch (e) {
+      return;
+    }
+
+    function reveal(html) {
+      if (!content.dataset.f1Filled) {
+        content.innerHTML = html;
+        content.dataset.f1Filled = "1";
+      }
+      gate.hidden = true;
+      content.hidden = false;
+      if (!prefersReducedMotion()) content.classList.add("f1-love-reveal");
+    }
+
+    var cached = null;
+    try {
+      cached = localStorage.getItem(CACHE_KEY);
+    } catch (e) {
+      // ignore — worst case it just asks again
+    }
+    if (cached) {
+      reveal(cached);
+      return;
+    }
+
+    var input = document.getElementById("f1-gate-input");
+    var submit = document.getElementById("f1-gate-submit");
+    var error = document.getElementById("f1-gate-error");
+    if (!input || !submit || !error) return;
+
+    input.focus();
+
+    function b64ToBytes(b64) {
+      var binary = window.atob(b64);
+      var bytes = new Uint8Array(binary.length);
+      for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      return bytes;
+    }
+
+    function shake() {
+      gate.classList.remove("f1-gate-shake");
+      void gate.offsetWidth; // restart the animation even on repeated wrong guesses
+      gate.classList.add("f1-gate-shake");
+    }
+
+    function tryUnlock() {
+      var value = input.value;
+      if (!value) return;
+
+      if (!(window.crypto && window.crypto.subtle)) {
+        error.textContent = "Decryption isn't available in this browser.";
+        return;
+      }
+
+      submit.disabled = true;
+      error.textContent = "";
+
+      window.crypto.subtle
+        .importKey("raw", new TextEncoder().encode(value), { name: "PBKDF2" }, false, ["deriveKey"])
+        .then(function (baseKey) {
+          return window.crypto.subtle.deriveKey(
+            {
+              name: "PBKDF2",
+              salt: b64ToBytes(payload.salt),
+              iterations: payload.iterations,
+              hash: "SHA-256",
+            },
+            baseKey,
+            { name: "AES-GCM", length: 256 },
+            false,
+            ["decrypt"]
+          );
+        })
+        .then(function (key) {
+          return window.crypto.subtle.decrypt(
+            { name: "AES-GCM", iv: b64ToBytes(payload.iv) },
+            key,
+            b64ToBytes(payload.ct)
+          );
+        })
+        .then(function (plainBuf) {
+          var html = new TextDecoder().decode(plainBuf);
+          try {
+            localStorage.setItem(CACHE_KEY, html);
+          } catch (e) {
+            // ignore — it'll just ask again next visit
+          }
+          submit.disabled = false;
+          reveal(html);
+        })
+        .catch(function () {
+          // Wrong password -> wrong derived key -> AES-GCM's auth tag
+          // fails to verify -> decrypt() rejects. That rejection is the
+          // only signal a wrong password ever produces.
+          submit.disabled = false;
+          error.textContent = "Not quite. Try again.";
+          if (!prefersReducedMotion()) shake();
+          input.value = "";
+          input.focus();
+        });
+    }
+
+    submit.addEventListener("click", tryUnlock);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") tryUnlock();
+    });
+  }
 
   /* ------------------------------------------------------------------
    * Drops three cars, each trailing dust/smoke, into every

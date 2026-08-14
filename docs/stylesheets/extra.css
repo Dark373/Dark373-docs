@@ -765,6 +765,106 @@ h2.f1-heading {
    The page behind the hidden flag link on the homepage.
    ========================================================================== */
 
+.f1-love-gate {
+  max-width: 320px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.12));
+  border-radius: 0.6rem;
+}
+
+h2.f1-gate-title {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.f1-love-gate p {
+  margin: 0 0 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+}
+
+.f1-gate-input {
+  display: block;
+  width: 100%;
+  margin: 1rem 0 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--md-default-fg-color--lighter, rgba(0, 0, 0, 0.3));
+  border-radius: 0.4rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  text-align: center;
+}
+
+.f1-gate-submit {
+  display: block;
+  width: 100%;
+  padding: 0.55rem;
+  border: none;
+  border-radius: 0.4rem;
+  background: linear-gradient(90deg, #a238ff, #ff1947);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.f1-gate-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px -6px #a238ff;
+}
+
+.f1-gate-error {
+  min-height: 1.2em;
+  margin: 0.5rem 0 0 !important;
+  font-size: 0.78rem !important;
+  color: #ff1947 !important;
+}
+
+@keyframes f1-gate-shake {
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  80% {
+    transform: translateX(4px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-8px);
+  }
+  40%,
+  60% {
+    transform: translateX(8px);
+  }
+}
+
+.f1-gate-shake {
+  animation: f1-gate-shake 0.5s;
+}
+
+@keyframes f1-love-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.f1-love-reveal {
+  animation: f1-love-fade-in 0.6s ease;
+}
+
 .f1-love-page {
   text-align: center;
   padding: 2rem 1rem 0;
