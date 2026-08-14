@@ -2,9 +2,8 @@
  *  1. A rotating, trailing custom cursor on desktop pointers, layered on
  *     top of the static SVG cursor in extra.css (which stays as the
  *     fallback for touch devices, reduced-motion, and pre-JS paint).
- *  2. Two mini black-and-white track graphics — one under the sidebar nav
- *     in the 2025 section, one on the homepage — that count laps and pop
- *     a confetti burst every time you hover them.
+ *  2. A mini black-and-white track graphic on the homepage that counts
+ *     laps and pops a confetti burst every time you hover it.
  *
  * Runs via document$, Material's observable that fires after every page
  * load *and* every instant-navigation swap, so everything keeps working
@@ -29,7 +28,6 @@
 
   onDocumentReady(function () {
     applySectionAccent();
-    initSidebarTrack();
     initHomepageTrack();
     initWordHover();
     initRacingCursor();
@@ -103,7 +101,15 @@
   }
 
   /* ------------------------------------------------------------------
-   * Track graphics: markup builders + shared lap/confetti wiring.
+   * Track graphic: markup builder + lap/confetti wiring.
+   *
+   * Earlier versions traced real circuits (Suzuka, Spa) as hand-guessed
+   * polygon lines, which looked jagged rather than like an actual track.
+   * This one is built entirely from circular arcs (SVG's `A` command) —
+   * mathematically smooth by construction, no hand-fitted curve points
+   * to get subtly wrong. Four corners with different radii (two tight,
+   * two sweeping) give it some character without risking the jaggedness
+   * that comes from approximating a curve with straight segments.
    * ------------------------------------------------------------------ */
 
   function checkerPatternMarkup(id) {
@@ -116,69 +122,24 @@
     );
   }
 
-  // Both tracks share one rendering style — two concentric outlines (a
-  // "ring" lane) at the same stroke weights, a checkered finish-line
-  // patch, and a red start dot — so they read as the same theme. Only
-  // the outline shapes (real circuit layouts, traced by hand) differ.
-  // outerShape/innerShape are complete <path> elements; each track keeps
-  // its own viewBox since Suzuka's figure-eight and Spa's long diagonal
-  // have very different natural proportions.
-  function trackSVG(label, viewBox, outerShape, innerShape, finishRectAttrs, dotCx, dotCy, checkerId) {
+  function trackMarkup() {
+    var checkerId = "f1-checker-track";
     return (
-      '<svg viewBox="' + viewBox + '" role="img" aria-label="' + label + '">' +
+      '<svg viewBox="0 0 240 140" role="img" aria-label="Grand Prix Circuit — hover the checkered patch for a lap">' +
       "<defs>" + checkerPatternMarkup(checkerId) + "</defs>" +
-      outerShape +
-      innerShape +
-      '<rect class="f1-finish-line" ' + finishRectAttrs + ' fill="url(#' + checkerId + ')" stroke="currentColor" stroke-width="1"/>' +
+      '<path d="M65,15 L200,15 A20,20 0 0,1 220,35 L220,90 A35,35 0 0,1 185,125 L35,125 A15,15 0 0,1 20,110 ' +
+        'L20,60 A45,45 0 0,1 65,15 Z" ' +
+        'fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>' +
+      '<path d="M66,33 L196,33 A6,6 0 0,1 202,39 L202,89 A18,18 0 0,1 184,107 L42,107 A4,4 0 0,1 38,103 ' +
+        'L38,61 A28,28 0 0,1 66,33 Z" ' +
+        'fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
+      '<rect class="f1-finish-line" x="20" y="78" width="18" height="14" fill="url(#' + checkerId + ')" stroke="currentColor" stroke-width="1"/>' +
       // Purely decorative — sits on top of (overlaps) the finish-line
       // rect by design, so it must not intercept hover, or it silently
       // steals the hit-test from the rect underneath and the mouseenter
       // listener never fires no matter how precisely you hover the line.
-      '<circle cx="' + dotCx + '" cy="' + dotCy + '" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8" pointer-events="none"/>' +
+      '<circle cx="29" cy="85" r="3" fill="#d21f1f" stroke="currentColor" stroke-width="0.8" pointer-events="none"/>' +
       "</svg>"
-    );
-  }
-
-  var RING_OUTER = 'fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
-  var RING_INNER = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"';
-
-  // Suzuka — the figure-eight crossover is the one unmistakable feature,
-  // so the outline is traced as a single self-crossing loop (exactly how
-  // the real track works: the back straight literally passes under the
-  // esses). Used in the 2025 section's sidebar.
-  function suzukaTrackMarkup() {
-    return trackSVG(
-      "Suzuka Circuit — hover the checkered patch for a lap",
-      "0 0 140 180",
-      '<path d="M70,170 L100,148 L106,112 L88,92 L70,80 L90,64 L112,38 L106,10 L72,4 L44,16 L40,42 L58,64 ' +
-        'L70,80 L52,96 L22,112 L18,142 L38,164 Z" ' + RING_OUTER + "/>",
-      '<path d="M66,156 L90,138 L95,113 L80,96 L66,86 L83,72 L101,50 L96,20 L70,16 L50,26 L47,45 L61,63 ' +
-        'L66,86 L54,98 L32,111 L29,136 L44,152 Z" ' + RING_INNER + "/>",
-      'x="62" y="158" width="14" height="10"',
-      69,
-      163,
-      "f1-checker-suzuka"
-    );
-  }
-
-  // Spa-Francorchamps — the hairpin at La Source, the long Kemmel
-  // straight, the Les Combes chicane at the top, and the sweep back
-  // through Pouhon/Stavelot/Blanchimont to the Bus Stop chicane. Used
-  // on the homepage.
-  function spaTrackMarkup() {
-    return trackSVG(
-      "Circuit de Spa-Francorchamps — hover the checkered patch for a lap",
-      "0 0 224 140",
-      '<path d="M28,120 L64,64 L80,62 L168,8 L184,4 L174,20 ' +
-        "Q206,30 210,52 Q192,72 174,64 Q158,58 148,72 Q166,84 186,92 " +
-        'Q208,102 200,122 Q158,132 128,102 L88,88 L68,92 L68,98 Z" ' + RING_OUTER + "/>",
-      '<path d="M38,106 L68,58 L78,56 L86,68 L162,20 L172,20 L166,28 ' +
-        "Q186,34 190,50 Q178,62 168,56 Q160,52 156,64 Q168,72 182,78 " +
-        'Q194,86 188,100 Q160,106 140,86 L98,76 L84,80 L84,84 Z" ' + RING_INNER + "/>",
-      'x="44" y="102" width="14" height="12" transform="rotate(35 51 108)"',
-      51,
-      108,
-      "f1-checker-spa"
     );
   }
 
@@ -245,33 +206,6 @@
     }
   }
 
-  /* Sidebar track: shown under the 2025 section's nav, on every page in
-   * that section (detected via URL path, since it needs to follow you
-   * across five different pages rather than one fixed slot). */
-  function initSidebarTrack() {
-    var inSection = /\/f1-2025-theme\//.test(location.pathname);
-    var existing = document.getElementById("f1-track-sidebar");
-
-    if (!inSection) {
-      if (existing) existing.remove();
-      return;
-    }
-    if (existing) return;
-
-    var host =
-      document.querySelector(".md-sidebar--primary .md-sidebar__inner") ||
-      document.querySelector(".md-sidebar--primary .md-sidebar__scrollwrap") ||
-      document.querySelector(".md-sidebar--primary");
-    if (!host) return;
-
-    var wrap = document.createElement("div");
-    wrap.id = "f1-track-sidebar";
-    wrap.className = "f1-track";
-    wrap.innerHTML = trackWidgetMarkup("Suzuka", suzukaTrackMarkup());
-    host.appendChild(wrap);
-    wireTrackWidget(wrap);
-  }
-
   /* Homepage track: fills an explicit slot placed in docs/index.md,
    * rather than guessing the homepage's URL (which shifts between local
    * dev and the GitHub Pages sub-path). */
@@ -281,7 +215,7 @@
 
     slot.dataset.f1Ready = "1";
     slot.classList.add("f1-track");
-    slot.innerHTML = trackWidgetMarkup("Spa-Francorchamps", spaTrackMarkup());
+    slot.innerHTML = trackWidgetMarkup("Grand Prix Circuit", trackMarkup());
     wireTrackWidget(slot);
   }
 
