@@ -50,12 +50,13 @@
   // Both tracks share one rendering style — two concentric outlines (a
   // "ring" lane) at the same stroke weights, a checkered finish-line
   // patch, and a red start dot — so they read as the same theme. Only
-  // the outline shapes (and therefore the turns) differ between them.
-  // outerShape/innerShape are complete <rect>/<path> elements, so each
-  // track can use whichever primitive suits its layout.
-  function trackSVG(label, outerShape, innerShape, finishRectAttrs, dotCx, dotCy, checkerId) {
+  // the outline shapes (real circuit layouts, traced by hand) differ.
+  // outerShape/innerShape are complete <path> elements; each track keeps
+  // its own viewBox since Suzuka's figure-eight and Spa's long diagonal
+  // have very different natural proportions.
+  function trackSVG(label, viewBox, outerShape, innerShape, finishRectAttrs, dotCx, dotCy, checkerId) {
     return (
-      '<svg viewBox="0 0 200 104" role="img" aria-label="' + label + '">' +
+      '<svg viewBox="' + viewBox + '" role="img" aria-label="' + label + '">' +
       "<defs>" + checkerPatternMarkup(checkerId) + "</defs>" +
       outerShape +
       innerShape +
@@ -68,30 +69,43 @@
   var RING_OUTER = 'fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
   var RING_INNER = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"';
 
-  // Simple oval/stadium loop — used in the 2025 section's sidebar.
-  function ovalTrackMarkup() {
+  // Suzuka — the figure-eight crossover is the one unmistakable feature,
+  // so the outline is traced as a single self-crossing loop (exactly how
+  // the real track works: the back straight literally passes under the
+  // esses). Used in the 2025 section's sidebar.
+  function suzukaTrackMarkup() {
     return trackSVG(
-      "A little race track, just for fun — hover the checkered patch for a lap",
-      '<rect x="4" y="10" width="192" height="84" rx="42" ' + RING_OUTER + "/>",
-      '<rect x="28" y="30" width="144" height="44" rx="22" ' + RING_INNER + "/>",
-      'x="92" y="10" width="16" height="20"',
-      100,
-      10,
-      "f1-checker-oval"
+      "Suzuka Circuit — hover the checkered patch for a lap",
+      "0 0 140 180",
+      '<path d="M70,170 L100,148 L106,112 L88,92 L70,80 L90,64 L112,38 L106,10 L72,4 L44,16 L40,42 L58,64 ' +
+        'L70,80 L52,96 L22,112 L18,142 L38,164 Z" ' + RING_OUTER + "/>",
+      '<path d="M66,156 L90,138 L95,113 L80,96 L66,86 L83,72 L101,50 L96,20 L70,16 L50,26 L47,45 L61,63 ' +
+        'L66,86 L54,98 L32,111 L29,136 L44,152 Z" ' + RING_INNER + "/>",
+      'x="62" y="158" width="14" height="10"',
+      69,
+      163,
+      "f1-checker-suzuka"
     );
   }
 
-  // A trickier circuit with a chicane — used on the homepage. Same twin
-  // outline + finish-line treatment as the oval, different turns.
-  function circuitTrackMarkup() {
+  // Spa-Francorchamps — the hairpin at La Source, the long Kemmel
+  // straight, the Les Combes chicane at the top, and the sweep back
+  // through Pouhon/Stavelot/Blanchimont to the Bus Stop chicane. Used
+  // on the homepage.
+  function spaTrackMarkup() {
     return trackSVG(
-      "A second, trickier circuit, just for fun — hover the checkered patch for a lap",
-      '<path d="M20,90 L20,26 L40,10 L80,10 L92,24 L104,10 L160,10 L180,26 L180,70 L155,90 L45,90 Z" ' + RING_OUTER + "/>",
-      '<path d="M40,74 L40,40 L52,28 L78,28 L86,36 L96,28 L148,28 L162,40 L162,58 L145,74 L60,74 Z" ' + RING_INNER + "/>",
-      'x="12" y="52" width="16" height="20"',
-      20,
-      62,
-      "f1-checker-circuit"
+      "Circuit de Spa-Francorchamps — hover the checkered patch for a lap",
+      "0 0 224 140",
+      '<path d="M28,120 L64,64 L80,62 L168,8 L184,4 L174,20 ' +
+        "Q206,30 210,52 Q192,72 174,64 Q158,58 148,72 Q166,84 186,92 " +
+        'Q208,102 200,122 Q158,132 128,102 L88,88 L68,92 L68,98 Z" ' + RING_OUTER + "/>",
+      '<path d="M38,106 L68,58 L78,56 L86,68 L162,20 L172,20 L166,28 ' +
+        "Q186,34 190,50 Q178,62 168,56 Q160,52 156,64 Q168,72 182,78 " +
+        'Q194,86 188,100 Q160,106 140,86 L98,76 L84,80 L84,84 Z" ' + RING_INNER + "/>",
+      'x="44" y="102" width="14" height="12" transform="rotate(35 51 108)"',
+      51,
+      108,
+      "f1-checker-spa"
     );
   }
 
@@ -180,7 +194,7 @@
     var wrap = document.createElement("div");
     wrap.id = "f1-track-sidebar";
     wrap.className = "f1-track";
-    wrap.innerHTML = trackWidgetMarkup("Track Map", ovalTrackMarkup());
+    wrap.innerHTML = trackWidgetMarkup("Suzuka", suzukaTrackMarkup());
     host.appendChild(wrap);
     wireTrackWidget(wrap);
   }
@@ -194,7 +208,7 @@
 
     slot.dataset.f1Ready = "1";
     slot.classList.add("f1-track");
-    slot.innerHTML = trackWidgetMarkup("Sprint Circuit", circuitTrackMarkup());
+    slot.innerHTML = trackWidgetMarkup("Spa-Francorchamps", spaTrackMarkup());
     wireTrackWidget(slot);
   }
 
