@@ -7,6 +7,8 @@
  *  3. Every word on every page is wrapped so hovering one briefly makes
  *     it bigger and bolder.
  *  4. Three tiny cars race across every checkered divider, trailing dust.
+ *  5. A local leaderboard on the homepage sidebar: save your session's
+ *     top speed and career laps under a username, stored on this device.
  *
  * Runs via document$, Material's observable that fires after every page
  * load *and* every instant-navigation swap, so everything keeps working
@@ -29,11 +31,17 @@
     return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
 
+  // The fastest smoothed speed seen this page-view (see initRacingCursor).
+  // Module-scoped so the leaderboard's "save score" button can read it
+  // without needing to reach into the cursor's own closure.
+  var sessionMaxSpeed = 0;
+
   onDocumentReady(function () {
     applySectionAccent();
     initHomepageTrack();
     initWordHover();
     initCheckerRace();
+    initLeaderboard();
     initRacingCursor();
   });
 
@@ -70,22 +78,25 @@
 
   /* ------------------------------------------------------------------
    * Per-section accent colour: red on the homepage, purple on the 2025
-   * project, blue on the 2026 project. Tried switching Material's own
-   * `data-md-color-accent` attribute first, since it ships full CSS for
-   * every named accent colour — but Material's compiled stylesheet
-   * re-declares --md-accent-fg-color again at a deeper scope than
-   * <html> (confirmed empirically, not assumed), so that override kept
-   * getting silently reset before it reached anything in the page
-   * content. Toggling a class that drives our own --f1-accent custom
-   * property (see extra.css) sidesteps that fight entirely — it only
-   * has to win in our own stylesheet, not Material's.
+   * project, blue on the 2026 project, green on Commissions. Tried
+   * switching Material's own `data-md-color-accent` attribute first,
+   * since it ships full CSS for every named accent colour — but
+   * Material's compiled stylesheet re-declares --md-accent-fg-color
+   * again at a deeper scope than <html> (confirmed empirically, not
+   * assumed), so that override kept getting silently reset before it
+   * reached anything in the page content. Toggling a class that drives
+   * our own --f1-accent custom property (see extra.css) sidesteps that
+   * fight entirely — it only has to win in our own stylesheet, not
+   * Material's.
    * ------------------------------------------------------------------ */
   function applySectionAccent() {
     var html = document.documentElement;
     var purple = /\/f1-2025-theme\//.test(location.pathname);
     var blue = !purple && /\/project-1\//.test(location.pathname);
+    var green = !purple && !blue && /\/commissions\//.test(location.pathname);
     html.classList.toggle("f1-section-purple", purple);
     html.classList.toggle("f1-section-blue", blue);
+    html.classList.toggle("f1-section-green", green);
   }
 
   /* ------------------------------------------------------------------
@@ -215,6 +226,24 @@
     return v;
   }
 
+  // A little progression on top of the career total, so it's not just a
+  // number that goes up but an actual rank you can climb.
+  var DRIVER_RANKS = [
+    { min: 50, label: "👑 Legend" },
+    { min: 20, label: "🏆 Champion" },
+    { min: 5, label: "🏎️ Racer" },
+    { min: 0, label: "🔰 Rookie" },
+  ];
+  function driverRank(laps) {
+    for (var i = 0; i < DRIVER_RANKS.length; i++) {
+      if (laps >= DRIVER_RANKS[i].min) return DRIVER_RANKS[i].label;
+    }
+    return DRIVER_RANKS[DRIVER_RANKS.length - 1].label;
+  }
+  function careerLine(laps) {
+    return "Career laps: " + laps + " · " + driverRank(laps);
+  }
+
   // Wires up lap-counting + confetti on a freshly-built track widget.
   // Each widget keeps its own on-page lap count, but they all add to the
   // same career total. The listener sits on the checkered finish-line
@@ -227,13 +256,13 @@
     var careerEl = container.querySelector(".f1-track-career");
     if (!finish || !lapEl) return;
 
-    if (careerEl) careerEl.textContent = "Career laps: " + readCareerLaps();
+    if (careerEl) careerEl.textContent = careerLine(readCareerLaps());
 
     var laps = 0;
     finish.addEventListener("mouseenter", function () {
       laps += 1;
       lapEl.textContent = "Lap " + (laps < 10 ? "0" + laps : laps);
-      if (careerEl) careerEl.textContent = "Career laps: " + bumpCareerLaps();
+      if (careerEl) careerEl.textContent = careerLine(bumpCareerLaps());
       burstConfetti();
     });
   }
@@ -286,6 +315,99 @@
     slot.classList.add("f1-track");
     slot.innerHTML = trackWidgetMarkup("Grand Prix Circuit", trackMarkup());
     wireTrackWidget(slot);
+  }
+
+  /* ------------------------------------------------------------------
+   * Leaderboard: local only, honestly. There's no server behind this
+   * site, so "leaderboard" means the top scores saved on *this* browser,
+   * not a global ranking shared with every visitor — it's an arcade
+   * high-score table, not a live scoreboard. Lives in the homepage's
+   * left sidebar, which is otherwise empty (Home has no sub-pages of its
+   * own for Material to list there).
+   * ------------------------------------------------------------------ */
+  var LEADERBOARD_KEY = "f1-leaderboard";
+  var LEADERBOARD_MAX_ENTRIES = 5;
+
+  function readLeaderboard() {
+    try {
+      var v = JSON.parse(localStorage.getItem(LEADERBOARD_KEY) || "[]");
+      return Array.isArray(v) ? v : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveLeaderboardEntry(name, speed, laps) {
+    var list = readLeaderboard();
+    list.push({ name: name, speed: Math.round(speed), laps: laps });
+    list.sort(function (a, b) {
+      return b.speed - a.speed;
+    });
+    list = list.slice(0, LEADERBOARD_MAX_ENTRIES);
+    try {
+      localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(list));
+    } catch (e) {
+      // ignore — this run just won't be saved
+    }
+    return list;
+  }
+
+  function escapeHtml(s) {
+    var div = document.createElement("div");
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  function renderLeaderboard(listEl) {
+    var list = readLeaderboard();
+    if (!list.length) {
+      listEl.innerHTML = '<li class="f1-leaderboard-empty">No runs yet. Be the first!</li>';
+      return;
+    }
+    listEl.innerHTML = list
+      .map(function (entry, i) {
+        return (
+          '<li class="f1-leaderboard-row">' +
+          '<span class="f1-leaderboard-rank">' + (i + 1) + "</span>" +
+          '<span class="f1-leaderboard-name">' + escapeHtml(entry.name || "Anonymous") + "</span>" +
+          '<span class="f1-leaderboard-stat">' + entry.speed + " km/h</span>" +
+          '<span class="f1-leaderboard-stat">' + entry.laps + " laps</span>" +
+          "</li>"
+        );
+      })
+      .join("");
+  }
+
+  function initLeaderboard() {
+    if (!document.getElementById("f1-home-track")) return; // homepage only
+    if (document.getElementById("f1-leaderboard")) return;
+
+    var host =
+      document.querySelector(".md-sidebar--primary .md-sidebar__inner") ||
+      document.querySelector(".md-sidebar--primary .md-sidebar__scrollwrap") ||
+      document.querySelector(".md-sidebar--primary");
+    if (!host) return;
+
+    var widget = document.createElement("div");
+    widget.id = "f1-leaderboard";
+    widget.innerHTML =
+      '<p class="f1-leaderboard-title">🏆 Leaderboard</p>' +
+      '<ol class="f1-leaderboard-list"></ol>' +
+      '<button type="button" class="f1-leaderboard-save">Save my score</button>' +
+      '<p class="f1-leaderboard-note">Top speeds, saved on this device only — not shared with other visitors.</p>';
+    host.appendChild(widget);
+
+    var listEl = widget.querySelector(".f1-leaderboard-list");
+    renderLeaderboard(listEl);
+
+    widget.querySelector(".f1-leaderboard-save").addEventListener("click", function () {
+      var name = window.prompt("Username for the leaderboard (max 14 characters):");
+      if (name === null) return; // cancelled
+      name = name.trim().slice(0, 14);
+      if (!name) return;
+      saveLeaderboardEntry(name, sessionMaxSpeed, readCareerLaps());
+      renderLeaderboard(listEl);
+    });
   }
 
   /* ------------------------------------------------------------------
@@ -431,6 +553,7 @@
             var dist = Math.hypot(e.clientX - mouseX, e.clientY - mouseY);
             var instantSpeed = ((dist / dt) * 1000) * 0.18; // px/s, scaled into a fun range
             smoothSpeed = smoothSpeed * 0.75 + instantSpeed * 0.25;
+            if (smoothSpeed > sessionMaxSpeed) sessionMaxSpeed = smoothSpeed;
           }
         }
         lastMoveTime = now;

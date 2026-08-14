@@ -18,6 +18,9 @@ html.f1-section-purple {
 html.f1-section-blue {
   --f1-accent: #2f6fed;
 }
+html.f1-section-green {
+  --f1-accent: #22c55e;
+}
 
 /* Bullet points, but racing-themed: cars, a checkered flag, a wheel,
    cycling every three items so a long list doesn't repeat the same icon
@@ -311,6 +314,101 @@ html.f1-cursor-active * {
   margin: 0.15rem 0 0;
   font-family: var(--md-code-font-family, monospace);
   font-size: 0.62rem;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+}
+
+/* Leaderboard widget (see javascripts/racing.js) — homepage sidebar. */
+#f1-leaderboard {
+  margin: 1.25rem 0.8rem 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.12));
+}
+
+.f1-leaderboard-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+
+.f1-leaderboard-list {
+  margin: 0 0 0.6rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.72rem;
+}
+
+.f1-leaderboard-empty {
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+  font-style: italic;
+}
+
+.f1-leaderboard-row {
+  display: grid;
+  grid-template-columns: 1.1rem 1fr auto;
+  gap: 0.4rem;
+  align-items: baseline;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.08));
+}
+
+.f1-leaderboard-row:first-child {
+  color: var(--f1-accent);
+  font-weight: 700;
+}
+
+.f1-leaderboard-rank {
+  font-family: var(--md-code-font-family, monospace);
+  color: var(--md-default-fg-color--light);
+}
+
+.f1-leaderboard-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.f1-leaderboard-stat {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.66rem;
+  color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+}
+
+.f1-leaderboard-row:first-child .f1-leaderboard-stat {
+  color: inherit;
+}
+
+.f1-leaderboard-save {
+  display: block;
+  width: 100%;
+  margin: 0 0 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--f1-accent);
+  border-radius: 6px;
+  background: none;
+  color: var(--f1-accent);
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.f1-leaderboard-save:hover {
+  background: var(--f1-accent);
+  color: var(--md-primary-bg-color);
+}
+
+.f1-leaderboard-note {
+  margin: 0;
+  font-size: 0.6rem;
+  line-height: 1.4;
   color: var(--md-default-fg-color--light);
   text-align: center;
 }
