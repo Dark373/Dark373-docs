@@ -20,3 +20,9 @@ screenshots once you have them.
     `<div class="gallery-grid" markdown="1"> ... </div>` wrapping one
     Markdown image per line — can be copied into any project's Gallery
     page. The grid layout comes from `docs/stylesheets/extra.css`.
+
+<div class="checker-divider"></div>
+
+## Support {: .f1-heading }
+
+--8<-- "buttons.md"

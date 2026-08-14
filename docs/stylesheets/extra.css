@@ -134,10 +134,10 @@ html.f1-cursor-active * {
   animation: f1-trail-fade 0.6s ease-out forwards;
 }
 
-/* Homepage-only reading aid (see javascripts/racing.js): every word is
-   wrapped in its own span, so hovering one briefly makes it bigger and
-   bolder. scale() rather than font-size so it doesn't reflow neighbouring
-   text. */
+/* Site-wide reading aid (see javascripts/racing.js): every word on every
+   page is wrapped in its own span, so hovering one briefly makes it
+   bigger and bolder. scale() rather than font-size so it doesn't reflow
+   neighbouring text. */
 .f1-word {
   display: inline-block;
   transition: transform 0.12s ease, font-weight 0.12s ease;
@@ -154,6 +154,76 @@ html.f1-cursor-active * {
   }
   .f1-word:hover {
     transform: none;
+  }
+}
+
+/* Site-wide link underline: an animated sweep in the current section's
+   accent colour instead of a static line. Buttons opt out (they already
+   have their own hover treatment below). */
+.md-typeset a:not(.md-button) {
+  text-decoration: none;
+  background-image: linear-gradient(var(--f1-accent), var(--f1-accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.2s ease;
+}
+
+.md-typeset a:not(.md-button):hover {
+  background-size: 100% 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset a:not(.md-button) {
+    transition: none;
+  }
+}
+
+/* Buttons (Report a Bug / Get a License) get a small lift + shadow on
+   hover instead of Material's flat default. */
+.md-typeset .md-button {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.md-typeset .md-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .md-button {
+    transition: none;
+  }
+  .md-typeset .md-button:hover {
+    transform: none;
+  }
+}
+
+/* Top nav tabs preview the current section's accent colour on hover, not
+   just on the active tab. */
+.md-tabs__link {
+  position: relative;
+}
+
+.md-tabs__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: var(--f1-accent);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.md-tabs__link:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-tabs__link::after {
+    transition: none;
   }
 }
 
@@ -234,7 +304,9 @@ html.f1-cursor-active * {
    the rest of the site is unaffected.
    ========================================================================== */
 
-/* Kicker banner used above the H1 on the section's Overview page. */
+/* Kicker banner used above the H1 on the section's Overview page. The
+   diagonal stripe texture drifts slowly — an ambient, low-contrast motion
+   that reads as "idling engine" rather than a distraction. */
 .f1-hero {
   position: relative;
   display: flex;
@@ -250,7 +322,24 @@ html.f1-cursor-active * {
     rgba(255, 255, 255, 0.05) 0 18px,
     transparent 18px 36px
   );
+  background-size: 200% 200%;
+  animation: f1-hero-drift 6s linear infinite;
   overflow: hidden;
+}
+
+@keyframes f1-hero-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 72px 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-hero {
+    animation: none;
+  }
 }
 
 .f1-hero::before {

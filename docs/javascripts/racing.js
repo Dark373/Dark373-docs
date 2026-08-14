@@ -4,6 +4,8 @@
  *     fallback for touch devices, reduced-motion, and pre-JS paint).
  *  2. A mini black-and-white track graphic on the homepage that counts
  *     laps and pops a confetti burst every time you hover it.
+ *  3. Every word on every page is wrapped so hovering one briefly makes
+ *     it bigger and bolder.
  *
  * Runs via document$, Material's observable that fires after every page
  * load *and* every instant-navigation swap, so everything keeps working
@@ -55,14 +57,12 @@
 
   /* ------------------------------------------------------------------
    * Homepage accessibility touch: hovering an individual word makes it
-   * briefly bigger and bolder — a lightweight reading aid. Scoped to the
-   * homepage only. Each word is wrapped in its own <span> so CSS :hover
-   * can target it; the whitespace between words is left as plain text
-   * so wrapping/line breaks look exactly like normal prose.
+   * briefly bigger and bolder — a lightweight reading aid. Site-wide,
+   * every page. Each word is wrapped in its own <span> so CSS :hover can
+   * target it; the whitespace between words is left as plain text so
+   * wrapping/line breaks look exactly like normal prose.
    * ------------------------------------------------------------------ */
   function initWordHover() {
-    if (!document.getElementById("f1-home-track")) return; // homepage only
-
     var root = document.querySelector(".md-content__inner") || document.querySelector("article");
     if (!root || root.dataset.f1WordsWrapped) return;
     root.dataset.f1WordsWrapped = "1";
