@@ -19,6 +19,20 @@ html.f1-section-blue {
   --f1-accent: #2f6fed;
 }
 
+/* Bullet points, but racing-themed: cars, a checkered flag, a helmet,
+   cycling every three items so a long list doesn't repeat the same icon
+   back to back. ::marker keeps this to actual <li> bullets — ordered
+   (numbered) lists are untouched, since steps need to stay numeric. */
+.md-typeset ul li::marker {
+  content: "🏎️  ";
+}
+.md-typeset ul li:nth-child(3n+2)::marker {
+  content: "🏁  ";
+}
+.md-typeset ul li:nth-child(3n+3)::marker {
+  content: "🪖  ";
+}
+
 /* Reusable image gallery grid.
    Wrap a block of Markdown images in a <div class="gallery-grid" markdown="1">
    (see any project's Gallery page for the pattern) and glightbox will
@@ -435,8 +449,11 @@ h2.f1-heading {
   color: var(--f1-accent);
 }
 
-/* Checkered-flag divider, used ahead of each page's Support section. */
+/* Checkered-flag divider, used ahead of each page's Support section. A
+   tiny car (javascripts/racing.js injects it into every .checker-divider
+   on the page) drives past on a loop, trailing a few dust/smoke puffs. */
 .checker-divider {
+  position: relative;
   height: 14px;
   margin: 2.25rem 0 1.5rem;
   border-radius: 2px;
@@ -448,4 +465,74 @@ h2.f1-heading {
     linear-gradient(-45deg, transparent 75%, var(--md-default-fg-color) 75%);
   background-size: 14px 14px;
   background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+}
+
+.f1-mini-race {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.f1-mini-car {
+  position: absolute;
+  top: 50%;
+  left: -8%;
+  font-size: 0.95rem;
+  line-height: 1;
+  transform: translateY(-50%) scaleX(-1);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  animation: f1-mini-drive 5s linear infinite;
+}
+
+@keyframes f1-mini-drive {
+  from {
+    left: -8%;
+  }
+  to {
+    left: 104%;
+  }
+}
+
+.f1-mini-dust {
+  position: absolute;
+  top: 50%;
+  left: -8%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(140, 140, 140, 0.65), transparent 70%);
+  opacity: 0;
+  animation: f1-mini-drive 5s linear infinite, f1-mini-dust-fade 5s linear infinite;
+}
+
+.f1-mini-dust:nth-of-type(2) {
+  animation-delay: 0.18s, 0.18s;
+}
+.f1-mini-dust:nth-of-type(3) {
+  animation-delay: 0.34s, 0.34s;
+}
+.f1-mini-dust:nth-of-type(4) {
+  animation-delay: 0.5s, 0.5s;
+  background: radial-gradient(circle, rgba(200, 200, 200, 0.55), transparent 70%);
+}
+
+@keyframes f1-mini-dust-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  15% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scale(2.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-mini-race {
+    display: none;
+  }
 }
