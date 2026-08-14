@@ -71,15 +71,15 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - 2026:
-      - Overview: project-1/index.md
-      - Gallery: project-1/gallery.md
-      - Known Bugs: project-1/known-bugs.md
   - 2025:
       - Overview: f1-2025-theme/index.md
       - Installation: f1-2025-theme/installation.md
       - Theme Options: f1-2025-theme/theme-options.md
       - Gallery: f1-2025-theme/gallery.md
       - Known Bugs: f1-2025-theme/known-bugs.md
+  - 2026:
+      - Overview: project-1/index.md
+      - Gallery: project-1/gallery.md
+      - Known Bugs: project-1/known-bugs.md
   - 2027: 2027/index.md
   - Commissions: commissions/index.md

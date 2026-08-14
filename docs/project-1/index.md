@@ -1,4 +1,9 @@
-# 2026 — Overview
+<div class="f1-hero">
+  <span class="f1-hero-kicker">Round <em>01</em> · 2026 Season</span>
+  <span class="f1-hero-flag">🏁</span>
+</div>
+
+# 2026 — Overview {: .f1-title }
 
 > Placeholder page. Replace this with a real project name and description.
 
@@ -22,6 +27,8 @@ Notes on how to install/import this layout into RLT go here.
 
 - [Gallery](gallery.md)
 - [Known Bugs](known-bugs.md)
+
+<div class="checker-divider"></div>
 
 ## Support {: .f1-heading }
 
