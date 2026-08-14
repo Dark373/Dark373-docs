@@ -69,8 +69,8 @@
   }
 
   /* ------------------------------------------------------------------
-   * Per-section accent colour: purple on the homepage, blue on the 2026
-   * project, red everywhere else. Tried switching Material's own
+   * Per-section accent colour: red on the homepage, purple on the 2025
+   * project, blue on the 2026 project. Tried switching Material's own
    * `data-md-color-accent` attribute first, since it ships full CSS for
    * every named accent colour — but Material's compiled stylesheet
    * re-declares --md-accent-fg-color again at a deeper scope than
@@ -82,7 +82,7 @@
    * ------------------------------------------------------------------ */
   function applySectionAccent() {
     var html = document.documentElement;
-    var purple = !!document.getElementById("f1-home-track");
+    var purple = /\/f1-2025-theme\//.test(location.pathname);
     var blue = !purple && /\/project-1\//.test(location.pathname);
     html.classList.toggle("f1-section-purple", purple);
     html.classList.toggle("f1-section-blue", blue);
@@ -165,7 +165,7 @@
   function trackMarkup() {
     var checkerId = "f1-checker-track";
     return (
-      '<svg viewBox="0 0 240 140" role="img" aria-label="Grand Prix Circuit — hover the checkered patch for a lap">' +
+      '<svg viewBox="0 0 240 140" role="img" aria-label="Grand Prix Circuit: hover the checkered patch for a lap">' +
       "<defs>" + checkerPatternMarkup(checkerId) + "</defs>" +
       '<path d="M65,15 L200,15 A20,20 0 0,1 220,35 L220,90 A35,35 0 0,1 185,125 L35,125 A15,15 0 0,1 20,110 ' +
         'L20,60 A45,45 0 0,1 65,15 Z" ' +

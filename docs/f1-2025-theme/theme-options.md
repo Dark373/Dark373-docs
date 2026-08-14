@@ -1,4 +1,4 @@
-# 2025 — Theme Options
+# 2025 Theme Options
 
 ## Categories {: .f1-heading }
 
@@ -17,7 +17,7 @@ the app is closed, unless a category is applied to that season.
 | **Color #3** | Font colour (should complement both Color and Color #2) |
 
 !!! tip
-    Populate the "Short Name" field — not all renders have the space to
+    Populate the "Short Name" field: not all renders have the space to
     show longer season names. Users can switch between which name field is
     used in the theme options.
 
@@ -45,7 +45,7 @@ beginning with "Media" or "Broadcast" refers to a type of render that can
 be switched. Check the [Gallery](gallery.md) to see which renders are
 hidden behind this setting.
 
-*Session Top 3* is a good example — Broadcast and Media are two different
+*Session Top 3* is a good example: Broadcast and Media are two different
 layouts for the same render.
 
 ## Enabling the theme {: .f1-heading }
@@ -67,9 +67,9 @@ sense of what each section controls.
 - Calendar → Grey-out Completed Events: `True`
 - Calendar → Render 2 Columns: `True`
 - In-App (Calendar): Description
-- Localisation file: schedule/calendar date manipulation — lets you set
-  event dates to whatever you want (e.g. `06-09`). This option exists for
-  all calendar renders.
+- Localisation file: schedule/calendar date manipulation, which lets you
+  set event dates to whatever you want (e.g. `06-09`). This option exists
+  for all calendar renders.
 
 **Start Times**
 
@@ -89,7 +89,7 @@ sense of what each section controls.
 - Theme Global → Background Colour Theme: `Custom Colour`
 - Theme Global → Plain Background: `False`
 - Variable Information → Variable Information: `Winner` (other options:
-  Podium — 2nd & 3rd — and Points)
+  Podium, meaning 2nd & 3rd, and Points)
 - Colours pull from the team: Team Primary Colour, Team Secondary Colour,
   Team Tertiary Colour.
 
@@ -97,7 +97,7 @@ sense of what each section controls.
 
 - Theme Global → Season Names: `Season Name`
 - Lineups → Official Line-Up Season Name Font Size: `206`
-- Team logo sizes can be edited in `global_vars.json` — search for the
+- Team logo sizes can be edited in `global_vars.json`; search for the
   `official` prefix and keywords such as `LogoSize`. "DRIVER" and
   "LINE-UP" text sizes can be adjusted in the same file, under the
   official line-up header.

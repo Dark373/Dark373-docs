@@ -1,4 +1,4 @@
-# 2026 — Known Bugs
+# 2026 Known Bugs
 
 | Bug | Status | Notes |
 | --- | --- | --- |

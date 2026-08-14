@@ -3,13 +3,13 @@
   <span class="f1-hero-flag">🏁</span>
 </div>
 
-# 2026 — Overview {: .f1-title }
+# 2026 Overview {: .f1-title }
 
 > Placeholder page. Replace this with a real project name and description.
 
 ## What it is {: .f1-heading }
 
-A short description of this RLT Flex Renderer theme/layout goes here — what
+A short description of this RLT Flex Renderer theme/layout goes here: what
 it's for, which series or league it was built for, and what makes it stand
 out.
 

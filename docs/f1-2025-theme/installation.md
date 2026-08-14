@@ -1,4 +1,4 @@
-# 2025 — Installation & Setup
+# 2025 Installation & Setup
 
 ## Installing and updates {: .f1-heading }
 
@@ -20,7 +20,7 @@ shared Google Drive.
 ## App render locations {: .f1-heading }
 
 Most renders don't appear on the "Render Graphics" menu at the top of the
-app — the following locations across the app give you access to the full
+app; the following locations across the app give you access to the full
 rendering potential of the theme.
 
 | Area | Where to find it |

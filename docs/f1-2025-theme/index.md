@@ -3,14 +3,14 @@
   <span class="f1-hero-flag">🏁</span>
 </div>
 
-# 2025 — Overview
+# 2025 Overview
 
 The F1 2025 Theme is a custom theme developed by Dark373 for the Racing
 League Tools (RLT) application. The theme generates renders in the style of
 the official Formula One graphics.
 
 !!! info "Trademark disclaimer"
-    See the disclaimer on the [homepage](../index.md) — it covers this and
+    See the disclaimer on the [homepage](../index.md); it covers this and
     every other RLT theme on this site.
 
 ## At a glance {: .f1-heading }
