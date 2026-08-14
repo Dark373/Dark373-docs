@@ -187,24 +187,53 @@
     return (
       '<p class="f1-track-label">' + label + "</p>" +
       svgMarkup +
-      '<p class="f1-track-laps">Cross the finish line</p>'
+      '<p class="f1-track-laps">Cross the finish line</p>' +
+      '<p class="f1-track-career"></p>'
     );
   }
 
+  // Total laps ever recorded on this browser, across every track, every
+  // page, every visit — a small "career" stat that only grows. Wrapped
+  // in try/catch since localStorage can throw in some private-browsing
+  // configurations; the site works fine without it, it just won't count.
+  var CAREER_LAPS_KEY = "f1-career-laps";
+  function readCareerLaps() {
+    try {
+      var v = parseInt(localStorage.getItem(CAREER_LAPS_KEY) || "0", 10);
+      return isNaN(v) ? 0 : v;
+    } catch (e) {
+      return 0;
+    }
+  }
+  function bumpCareerLaps() {
+    var v = readCareerLaps() + 1;
+    try {
+      localStorage.setItem(CAREER_LAPS_KEY, String(v));
+    } catch (e) {
+      // ignore — no persistence this session, no big deal
+    }
+    return v;
+  }
+
   // Wires up lap-counting + confetti on a freshly-built track widget.
-  // Independent per widget: each track keeps its own lap count. The
-  // listener sits on the checkered finish-line patch specifically (not
-  // the whole SVG's bounding box), so a lap only counts — and confetti
-  // only fires — exactly when the cursor crosses the finish line.
+  // Each widget keeps its own on-page lap count, but they all add to the
+  // same career total. The listener sits on the checkered finish-line
+  // patch specifically (not the whole SVG's bounding box), so a lap only
+  // counts, and confetti only fires, exactly when the cursor crosses the
+  // finish line.
   function wireTrackWidget(container) {
     var finish = container.querySelector(".f1-finish-line");
     var lapEl = container.querySelector(".f1-track-laps");
+    var careerEl = container.querySelector(".f1-track-career");
     if (!finish || !lapEl) return;
+
+    if (careerEl) careerEl.textContent = "Career laps: " + readCareerLaps();
 
     var laps = 0;
     finish.addEventListener("mouseenter", function () {
       laps += 1;
       lapEl.textContent = "Lap " + (laps < 10 ? "0" + laps : laps);
+      if (careerEl) careerEl.textContent = "Career laps: " + bumpCareerLaps();
       burstConfetti();
     });
   }
@@ -315,6 +344,11 @@
     rotor.id = "f1-cursor-rotor";
     rotor.innerHTML = CAR_SVG;
     cursorEl.appendChild(rotor);
+    // Sibling of the rotor, not a child of it, so it tracks the cursor's
+    // position without spinning along with the car.
+    var speedo = document.createElement("div");
+    speedo.id = "f1-speedo";
+    cursorEl.appendChild(speedo);
     document.body.appendChild(cursorEl);
 
     var trailLayer = document.createElement("div");
@@ -376,13 +410,43 @@
       trailLayer.appendChild(dot);
     }
 
+    // Live "speed" readout: not physically real (there's no meaningful
+    // unit for how fast a mouse moves across a screen of unknown size),
+    // just a fun number that climbs when you wave the cursor around and
+    // settles back to 0 the moment it stops — playing with it is the
+    // whole point. Speed is measured between consecutive mousemove
+    // events and smoothed (exponential moving average) so it reads as a
+    // needle easing around rather than jumping every frame.
+    var lastMoveTime = null;
+    var smoothSpeed = 0;
+    var idleTimer = null;
+
     document.addEventListener(
       "mousemove",
       function (e) {
+        var now = performance.now();
+        if (lastMoveTime !== null) {
+          var dt = now - lastMoveTime;
+          if (dt > 0) {
+            var dist = Math.hypot(e.clientX - mouseX, e.clientY - mouseY);
+            var instantSpeed = ((dist / dt) * 1000) * 0.18; // px/s, scaled into a fun range
+            smoothSpeed = smoothSpeed * 0.75 + instantSpeed * 0.25;
+          }
+        }
+        lastMoveTime = now;
+
         mouseX = e.clientX;
         mouseY = e.clientY;
         cursorEl.style.opacity = "1";
         requestTick();
+
+        speedo.textContent = Math.round(smoothSpeed) + " km/h";
+        speedo.classList.add("f1-speedo-active");
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(function () {
+          speedo.classList.remove("f1-speedo-active");
+          smoothSpeed = 0;
+        }, 500);
       },
       { passive: true }
     );

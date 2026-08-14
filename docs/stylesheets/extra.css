@@ -116,6 +116,36 @@ html.f1-cursor-active * {
   height: 32px;
 }
 
+/* Live speed readout — a sibling of the rotor, not a child of it, so it
+   tracks the cursor's position without spinning along with the car. */
+#f1-speedo {
+  position: absolute;
+  left: 16px;
+  top: -8px;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(10, 10, 12, 0.72);
+  padding: 1px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#f1-speedo.f1-speedo-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #f1-speedo {
+    transition: none;
+  }
+}
+
 /* Fading trail dots spawned behind the cursor as it moves — each one
    removes itself from the DOM when its fade-out animation ends, so
    nothing lingers. */
@@ -274,6 +304,14 @@ html.f1-cursor-active * {
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--f1-accent);
+  text-align: center;
+}
+
+.f1-track-career {
+  margin: 0.15rem 0 0;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.62rem;
+  color: var(--md-default-fg-color--light);
   text-align: center;
 }
 
