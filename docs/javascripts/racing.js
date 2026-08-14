@@ -101,11 +101,18 @@
     root.dataset.f1WordsWrapped = "1";
 
     var SKIP_PARENT = { SCRIPT: 1, STYLE: 1, CODE: 1, PRE: 1, SVG: 1 };
+    // Purely decorative, already-animated elements — wrapping their text
+    // would just double up unused spans (pointer-events:none up the
+    // chain means they can never actually be hovered anyway).
+    var SKIP_ANCESTOR_SELECTOR = ".f1-floating-hearts, .f1-mini-race";
 
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
         var parent = node.parentNode;
         if (!parent || SKIP_PARENT[parent.nodeName] || !node.nodeValue || !node.nodeValue.trim()) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (parent.closest && parent.closest(SKIP_ANCESTOR_SELECTOR)) {
           return NodeFilter.FILTER_REJECT;
         }
         return NodeFilter.FILTER_ACCEPT;

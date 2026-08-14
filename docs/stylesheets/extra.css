@@ -174,7 +174,7 @@ html.f1-cursor-active * {
 /* Site-wide link underline: an animated sweep in the current section's
    accent colour instead of a static line. Buttons opt out (they already
    have their own hover treatment below). */
-.md-typeset a:not(.md-button) {
+.md-typeset a:not(.md-button):not(.f1-hero-flag) {
   text-decoration: none;
   background-image: linear-gradient(var(--f1-accent), var(--f1-accent));
   background-repeat: no-repeat;
@@ -183,12 +183,12 @@ html.f1-cursor-active * {
   transition: background-size 0.2s ease;
 }
 
-.md-typeset a:not(.md-button):hover {
+.md-typeset a:not(.md-button):not(.f1-hero-flag):hover {
   background-size: 100% 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .md-typeset a:not(.md-button) {
+  .md-typeset a:not(.md-button):not(.f1-hero-flag) {
     transition: none;
   }
 }
@@ -378,9 +378,15 @@ html.f1-cursor-active * {
   color: var(--f1-accent);
 }
 
+/* Also a link on the homepage (see index.md) — an unadvertised, un-hinted
+   way through. No colour/underline of its own, so it stays exactly as
+   unremarkable as a plain emoji. */
 .f1-hero-flag {
   font-size: 1.1rem;
   line-height: 1;
+  color: inherit;
+  text-decoration: none;
+  cursor: inherit;
 }
 
 /* Bigger treatment for the homepage hero — first thing visitors see. */
@@ -568,6 +574,110 @@ h2.f1-heading {
 
 @media (prefers-reduced-motion: reduce) {
   .f1-mini-race {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   The page behind the hidden flag link on the homepage.
+   ========================================================================== */
+
+.f1-love-page {
+  text-align: center;
+  padding: 2rem 1rem 0;
+}
+
+.f1-love-flag {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+h1.f1-love-title {
+  margin: 0 auto 1rem;
+  max-width: 20ch;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.3;
+  background: linear-gradient(90deg, #a238ff, #ff1947);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.f1-love-hearts-row {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+}
+
+.f1-floating-hearts {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.f1-floating-hearts span {
+  position: absolute;
+  bottom: -10%;
+  font-size: 1.3rem;
+  opacity: 0;
+  animation-name: f1-heart-rise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.f1-floating-hearts span:nth-child(1) {
+  left: 8%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+.f1-floating-hearts span:nth-child(2) {
+  left: 22%;
+  animation-duration: 7.5s;
+  animation-delay: 1s;
+}
+.f1-floating-hearts span:nth-child(3) {
+  left: 40%;
+  animation-duration: 5.5s;
+  animation-delay: 2s;
+}
+.f1-floating-hearts span:nth-child(4) {
+  left: 58%;
+  animation-duration: 8s;
+  animation-delay: 0.5s;
+}
+.f1-floating-hearts span:nth-child(5) {
+  left: 74%;
+  animation-duration: 6.5s;
+  animation-delay: 2.5s;
+}
+.f1-floating-hearts span:nth-child(6) {
+  left: 90%;
+  animation-duration: 7s;
+  animation-delay: 1.5s;
+}
+
+@keyframes f1-heart-rise {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-floating-hearts {
     display: none;
   }
 }

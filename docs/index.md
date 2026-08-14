@@ -1,6 +1,6 @@
 <div class="f1-hero f1-hero--home">
   <span class="f1-hero-kicker">Pit Lane &middot; <em>Open</em></span>
-  <span class="f1-hero-flag">🏁</span>
+  <a class="f1-hero-flag" href="pole-position/" aria-hidden="true" tabindex="-1">🏁</a>
 </div>
 
 # Dark373 Docs {: .f1-title }
