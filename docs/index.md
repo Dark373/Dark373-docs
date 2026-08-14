@@ -24,6 +24,20 @@ they look, and their current known issues.
     tribute to motorsport design, without intent to infringe upon
     trademarks or intellectual property.
 
+## A Note on Timelines & Support {: .f1-heading }
+
+These themes are a one-person effort, fit in around bug fixes, other
+releases, and everyday life — so there genuinely isn't a fixed release
+date I can give you for what's coming next, and asking repeatedly won't
+get you an answer any faster. Most of the time, I don't know either!
+
+Need a hand? Email me — but please check the forum first, since most
+questions are already answered there. I read every message, but with
+everything else going on, replies can take up to **7 working days**.
+
+<!-- TODO: replace with your real contact email -->
+[your-email@example.com](mailto:your-email@example.com)
+
 ## Projects {: .f1-heading }
 
 - [Project 1](project-1/index.md) — overview, gallery, and known bugs

@@ -28,10 +28,79 @@
   }
 
   onDocumentReady(function () {
+    applySectionAccent();
     initSidebarTrack();
     initHomepageTrack();
+    initWordHover();
     initRacingCursor();
   });
+
+  /* ------------------------------------------------------------------
+   * Per-section accent colour: purple on the homepage, blue on the 2026
+   * project, red everywhere else. Tried switching Material's own
+   * `data-md-color-accent` attribute first, since it ships full CSS for
+   * every named accent colour — but Material's compiled stylesheet
+   * re-declares --md-accent-fg-color again at a deeper scope than
+   * <html> (confirmed empirically, not assumed), so that override kept
+   * getting silently reset before it reached anything in the page
+   * content. Toggling a class that drives our own --f1-accent custom
+   * property (see extra.css) sidesteps that fight entirely — it only
+   * has to win in our own stylesheet, not Material's.
+   * ------------------------------------------------------------------ */
+  function applySectionAccent() {
+    var html = document.documentElement;
+    var purple = !!document.getElementById("f1-home-track");
+    var blue = !purple && /\/project-1\//.test(location.pathname);
+    html.classList.toggle("f1-section-purple", purple);
+    html.classList.toggle("f1-section-blue", blue);
+  }
+
+  /* ------------------------------------------------------------------
+   * Homepage accessibility touch: hovering an individual word makes it
+   * briefly bigger and bolder — a lightweight reading aid. Scoped to the
+   * homepage only. Each word is wrapped in its own <span> so CSS :hover
+   * can target it; the whitespace between words is left as plain text
+   * so wrapping/line breaks look exactly like normal prose.
+   * ------------------------------------------------------------------ */
+  function initWordHover() {
+    if (!document.getElementById("f1-home-track")) return; // homepage only
+
+    var root = document.querySelector(".md-content__inner") || document.querySelector("article");
+    if (!root || root.dataset.f1WordsWrapped) return;
+    root.dataset.f1WordsWrapped = "1";
+
+    var SKIP_PARENT = { SCRIPT: 1, STYLE: 1, CODE: 1, PRE: 1, SVG: 1 };
+
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        var parent = node.parentNode;
+        if (!parent || SKIP_PARENT[parent.nodeName] || !node.nodeValue || !node.nodeValue.trim()) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    var textNodes = [];
+    var n;
+    while ((n = walker.nextNode())) textNodes.push(n);
+
+    textNodes.forEach(function (node) {
+      var frag = document.createDocumentFragment();
+      node.nodeValue.split(/(\s+)/).forEach(function (part) {
+        if (part === "") return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          var span = document.createElement("span");
+          span.className = "f1-word";
+          span.textContent = part;
+          frag.appendChild(span);
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
 
   /* ------------------------------------------------------------------
    * Track graphics: markup builders + shared lap/confetti wiring.

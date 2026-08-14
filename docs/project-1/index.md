@@ -2,27 +2,27 @@
 
 > Placeholder page. Replace this with a real project name and description.
 
-## What it is
+## What it is {: .f1-heading }
 
 A short description of this RLT Flex Renderer theme/layout goes here — what
 it's for, which series or league it was built for, and what makes it stand
 out.
 
-## Features
+## Features {: .f1-heading }
 
 - Feature one
 - Feature two
 - Feature three
 
-## Installation
+## Installation {: .f1-heading }
 
 Notes on how to install/import this layout into RLT go here.
 
-## Links
+## Links {: .f1-heading }
 
 - [Gallery](gallery.md)
 - [Known Bugs](known-bugs.md)
 
-## Support
+## Support {: .f1-heading }
 
 --8<-- "buttons.md"

@@ -1,3 +1,24 @@
+/* Per-section accent for this file's own components (hero, headings,
+   stat values, track lap text) — NOT Material's --md-accent-fg-color.
+   That one turned out to be a dead end for this purpose: Material's own
+   JS relocates its data-md-color-* attributes from <html> to <body>
+   after load, so anything read from <html>'s scope (an attribute we set,
+   even a directly-set inline style) picks up an unrelated root-level
+   fallback instead of the real theme value — confirmed empirically by
+   walking the actual computed styles at each scope, not assumed. Easiest
+   fix: don't depend on Material's variable at all here. #ff1947 below is
+   simply the real red these pages already render in, copied from a
+   correct reading taken at <body>'s scope. */
+:root {
+  --f1-accent: #ff1947;
+}
+html.f1-section-purple {
+  --f1-accent: #a238ff;
+}
+html.f1-section-blue {
+  --f1-accent: #2f6fed;
+}
+
 /* Reusable image gallery grid.
    Wrap a block of Markdown images in a <div class="gallery-grid" markdown="1">
    (see any project's Gallery page for the pattern) and glightbox will
@@ -113,6 +134,29 @@ html.f1-cursor-active * {
   animation: f1-trail-fade 0.6s ease-out forwards;
 }
 
+/* Homepage-only reading aid (see javascripts/racing.js): every word is
+   wrapped in its own span, so hovering one briefly makes it bigger and
+   bolder. scale() rather than font-size so it doesn't reflow neighbouring
+   text. */
+.f1-word {
+  display: inline-block;
+  transition: transform 0.12s ease, font-weight 0.12s ease;
+}
+
+.f1-word:hover {
+  font-weight: 800;
+  transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-word {
+    transition: none;
+  }
+  .f1-word:hover {
+    transform: none;
+  }
+}
+
 /* Mini track graphics (see javascripts/racing.js) — one under the 2025
    section's sidebar nav, one on the homepage — purely for fun. Monochrome
    via currentColor so each adapts to light/dark like everything else.
@@ -145,7 +189,7 @@ html.f1-cursor-active * {
   font-family: var(--md-code-font-family, monospace);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--md-accent-fg-color);
+  color: var(--f1-accent);
   text-align: center;
 }
 
@@ -214,7 +258,7 @@ html.f1-cursor-active * {
   position: absolute;
   inset: 0 auto 0 0;
   width: 6px;
-  background: var(--md-accent-fg-color);
+  background: var(--f1-accent);
 }
 
 .f1-hero-kicker {
@@ -228,7 +272,7 @@ html.f1-cursor-active * {
 
 .f1-hero-kicker em {
   font-style: normal;
-  color: var(--md-accent-fg-color);
+  color: var(--f1-accent);
 }
 
 .f1-hero-flag {
@@ -256,7 +300,7 @@ h1.f1-title {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   padding-bottom: 0.4rem;
-  border-bottom: 4px solid var(--md-accent-fg-color);
+  border-bottom: 4px solid var(--f1-accent);
 }
 
 /* Motorsport-graphic-style section headers: `## Heading {: .f1-heading }` */
@@ -264,7 +308,7 @@ h2.f1-heading {
   font-style: italic;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  border-left: 4px solid var(--md-accent-fg-color);
+  border-left: 4px solid var(--f1-accent);
   padding-left: 0.6rem;
 }
 
@@ -299,7 +343,7 @@ h2.f1-heading {
   font-family: var(--md-code-font-family, monospace);
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--md-accent-fg-color);
+  color: var(--f1-accent);
 }
 
 /* Checkered-flag divider, used ahead of each page's Support section. */
