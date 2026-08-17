@@ -1,5 +1,5 @@
 <div class="f1-hero">
-  <span class="f1-hero-kicker">Round <em>01</em> &middot; 2027 Season</span>
+  <span class="f1-hero-kicker">Round <em>03</em> &middot; 2027 Season</span>
   <span class="f1-hero-flag">🏁</span>
 </div>
 
