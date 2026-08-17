@@ -17,8 +17,8 @@ the official Formula One graphics.
 
 <div class="stat-strip">
   <div class="stat"><span class="stat-label">Author</span><span class="stat-value">Dark373</span></div>
-  <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.0.1</span></div>
-  <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.6 HF-2</span></div>
+  <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.2.1</span></div>
+  <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.6 HF-2+</span></div>
   <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">35</span></div>
   <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">65h</span></div>
 </div>

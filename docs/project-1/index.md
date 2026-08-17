@@ -19,12 +19,9 @@ out.
 - Feature two
 - Feature three
 
-## Installation {: .f1-heading }
-
-Notes on how to install/import this layout into RLT go here.
-
 ## Links {: .f1-heading }
 
+- [Installation & Setup](installation.md)
 - [Gallery](gallery.md)
 - [Known Bugs](known-bugs.md)
 

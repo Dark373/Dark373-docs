@@ -233,9 +233,18 @@ html.f1-cursor-active * {
 }
 
 /* Buttons (Report a Bug / Get a License) get a small lift + shadow on
-   hover instead of Material's flat default. */
+   hover instead of Material's flat default. Flexbox keeps the icon
+   vertically centred against the label instead of sitting on the text
+   baseline. */
 .md-typeset .md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.md-typeset .md-button svg {
+  flex-shrink: 0;
 }
 
 .md-typeset .md-button:hover {
