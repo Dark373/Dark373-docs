@@ -48,6 +48,7 @@
     initCountUp();
     initLovePasswordGate();
     initRacingCursor();
+    initScrollReveal();
   });
 
   /* ------------------------------------------------------------------
@@ -331,6 +332,51 @@
         }
       }
       requestAnimationFrame(frame);
+    });
+  }
+
+  /* ------------------------------------------------------------------
+   * Scroll reveal: .f1-reveal sections (see extra.css and the homepage)
+   * fade + rise into place the first time they enter the viewport, rather
+   * than just appearing.
+   *
+   * CSS alone never hides a .f1-reveal element — only the "-armed"
+   * class does, and only this function adds it, right as it starts
+   * observing that element. That ordering matters: if this script fails
+   * to load, throws, or an earlier init function in the onDocumentReady
+   * chain throws first and blocks this one from ever running, content
+   * simply stays visible the whole time instead of getting stuck
+   * invisible forever. The animation is purely additive on top of an
+   * always-visible default, never a hide-by-default/reveal-by-JS gate.
+   * ------------------------------------------------------------------ */
+  function initScrollReveal() {
+    var els = document.querySelectorAll(".f1-reveal:not([data-f1-reveal-bound])");
+    if (!els.length) return;
+
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+      els.forEach(function (el) {
+        el.dataset.f1RevealBound = "1";
+        el.classList.add("f1-revealed");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("f1-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    els.forEach(function (el) {
+      el.dataset.f1RevealBound = "1";
+      el.classList.add("f1-reveal-armed");
+      observer.observe(el);
     });
   }
 

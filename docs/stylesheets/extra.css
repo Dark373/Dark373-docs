@@ -464,6 +464,234 @@ html.f1-cursor-active * {
 }
 
 /* ==========================================================================
+   Homepage mega-hero — a big illustrated dusk-circuit scene above the fold,
+   in the spirit of a landing-page hero banner. Everything in the scene is
+   hand-built from gradients/SVG (no photo/AI-art assets), so it stays in
+   the same hand-coded vector style as the rest of the site's racing
+   graphics (checker dividers, mini-race cars, track SVGs).
+   ========================================================================== */
+.f1-mega-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 56vh;
+  margin: 0 0 2.5rem;
+  padding: 3rem 1.75rem 2.75rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  color: #fff;
+  isolation: isolate;
+}
+
+.f1-mega-hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.f1-mega-hero-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #05070d 0%, #131a33 42%, #3a1630 75%, #7a1f2e 100%);
+}
+
+.f1-mega-hero-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 45% at 82% 12%, rgba(255, 220, 150, 0.35), transparent 70%),
+    radial-gradient(45% 35% at 15% 100%, rgba(255, 25, 71, 0.35), transparent 70%);
+}
+
+/* Distant grandstand/pit-building skyline, silhouetted along the horizon. */
+.f1-mega-hero-skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 46px;
+  width: 100%;
+  height: 34%;
+  fill: #05070c;
+  opacity: 0.85;
+}
+
+/* Slow horizontal light sweep, like a floodlight or a passing headlight
+   glancing across the scene — ambient motion, not a distraction. */
+.f1-mega-hero-sweep {
+  position: absolute;
+  top: 0;
+  bottom: 46px;
+  left: -30%;
+  width: 30%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.06) 45%, transparent);
+  animation: f1-mega-hero-sweep 9s ease-in-out infinite;
+}
+
+@keyframes f1-mega-hero-sweep {
+  0% {
+    left: -30%;
+  }
+  50% {
+    left: 110%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+/* Start/finish checker strip along the very bottom of the scene, echoing
+   .checker-divider used throughout the rest of the site. */
+.f1-mega-hero-checker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46px;
+  background-image:
+    linear-gradient(45deg, #05070c 25%, transparent 25%),
+    linear-gradient(-45deg, #05070c 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #05070c 75%),
+    linear-gradient(-45deg, transparent 75%, #05070c 75%);
+  background-size: 23px 23px;
+  background-position: 0 0, 0 11.5px, 11.5px -11.5px, -11.5px 0;
+  background-color: #eceff1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-mega-hero-sweep {
+    animation: none;
+    display: none;
+  }
+}
+
+.f1-mega-hero-content {
+  position: relative;
+  max-width: 42rem;
+}
+
+/* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is
+   inside the big hero instead of being its own banner. */
+.f1-mega-hero-kicker {
+  display: inline-flex;
+  max-width: max-content;
+  margin: 0 0 1.5rem;
+}
+
+.f1-mega-hero-title {
+  margin: 0 0 1rem;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.f1-mega-hero-sub {
+  margin: 0 0 1.75rem;
+  max-width: 38ch;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.f1-mega-hero-sub strong {
+  color: #fff;
+}
+
+.f1-mega-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.f1-mega-hero-ctas .md-button {
+  border-color: #fff;
+}
+
+.f1-mega-hero-more {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  background-image: linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.2s ease;
+}
+
+.f1-mega-hero-more:hover {
+  background-size: 100% 2px;
+}
+
+.f1-mega-hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  color: #fff;
+  opacity: 0.85;
+  animation: f1-mega-hero-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes f1-mega-hero-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-mega-hero-more {
+    transition: none;
+  }
+  .f1-mega-hero-scroll {
+    animation: none;
+  }
+}
+
+@media (max-width: 44rem) {
+  .f1-mega-hero {
+    min-height: 46vh;
+    padding: 2.25rem 1.25rem 2.25rem;
+  }
+}
+
+/* Scroll-reveal: sections fade + rise into place as they enter the
+   viewport (see initScrollReveal in javascripts/racing.js). Plain
+   .f1-reveal is fully visible by default — only .f1-reveal-armed (added
+   by JS at the moment it starts observing an element) hides it pending
+   reveal, so a blocked/failed script (or an earlier init function
+   throwing first) leaves content visible instead of stuck invisible. */
+.f1-reveal {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.f1-reveal.f1-reveal-armed {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.f1-reveal.f1-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-reveal.f1-reveal-armed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
    F1 2025 Theme section — racing-flavoured accents.
    Opt-in classes (attr_list / raw HTML), scoped to this project's pages so
    the rest of the site is unaffected.
