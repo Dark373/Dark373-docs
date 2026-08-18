@@ -16,7 +16,7 @@ the app is closed, unless a category is applied to that season.
 | **Color #2** | Secondary colour |
 | **Color #3** | Font colour (should complement both Color and Color #2) |
 
-!!! tip
+!!! tip inline end
     Populate the "Short Name" field: not all renders have the space to
     show longer season names. Users can switch between which name field is
     used in the theme options.
