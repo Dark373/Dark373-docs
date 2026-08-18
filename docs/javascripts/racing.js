@@ -338,7 +338,11 @@
   /* ------------------------------------------------------------------
    * Scroll reveal: .f1-reveal sections (see extra.css and the homepage)
    * fade + rise into place the first time they enter the viewport, rather
-   * than just appearing.
+   * than just appearing. Any .gallery-grid (see the reusable pattern in
+   * extra.css) gets this automatically too, one image at a time in a
+   * staggered cascade — ScrollReveal.js-style — so dropping a plain
+   * .gallery-grid into any project's Gallery page is enough; nothing to
+   * hand-wire per image.
    *
    * CSS alone never hides a .f1-reveal element — only the "-armed"
    * class does, and only this function adds it, right as it starts
@@ -350,7 +354,36 @@
    * always-visible default, never a hide-by-default/reveal-by-JS gate.
    * ------------------------------------------------------------------ */
   function initScrollReveal() {
-    var els = document.querySelectorAll(".f1-reveal:not([data-f1-reveal-bound])");
+    var manual = document.querySelectorAll(".f1-reveal:not([data-f1-reveal-bound])");
+
+    // Auto-adopt every image inside an as-yet-unscanned .gallery-grid as
+    // its own reveal target, staggering the delay by position so a row
+    // cascades in left-to-right instead of every image fading at the
+    // same instant. Delay resets every 8 items rather than climbing
+    // forever, so a big gallery's last row doesn't lag half a second
+    // behind its first.
+    //
+    // Targets the <img> itself, not its wrapping <p> or glightbox's <a>:
+    // consecutive Markdown image lines with no blank line between them
+    // compile into ONE shared <p> holding all of them (confirmed by
+    // inspecting the actual build output, not assumed), so a per-image
+    // target has to reach past that wrapper. And CSS transforms have no
+    // effect on non-replaced inline elements (the spec's own wording) —
+    // <a> is exactly that unless something gives it a block/inline-block
+    // display, whereas <img> is a *replaced* inline element and isn't
+    // exempted, so it's the one node guaranteed to actually animate.
+    var galleryItems = [];
+    document.querySelectorAll(".gallery-grid:not([data-f1-reveal-scanned])").forEach(function (grid) {
+      grid.dataset.f1RevealScanned = "1";
+      var imgs = grid.querySelectorAll("img");
+      imgs.forEach(function (img, i) {
+        img.classList.add("f1-reveal");
+        img.style.transitionDelay = (i % 8) * 70 + "ms";
+        galleryItems.push(img);
+      });
+    });
+
+    var els = Array.prototype.slice.call(manual).concat(galleryItems);
     if (!els.length) return;
 
     if (prefersReducedMotion() || !("IntersectionObserver" in window)) {

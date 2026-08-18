@@ -64,7 +64,13 @@ html.f1-section-yellow {
   object-fit: cover;
   border-radius: 0.25rem;
   cursor: zoom-in !important;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  /* opacity is listed here (not left to .f1-reveal, see racing.js) because
+     `transition` is a single property: this rule's higher specificity
+     (.gallery-grid img beats .f1-reveal's single class) means it wins
+     outright rather than merging with .f1-reveal's own transition, so
+     whatever it doesn't list here wouldn't animate at all — the reveal
+     fade would just snap instead of fading. */
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.7s ease;
 }
 
 .gallery-grid img:hover {
