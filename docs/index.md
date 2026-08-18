@@ -1,37 +1,36 @@
 <div class="f1-mega-hero" id="f1-mega-hero">
   <div class="f1-mega-hero-scene" aria-hidden="true">
-    <div class="f1-mega-hero-sky"></div>
-    <div class="f1-mega-hero-glow"></div>
-    <svg class="f1-mega-hero-skyline" viewBox="0 0 1200 200" preserveAspectRatio="none">
-      <polygon points="0,200 0,150 40,150 40,120 90,120 90,155 140,155 140,100 180,100 180,135 230,135 230,75 260,75 260,60 300,60 300,105 350,105 350,80 400,80 400,125 460,125 460,90 520,90 520,145 580,145 580,65 610,65 610,50 650,50 650,105 700,105 700,150 760,150 760,100 820,100 820,130 870,130 870,70 910,70 910,115 970,115 970,150 1020,150 1020,90 1070,90 1070,140 1120,140 1120,105 1160,105 1160,150 1200,150 1200,200" />
-    </svg>
+    <div class="f1-mega-hero-mosaic">
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--a" src="assets/images/mosaic/the-grid.webp" alt="" />
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--b" src="assets/images/mosaic/ssrltue-season6-01-austria-race-2-tyre-strategy.webp" alt="" />
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--c" src="assets/images/mosaic/media-race-results.webp" alt="" />
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--d" src="assets/images/mosaic/champion-leader.webp" alt="" />
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--e" src="assets/images/mosaic/sprint-winner.webp" alt="" />
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--f" src="assets/images/mosaic/team-champion.webp" alt="" />
+      <img class="f1-mega-hero-tile f1-mega-hero-tile--g" src="assets/images/mosaic/team-standings-render.webp" alt="" />
+    </div>
+    <div class="f1-mega-hero-tint"></div>
     <div class="f1-mega-hero-sweep"></div>
     <div class="f1-mega-hero-checker"></div>
   </div>
 
-  <div class="f1-mega-hero-row">
-    <div class="f1-mega-hero-content">
-      <div class="f1-hero f1-hero--home f1-mega-hero-kicker">
-        <span class="f1-hero-kicker">Pit Lane &middot; <em>Open</em></span>
-        <a class="f1-hero-flag" href="pole-position/" aria-hidden="true" tabindex="-1">🏁</a>
-      </div>
-
-      <h1 class="f1-mega-hero-title">Broadcast-grade RLT themes,<br>built to spec.</h1>
-
-      <p class="f1-mega-hero-sub">
-        Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
-        Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
-        leagues.
-      </p>
-
-      <div class="f1-mega-hero-buttons">
-        <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
-        <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
-      </div>
+  <div class="f1-mega-hero-content">
+    <div class="f1-hero f1-hero--home f1-mega-hero-kicker">
+      <span class="f1-hero-kicker">Pit Lane &middot; <em>Open</em></span>
+      <a class="f1-hero-flag" href="pole-position/" aria-hidden="true" tabindex="-1">🏁</a>
     </div>
 
-    <div class="f1-mega-hero-render">
-      <img src="assets/images/team-standings-render.png" alt="Team Standings render from the 2025 theme: constructor points after a round, styled after official F1 broadcast graphics." loading="lazy" />
+    <h1 class="f1-mega-hero-title">Broadcast-grade RLT themes,<br>built to spec.</h1>
+
+    <p class="f1-mega-hero-sub">
+      Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
+      Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
+      leagues.
+    </p>
+
+    <div class="f1-mega-hero-buttons">
+      <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
+      <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
     </div>
   </div>
 
