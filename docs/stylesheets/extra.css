@@ -98,9 +98,14 @@ html.f1-section-yellow {
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.7s ease;
 }
 
+/* Solid accent-coloured ring (no blur, so it reads as a defined border
+   rather than a soft glow) plus a dark lift shadow for depth. Uses the
+   same --f1-accent that already colours this section (purple on 2025,
+   blue on 2026, etc. — see applySectionAccent in racing.js), so the
+   hover treatment matches whichever theme the gallery belongs to. */
 .gallery-grid img:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 3px var(--f1-accent), 0 10px 22px -8px rgba(0, 0, 0, 0.55);
 }
 
 /* Site-wide custom cursor — a mini F1 car in place of the default pointer.
