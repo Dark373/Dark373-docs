@@ -53,9 +53,18 @@ html.f1-section-yellow {
   margin: 1.5rem 0;
 }
 
+/* Consecutive Markdown image lines with no blank line between them compile
+   into ONE shared <p> holding every image, not one <p> per image (confirmed
+   by inspecting actual build output, not assumed) — so without this rule,
+   .gallery-grid's CSS grid only ever has that single paragraph as its one
+   direct child, and every image just stacks in a single column regardless
+   of viewport width. display:contents removes the <p>'s own box from the
+   layout tree entirely, promoting its children (glightbox's <a> wrappers)
+   to be direct grid items instead, which is what actually makes this a
+   grid — without requiring gallery authors to remember blank lines between
+   every image. */
 .gallery-grid p {
-  margin: 0;
-  line-height: 0;
+  display: contents;
 }
 
 .gallery-grid img {
