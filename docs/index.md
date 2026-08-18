@@ -1,42 +1,54 @@
 <div class="f1-mega-hero" id="f1-mega-hero">
-  <div class="f1-mega-hero-scene" aria-hidden="true">
-    <div class="f1-mega-hero-mosaic">
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--a" src="assets/images/mosaic/the-grid.webp" alt="" />
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--b" src="assets/images/mosaic/ssrltue-season6-01-austria-race-2-tyre-strategy.webp" alt="" />
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--c" src="assets/images/mosaic/media-race-results.webp" alt="" />
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--d" src="assets/images/mosaic/champion-leader.webp" alt="" />
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--e" src="assets/images/mosaic/sprint-winner.webp" alt="" />
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--f" src="assets/images/mosaic/team-champion.webp" alt="" />
-      <img class="f1-mega-hero-tile f1-mega-hero-tile--g" src="assets/images/mosaic/team-standings-render.webp" alt="" />
-    </div>
-    <div class="f1-mega-hero-tint"></div>
-    <div class="f1-mega-hero-sweep"></div>
-    <div class="f1-mega-hero-checker"></div>
-  </div>
-
-  <div class="f1-mega-hero-content">
+  <div class="f1-mega-hero-kicker-row">
     <div class="f1-hero f1-hero--home f1-mega-hero-kicker">
       <span class="f1-hero-kicker">Pit Lane &middot; <em>Open</em></span>
       <a class="f1-hero-flag" href="pole-position/" aria-hidden="true" tabindex="-1">🏁</a>
     </div>
-
-    <h1 class="f1-mega-hero-title">Broadcast-grade RLT themes,<br>built to spec.</h1>
-
-    <p class="f1-mega-hero-sub">
-      Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
-      Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
-      leagues.
-    </p>
-
-    <div class="f1-mega-hero-buttons">
-      <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
-      <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
-    </div>
   </div>
 
-  <a class="f1-mega-hero-scroll" href="#projects" aria-hidden="true" tabindex="-1">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </a>
+  <div class="f1-mega-hero-collage">
+    <div class="f1-mega-hero-scatter" aria-hidden="true">
+      <img class="f1-scatter-tile f1-scatter-1" src="assets/images/scatter/scatter-01.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-2" src="assets/images/scatter/scatter-02.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-3" src="assets/images/scatter/scatter-03.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-4" src="assets/images/scatter/scatter-04.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-5" src="assets/images/scatter/scatter-07.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-6" src="assets/images/scatter/scatter-09.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-7" src="assets/images/scatter/scatter-10.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-8" src="assets/images/scatter/scatter-13.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-9" src="assets/images/scatter/scatter-16.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-10" src="assets/images/scatter/scatter-18.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-11" src="assets/images/scatter/scatter-19.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-12" src="assets/images/scatter/scatter-23.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-13" src="assets/images/scatter/scatter-26.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-14" src="assets/images/scatter/scatter-28.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-15" src="assets/images/scatter/scatter-30.webp" alt="" />
+      <img class="f1-scatter-tile f1-scatter-16" src="assets/images/scatter/scatter-34.webp" alt="" />
+    </div>
+    <div class="f1-mega-hero-tint"></div>
+    <div class="f1-mega-hero-sweep"></div>
+
+    <div class="f1-mega-hero-content">
+      <h1 class="f1-mega-hero-title">Broadcast-grade RLT themes,<br>built to spec.</h1>
+
+      <p class="f1-mega-hero-sub">
+        Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
+        Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
+        leagues.
+      </p>
+
+      <div class="f1-mega-hero-buttons">
+        <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
+        <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <div class="f1-mega-hero-checker"></div>
+
+    <a class="f1-mega-hero-scroll" href="#projects" aria-hidden="true" tabindex="-1">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
 </div>
 
 <div class="f1-reveal" markdown="1">

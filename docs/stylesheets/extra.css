@@ -500,93 +500,115 @@ html.f1-cursor-active * {
 }
 
 /* ==========================================================================
-   Homepage mega-hero — a portfolio mosaic of actual renders behind the
-   headline, in the spirit of a landing-page hero banner. Replaces an
-   earlier hand-illustrated dusk-circuit scene: real work reads better
-   here than an abstraction of it.
+   Homepage mega-hero — a scattered scrapbook of actual renders behind the
+   headline, in the spirit of a landing-page hero banner. The kicker chip
+   sits in its own plain strip above the collage rather than overlapping
+   it, and the collage itself is real work, not an abstraction of it.
    ========================================================================== */
 .f1-mega-hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 62vh;
+  margin: 0 0 2.5rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background: #05070d;
+  color: #fff;
+}
+
+.f1-mega-hero-kicker-row {
+  padding: 1.25rem 1.75rem 0.5rem;
+}
+
+/* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is
+   here instead of being its own banner — now its own row above the
+   collage instead of overlapping it. */
+.f1-mega-hero-kicker {
+  display: inline-flex;
+  max-width: max-content;
+  margin: 0;
+}
+
+.f1-mega-hero-collage {
   position: relative;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 56vh;
-  margin: 0 0 2.5rem;
-  padding: 3rem 1.75rem 2.75rem;
-  border-radius: 0.6rem;
+  padding: 1.5rem 1.75rem 2.75rem;
   overflow: hidden;
-  color: #fff;
   isolation: isolate;
 }
 
-.f1-mega-hero-scene {
+/* Sixteen real renders, scattered and overlapping like photos on a
+   scrapbook page, filling the collage edge to edge — deliberately messy
+   rather than a tidy grid. Each tile's position/rotation/stack order is
+   its own class below; percentages so the scatter scales with the
+   container, fixed pixel widths so a tile doesn't warp on resize (the
+   container clips overflow, so edge tiles bleeding past the bounds is
+   expected, not a bug). */
+.f1-mega-hero-scatter {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
 }
 
-/* Seven renders tiled into an asymmetric collage. Named grid-template
-   areas (rather than auto-placement) so every tile gets a deliberate,
-   guaranteed-rectangular slot regardless of source image count/order. */
-.f1-mega-hero-mosaic {
+.f1-scatter-tile {
   position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-areas:
-    "a a a b b c"
-    "a a a b b c"
-    "d d e e f f"
-    "d d e e g g";
-  gap: 2px;
-}
-
-.f1-mega-hero-tile {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  height: auto;
+  border-radius: 0.35rem;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
   filter: saturate(0.85);
 }
 
-.f1-mega-hero-tile--a {
-  grid-area: a;
-}
-.f1-mega-hero-tile--b {
-  grid-area: b;
-}
-.f1-mega-hero-tile--c {
-  grid-area: c;
-}
-.f1-mega-hero-tile--d {
-  grid-area: d;
-}
-.f1-mega-hero-tile--e {
-  grid-area: e;
-}
-.f1-mega-hero-tile--f {
-  grid-area: f;
-}
-.f1-mega-hero-tile--g {
-  grid-area: g;
+.f1-scatter-1  { top: -6%;  left: -3%;  width: 200px; transform: rotate(-8deg);  z-index: 1; }
+.f1-scatter-2  { top: 3%;   left: 15%;  width: 170px; transform: rotate(6deg);   z-index: 4; }
+.f1-scatter-3  { top: -8%;  left: 29%;  width: 190px; transform: rotate(-4deg);  z-index: 2; }
+.f1-scatter-4  { top: 4%;   left: 45%;  width: 160px; transform: rotate(9deg);   z-index: 5; }
+.f1-scatter-5  { top: -5%;  left: 59%;  width: 210px; transform: rotate(-7deg);  z-index: 2; }
+.f1-scatter-6  { top: 2%;   left: 76%;  width: 180px; transform: rotate(5deg);   z-index: 4; }
+.f1-scatter-7  { top: -8%;  left: 90%;  width: 200px; transform: rotate(-10deg); z-index: 1; }
+.f1-scatter-8  { top: 36%;  left: 1%;   width: 190px; transform: rotate(7deg);   z-index: 3; }
+.f1-scatter-9  { top: 30%;  left: 20%;  width: 170px; transform: rotate(-6deg);  z-index: 5; }
+.f1-scatter-10 { top: 38%;  left: 38%;  width: 200px; transform: rotate(4deg);   z-index: 1; }
+.f1-scatter-11 { top: 32%;  left: 57%;  width: 180px; transform: rotate(-8deg);  z-index: 4; }
+.f1-scatter-12 { top: 40%;  left: 74%;  width: 190px; transform: rotate(6deg);   z-index: 2; }
+.f1-scatter-13 { top: 66%;  left: 8%;   width: 210px; transform: rotate(5deg);   z-index: 3; }
+.f1-scatter-14 { top: 70%;  left: 32%;  width: 180px; transform: rotate(-7deg);  z-index: 5; }
+.f1-scatter-15 { top: 64%;  left: 58%;  width: 200px; transform: rotate(8deg);   z-index: 2; }
+.f1-scatter-16 { top: 68%;  left: 80%;  width: 190px; transform: rotate(-4deg);  z-index: 4; }
+
+@media (max-width: 44rem) {
+  .f1-scatter-tile {
+    width: 130px !important;
+  }
 }
 
-/* Dark tint over the mosaic so the headline stays legible against
-   whatever busy renders happen to sit behind it — same dusk colour
-   grading the site's other hero elements use. */
+/* Heavier dark tint than a single hero image needed — sixteen overlapping
+   renders is a much busier background, and the headline has to win
+   against all of them at once. */
 .f1-mega-hero-tint {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 7, 13, 0.55) 0%, rgba(5, 7, 13, 0.72) 55%, rgba(122, 31, 46, 0.75) 100%);
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(5, 7, 13, 0.72) 0%, rgba(5, 7, 13, 0.8) 55%, rgba(122, 31, 46, 0.85) 100%);
 }
 
 /* Slow horizontal light sweep, like a floodlight or a passing headlight
    glancing across the scene — ambient motion, not a distraction. */
 .f1-mega-hero-sweep {
   position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.f1-mega-hero-sweep::before {
+  content: "";
+  position: absolute;
   top: 0;
-  bottom: 46px;
+  bottom: 0;
   left: -30%;
   width: 30%;
   background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.06) 45%, transparent);
@@ -605,7 +627,7 @@ html.f1-cursor-active * {
   }
 }
 
-/* Start/finish checker strip along the very bottom of the scene, echoing
+/* Start/finish checker strip along the very bottom of the collage, echoing
    .checker-divider used throughout the rest of the site. */
 .f1-mega-hero-checker {
   position: absolute;
@@ -613,6 +635,7 @@ html.f1-cursor-active * {
   right: 0;
   bottom: 0;
   height: 46px;
+  z-index: 0;
   background-image:
     linear-gradient(45deg, #05070c 25%, transparent 25%),
     linear-gradient(-45deg, #05070c 25%, transparent 25%),
@@ -624,23 +647,20 @@ html.f1-cursor-active * {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .f1-mega-hero-sweep {
+  .f1-mega-hero-sweep::before {
     animation: none;
     display: none;
   }
 }
 
+/* Legibility comes from the tint gradient + strong text-shadows below,
+   not an opaque panel — a solid/blurred card behind the copy would hide
+   most of the scattered renders it's sitting on top of, which defeats
+   the point of a collage meant to fill and be seen across the block. */
 .f1-mega-hero-content {
   position: relative;
+  z-index: 1;
   max-width: 42rem;
-}
-
-/* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is
-   inside the big hero instead of being its own banner. */
-.f1-mega-hero-kicker {
-  display: inline-flex;
-  max-width: max-content;
-  margin: 0 0 1.5rem;
 }
 
 .f1-mega-hero-title {
@@ -651,7 +671,7 @@ html.f1-cursor-active * {
   font-size: clamp(1.9rem, 4.5vw, 3.2rem);
   line-height: 1.1;
   color: #fff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 2px 22px rgba(0, 0, 0, 0.7);
 }
 
 .f1-mega-hero-sub {
@@ -660,6 +680,7 @@ html.f1-cursor-active * {
   font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 1px 14px rgba(0, 0, 0, 0.6);
 }
 
 .f1-mega-hero-sub strong {
@@ -681,6 +702,7 @@ html.f1-cursor-active * {
   color: #fff;
   font-weight: 700;
   text-decoration: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 1px 14px rgba(0, 0, 0, 0.6);
   background-image: linear-gradient(#fff, #fff);
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -723,8 +745,10 @@ html.f1-cursor-active * {
 
 @media (max-width: 44rem) {
   .f1-mega-hero {
-    min-height: 46vh;
-    padding: 2.25rem 1.25rem 2.25rem;
+    min-height: 52vh;
+  }
+  .f1-mega-hero-collage {
+    padding: 1.25rem 1.25rem 2.25rem;
   }
 }
 
