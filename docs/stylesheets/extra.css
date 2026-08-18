@@ -601,14 +601,14 @@ html.f1-cursor-active * {
   color: #fff;
 }
 
-.f1-mega-hero-ctas {
+.f1-mega-hero-buttons {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.25rem;
 }
 
-.f1-mega-hero-ctas .md-button {
+.f1-mega-hero-buttons .md-button {
   border-color: #fff;
 }
 

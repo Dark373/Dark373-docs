@@ -23,7 +23,7 @@
       leagues.
     </p>
 
-    <div class="f1-mega-hero-ctas">
+    <div class="f1-mega-hero-buttons">
       <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
       <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
     </div>
