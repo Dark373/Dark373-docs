@@ -9,23 +9,29 @@
     <div class="f1-mega-hero-checker"></div>
   </div>
 
-  <div class="f1-mega-hero-content">
-    <div class="f1-hero f1-hero--home f1-mega-hero-kicker">
-      <span class="f1-hero-kicker">Pit Lane &middot; <em>Open</em></span>
-      <a class="f1-hero-flag" href="pole-position/" aria-hidden="true" tabindex="-1">🏁</a>
+  <div class="f1-mega-hero-row">
+    <div class="f1-mega-hero-content">
+      <div class="f1-hero f1-hero--home f1-mega-hero-kicker">
+        <span class="f1-hero-kicker">Pit Lane &middot; <em>Open</em></span>
+        <a class="f1-hero-flag" href="pole-position/" aria-hidden="true" tabindex="-1">🏁</a>
+      </div>
+
+      <h1 class="f1-mega-hero-title">Broadcast-grade RLT themes,<br>built to spec.</h1>
+
+      <p class="f1-mega-hero-sub">
+        Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
+        Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
+        leagues.
+      </p>
+
+      <div class="f1-mega-hero-buttons">
+        <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
+        <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
+      </div>
     </div>
 
-    <h1 class="f1-mega-hero-title">Broadcast-grade RLT themes,<br>built to spec.</h1>
-
-    <p class="f1-mega-hero-sub">
-      Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
-      Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
-      leagues.
-    </p>
-
-    <div class="f1-mega-hero-buttons">
-      <a href="#projects" class="md-button md-button--primary">Explore Themes</a>
-      <a href="#a-note-on-timelines-support" class="f1-mega-hero-more">Learn more <span aria-hidden="true">↓</span></a>
+    <div class="f1-mega-hero-render">
+      <img src="assets/images/team-standings-render.png" alt="Team Standings render from the 2025 theme: constructor points after a round, styled after official F1 broadcast graphics." loading="lazy" />
     </div>
   </div>
 

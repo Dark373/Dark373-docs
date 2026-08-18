@@ -565,9 +565,62 @@ html.f1-cursor-active * {
   }
 }
 
+/* Text content + the featured render sit side by side in a row, which is
+   itself the single child .f1-mega-hero (flex column, justify-end) pins
+   to the bottom of the scene. */
+.f1-mega-hero-row {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
 .f1-mega-hero-content {
   position: relative;
-  max-width: 42rem;
+  max-width: 34rem;
+}
+
+/* A real render, framed like a floating screenshot card — the actual
+   work, not an abstraction of it. Slight tilt + drop shadow so it reads
+   as a physical card sitting in the scene rather than a flat rectangle. */
+.f1-mega-hero-render {
+  flex: 0 0 auto;
+  width: clamp(150px, 16vw, 240px);
+  margin-bottom: 0.5rem;
+}
+
+.f1-mega-hero-render img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: rotate(2.5deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.f1-mega-hero-render img:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 24px 55px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-mega-hero-render img {
+    transition: none;
+  }
+}
+
+@media (max-width: 44rem) {
+  .f1-mega-hero-row {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .f1-mega-hero-render {
+    width: 120px;
+  }
 }
 
 /* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is
