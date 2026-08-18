@@ -7,8 +7,8 @@ uses categories to determine its overall colour scheme, as well as giving
 users extra options. The app will randomly choose a new colour each time
 the app is closed, unless a category is applied to that season.
 
-1. Create a category.
-2. Apply the category to an existing season.
+1. Create a category (League Options -> League Categories)
+2. Apply the category to an existing season (Right click season)
 
 | Field | Meaning |
 | --- | --- |
