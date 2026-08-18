@@ -502,42 +502,34 @@ html.f1-cursor-active * {
 /* ==========================================================================
    Homepage mega-hero — a scattered scrapbook of actual renders behind the
    headline, in the spirit of a landing-page hero banner. The kicker chip
-   sits in its own plain strip above the collage rather than overlapping
-   it, and the collage itself is real work, not an abstraction of it.
+   is its own plain element above the hero box entirely (not inside its
+   rounded/bordered card), so the card itself is pure collage, no empty
+   background strip eating into it.
    ========================================================================== */
-.f1-mega-hero {
-  display: flex;
-  flex-direction: column;
-  min-height: 62vh;
-  margin: 0 0 2.5rem;
-  border-radius: 0.6rem;
-  overflow: hidden;
-  background: #05070d;
-  color: #fff;
-}
-
 .f1-mega-hero-kicker-row {
-  padding: 1.25rem 1.75rem 0.5rem;
+  margin: 0 0 0.75rem;
 }
 
-/* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is
-   here instead of being its own banner — now its own row above the
-   collage instead of overlapping it. */
+/* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is. */
 .f1-mega-hero-kicker {
   display: inline-flex;
   max-width: max-content;
   margin: 0;
 }
 
-.f1-mega-hero-collage {
+.f1-mega-hero {
   position: relative;
-  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  min-height: 58vh;
+  margin: 0 0 2.5rem;
   padding: 1.5rem 1.75rem 2.75rem;
+  border-radius: 0.6rem;
   overflow: hidden;
   isolation: isolate;
+  background: #05070d;
+  color: #fff;
 }
 
 /* Sixteen real renders, scattered and overlapping like photos on a
@@ -663,7 +655,14 @@ html.f1-cursor-active * {
   max-width: 42rem;
 }
 
-.f1-mega-hero-title {
+/* Qualified with the element (h1.f1-mega-hero-title, not just the bare
+   class) to match Material's own .md-typeset h1 rule on specificity —
+   that rule sets color: var(--md-default-fg-color--light), a deliberately
+   muted tone for ordinary body headings, which otherwise wins outright
+   over a single-class selector regardless of what color is set here.
+   This stylesheet loads after Material's, so matching specificity is
+   enough for source order to settle it in our favour. */
+h1.f1-mega-hero-title {
   margin: 0 0 1rem;
   font-style: italic;
   text-transform: uppercase;
@@ -746,8 +745,6 @@ html.f1-cursor-active * {
 @media (max-width: 44rem) {
   .f1-mega-hero {
     min-height: 52vh;
-  }
-  .f1-mega-hero-collage {
     padding: 1.25rem 1.25rem 2.25rem;
   }
 }
