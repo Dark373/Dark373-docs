@@ -10,16 +10,16 @@ the app is closed, unless a category is applied to that season.
 1. Create a category (League Options -> League Categories)
 2. Apply the category to an existing season (Right click season)
 
+!!! tip inline end
+    Populate the "Short Name" field: not all renders have the space to
+    show longer season names. Users can switch between which name field is
+    used in the theme options.
+
 | Field | Meaning |
 | --- | --- |
 | **Color** | Primary colour |
 | **Color #2** | Secondary colour |
 | **Color #3** | Font colour (should complement both Color and Color #2) |
-
-!!! tip inline end
-    Populate the "Short Name" field: not all renders have the space to
-    show longer season names. Users can switch between which name field is
-    used in the theme options.
 
 ## Team colours {: .f1-heading }
 
