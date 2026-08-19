@@ -425,6 +425,37 @@
    * other DOM-injecting init function here is, so repeat calls across
    * instant-navigation page swaps don't double it up.
    * ------------------------------------------------------------------ */
+  // HTML attributes can only ever hold a single line of plain text —
+  // there's no way to put a real (or Markdown) list directly inside
+  // data-location="..."/data-theme="...". This is the workaround: split
+  // the attribute's value on ";" and render each piece as its own <li>
+  // when there's more than one; a value with no ";" in it (the common
+  // case) renders as plain text same as before, no empty bullet list
+  // wrapper. A literal newline inside the quoted value (easy to try, and
+  // it doesn't error) is NOT how you get a list here — attr_list values
+  // are single-line; use ";" instead, e.g.
+  // data-theme="Background Colour Theme: Custom Colour; Name: Test".
+  function renderPanelContent(raw) {
+    var parts = raw
+      .split(";")
+      .map(function (s) {
+        return s.trim();
+      })
+      .filter(Boolean);
+    if (parts.length <= 1) {
+      return escapeHtml(raw);
+    }
+    return (
+      "<ul>" +
+      parts
+        .map(function (p) {
+          return "<li>" + escapeHtml(p) + "</li>";
+        })
+        .join("") +
+      "</ul>"
+    );
+  }
+
   function initGalleryCaptions() {
     var imgs = document.querySelectorAll(".gallery-grid img:not([data-f1-caption-bound])");
     imgs.forEach(function (img) {
@@ -450,10 +481,10 @@
         // showing both panels stacked at once instead of toggling.
         '<div class="f1-gallery-panels">' +
         '<div class="f1-gallery-panel f1-gallery-panel-active" data-panel="location">' +
-        escapeHtml(location) +
+        renderPanelContent(location) +
         "</div>" +
         '<div class="f1-gallery-panel" data-panel="theme">' +
-        escapeHtml(themeOption) +
+        renderPanelContent(themeOption) +
         "</div>" +
         "</div>";
       link.appendChild(caption);

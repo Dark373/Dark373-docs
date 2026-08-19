@@ -4,8 +4,7 @@
 and Standings. Click any image to zoom in.
 
 <div class="gallery-grid" markdown="1">
-![F1 2025 Theme render 01](gallery-images/render-01.webp){: width=1121 height=1400 loading=lazy data-location="Session results -> Dropdown menu -> Variable Information" data-theme="- Background Colour Theme: Custom Colour
-- Name Test" }
+![F1 2025 Theme render 01](gallery-images/render-01.webp){: width=1121 height=1400 loading=lazy data-location="Session Results -> Dropdown menu -> Variable Information" data-theme="Background Colour Theme: Custom Colour; Name: Test" }
 ![F1 2025 Theme render 02](gallery-images/render-02.webp){: width=1400 height=645 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 03](gallery-images/render-03.webp){: width=1400 height=664 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 04](gallery-images/render-04.webp){: width=1400 height=1361 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }
@@ -55,12 +54,23 @@ and Standings. Click any image to zoom in.
     **Render Location** and **Theme Option**. Right now every one just
     shows a `TODO` placeholder; to fill one in, find that image's line
     in this file (`docs/f1-2025-theme/gallery.md`) and edit its
-    `data-location="..."` and `data-theme="..."` values, e.g.:
+    `data-location="..."` and `data-theme="..."` values. Keep the whole
+    attribute on one line — attr_list attributes can't span multiple
+    lines, so a literal line break inside the quotes won't parse as a
+    list (it just gets treated as part of the text, or breaks the line
+    entirely).
+
+    **Plain text** — one line, shows as-is:
 
     ```
-    ![...](gallery-images/render-01.webp){: width=1121 height=1400 loading=lazy
-      data-location="Session Results → drop-down menu, right-hand side"
-      data-theme="Theme Global → Render Type: Broadcast" }
+    data-location="Session Results -> drop-down menu, right-hand side"
+    ```
+
+    **A bulleted list** — separate items with `;` and it renders as real
+    bullet points instead of a single line:
+
+    ```
+    data-theme="Background Colour Theme: Custom Colour; Name: Test"
     ```
 
     Both attributes are optional — an image with neither set just falls

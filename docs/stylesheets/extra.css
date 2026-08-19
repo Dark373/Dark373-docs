@@ -185,6 +185,33 @@ html.f1-section-yellow {
   display: block;
 }
 
+/* A data-location/data-theme value with ";" in it renders as a real list
+   (see renderPanelContent in racing.js) — reset to a plain, compact
+   bullet here rather than the site-wide racing-emoji markers
+   (.md-typeset ul li::marker), which are too large for a caption this
+   small and read as decorative rather than technical. */
+.f1-gallery-panel ul {
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: none;
+}
+
+.f1-gallery-panel ul li {
+  margin: 0.2em 0;
+  position: relative;
+}
+
+.f1-gallery-panel ul li::marker {
+  content: "";
+}
+
+.f1-gallery-panel ul li::before {
+  content: "•";
+  position: absolute;
+  left: -1.1em;
+  color: var(--f1-accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .f1-gallery-caption {
     transition: none;
