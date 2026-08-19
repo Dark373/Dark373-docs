@@ -106,4 +106,4 @@ sense of what each section controls.
 
 ## Support {: .f1-heading }
 
---8<-- "buttons.md"
+--8<-- "buttons-2025.md"

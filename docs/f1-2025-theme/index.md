@@ -73,4 +73,4 @@ Act 1988 are unaffected by the rights granted in this Copyright Notice.
 
 ## Support {: .f1-heading }
 
---8<-- "buttons.md"
+--8<-- "buttons-2025.md"

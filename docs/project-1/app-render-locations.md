@@ -11,4 +11,4 @@
 
 ## Support {: .f1-heading }
 
---8<-- "buttons.md"
+--8<-- "buttons-2026.md"

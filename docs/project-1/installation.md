@@ -11,4 +11,4 @@ Notes on how to install/import this layout into RLT go here.
 
 ## Support {: .f1-heading }
 
---8<-- "buttons.md"
+--8<-- "buttons-2026.md"
