@@ -1,7 +1,7 @@
 # 2025 Known Bugs
 
 !!! note "Known Limitations" 
-limitations message 
+    limitations message 
 
 | Bug | Status | Notes |
 | --- | --- | --- |
