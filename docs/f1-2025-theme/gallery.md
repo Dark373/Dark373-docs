@@ -4,7 +4,7 @@
 and Standings. Click any image to zoom in.
 
 <div class="gallery-grid" markdown="1">
-![F1 2025 Theme render 01](gallery-images/render-01.webp){: width=1121 height=1400 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }
+![F1 2025 Theme render 01](gallery-images/render-01.webp){: width=1121 height=1400 loading=lazy data-location="Session results -> Dropdown menu -> Variable Information" data-theme="- Background Colour Theme: ==Light==" }
 ![F1 2025 Theme render 02](gallery-images/render-02.webp){: width=1400 height=645 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 03](gallery-images/render-03.webp){: width=1400 height=664 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 04](gallery-images/render-04.webp){: width=1400 height=1361 loading=lazy data-location="TODO: where this render appears in the app" data-theme="TODO: which theme option enables/affects it" }

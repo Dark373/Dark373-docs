@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /home/user/Dark373-docs branch --show-current)",
+      "Bash(git -C /home/user/Dark373-docs status --short)",
+      "Bash(git -C /home/user/Dark373-docs remote -v)",
+      "Bash(git pull *)"
+    ]
+  }
+}
