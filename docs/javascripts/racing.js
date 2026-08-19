@@ -49,6 +49,7 @@
     initLovePasswordGate();
     initRacingCursor();
     initScrollReveal();
+    initGalleryCaptions();
   });
 
   /* ------------------------------------------------------------------
@@ -412,6 +413,87 @@
       observer.observe(el);
     });
   }
+
+  /* ------------------------------------------------------------------
+   * Gallery hover captions: builds a two-tab (Render Location / Theme
+   * Option) panel for every .gallery-grid image, sourced from that
+   * image's data-location/data-theme attributes — see the relevant
+   * gallery.md for where those actually get set per image (empty ones
+   * fall back to placeholder text rather than an empty panel). Revealed
+   * on hover/focus by the CSS (.f1-gallery-caption in extra.css); this
+   * only builds the markup once per image, guarded the same way every
+   * other DOM-injecting init function here is, so repeat calls across
+   * instant-navigation page swaps don't double it up.
+   * ------------------------------------------------------------------ */
+  function initGalleryCaptions() {
+    var imgs = document.querySelectorAll(".gallery-grid img:not([data-f1-caption-bound])");
+    imgs.forEach(function (img) {
+      img.dataset.f1CaptionBound = "1";
+      var link = img.closest("a.glightbox");
+      if (!link) return;
+
+      var location = img.getAttribute("data-location") || "Add render location details here.";
+      var themeOption = img.getAttribute("data-theme") || "Add theme option details here.";
+
+      var caption = document.createElement("div");
+      caption.className = "f1-gallery-caption";
+      caption.innerHTML =
+        '<div class="f1-gallery-tabs">' +
+        '<button type="button" class="f1-gallery-tab f1-gallery-tab-active" data-tab="location">Render Location</button>' +
+        '<button type="button" class="f1-gallery-tab" data-tab="theme">Theme Option</button>' +
+        "</div>" +
+        // These are <div>s, not <p>s, on purpose: .gallery-grid p is
+        // already claimed by the masonry fix (display:contents, so a
+        // shared multi-image paragraph unwraps into individual grid
+        // items — see extra.css) and would silently win over
+        // .f1-gallery-panel's own display:none/block on specificity,
+        // showing both panels stacked at once instead of toggling.
+        '<div class="f1-gallery-panels">' +
+        '<div class="f1-gallery-panel f1-gallery-panel-active" data-panel="location">' +
+        escapeHtml(location) +
+        "</div>" +
+        '<div class="f1-gallery-panel" data-panel="theme">' +
+        escapeHtml(themeOption) +
+        "</div>" +
+        "</div>";
+      link.appendChild(caption);
+    });
+  }
+
+  // Tab-switching is a single delegated listener, not per-caption — the
+  // captions themselves get rebuilt/added across instant-navigation page
+  // swaps, but the listener only needs binding once, ever.
+  //
+  // Registered on the CAPTURE phase (that trailing `true`), not the
+  // default bubble phase — confirmed by testing, not assumed: glightbox
+  // binds its own open-on-click handler directly on the .glightbox <a>
+  // itself, which is an ANCESTOR of the tab button and therefore fires
+  // during the bubble phase *before* a bubble-phase listener sitting all
+  // the way up on `document` ever gets a turn. By the time this handler
+  // ran, the lightbox had already opened — stopPropagation() here was too
+  // late to matter. A capture-phase listener on `document` runs first,
+  // on the way down to the actual click target, so stopping it here keeps
+  // the event from ever reaching the anchor's bubble-phase handler.
+  document.addEventListener(
+    "click",
+    function (e) {
+      var btn = e.target.closest(".f1-gallery-tab");
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      var caption = btn.closest(".f1-gallery-caption");
+      if (!caption) return;
+      var tab = btn.dataset.tab;
+      caption.querySelectorAll(".f1-gallery-tab").forEach(function (b) {
+        b.classList.toggle("f1-gallery-tab-active", b === btn);
+      });
+      caption.querySelectorAll(".f1-gallery-panel").forEach(function (p) {
+        p.classList.toggle("f1-gallery-panel-active", p.dataset.panel === tab);
+      });
+    },
+    true
+  );
 
   /* ------------------------------------------------------------------
    * Track graphic: markup builder + lap/confetti wiring.

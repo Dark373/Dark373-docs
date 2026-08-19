@@ -78,6 +78,7 @@ html.f1-section-yellow {
    control the way a block box does, so a tall image could get split
    across two columns without this. */
 .gallery-grid a.glightbox {
+  position: relative;
   display: block;
   break-inside: avoid;
   margin-bottom: 0.75rem;
@@ -106,6 +107,88 @@ html.f1-section-yellow {
 .gallery-grid img:hover {
   transform: scale(1.02);
   box-shadow: 0 0 0 3px var(--f1-accent), 0 10px 22px -8px rgba(0, 0, 0, 0.55);
+}
+
+/* Per-image hover caption: two tabs (Render Location / Theme Option),
+   built once per image by initGalleryCaptions (racing.js) from that
+   image's data-location/data-theme attributes — see gallery.md for
+   where those actually get set. Covers the whole thumbnail rather than
+   just a bottom strip, since these thumbnails run small; hidden by
+   default (opacity 0 + pointer-events none, not display:none, so the
+   opacity transition has something to animate) and revealed on hover
+   *or* keyboard focus, so it isn't mouse-only. */
+.f1-gallery-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(5, 7, 13, 0.92);
+  border-radius: 0.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.gallery-grid a.glightbox:hover .f1-gallery-caption,
+.gallery-grid a.glightbox:focus-within .f1-gallery-caption {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.f1-gallery-tabs {
+  display: flex;
+  flex: 0 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.f1-gallery-tab {
+  flex: 1 1 50%;
+  padding: 0.5rem 0.4rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.f1-gallery-tab:hover {
+  color: #fff;
+}
+
+.f1-gallery-tab-active {
+  color: #fff;
+  border-bottom-color: var(--f1-accent);
+}
+
+.f1-gallery-panels {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0.6rem 0.7rem;
+}
+
+.f1-gallery-panel {
+  display: none;
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: left;
+}
+
+.f1-gallery-panel-active {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-gallery-caption {
+    transition: none;
+  }
 }
 
 /* Site-wide custom cursor — a mini F1 car in place of the default pointer.
@@ -511,9 +594,12 @@ html.f1-cursor-active * {
 }
 
 /* The existing small kicker chip (.f1-hero / .f1-hero--home), reused as-is. */
+/* No width override here on purpose — .f1-hero's own display:flex
+   already stretches it full-width, same as the banner on every other
+   page (2025/2026/2027 overview pages, etc.). It was shrunk to a chip
+   for the old overlapping-the-mosaic layout; now that it's its own row,
+   it should match those banners. */
 .f1-mega-hero-kicker {
-  display: inline-flex;
-  max-width: max-content;
   margin: 0;
 }
 
