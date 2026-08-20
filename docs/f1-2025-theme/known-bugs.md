@@ -1,7 +1,7 @@
 # 2025 Known Bugs
 
 !!! note "Known Limitations" 
-    limitations message 
+    The theme was built before the driver naming system was introduced natively inside the app in v9.8.
 
 | Bug | Status | Notes |
 | --- | --- | --- |
