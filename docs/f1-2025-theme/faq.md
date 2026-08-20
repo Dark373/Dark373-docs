@@ -1,9 +1,5 @@
 # 2025 FAQ
 
-Sourced from real questions asked in the Discord community (May 2026 chat
-sample). Only questions specific to the F1 2025 theme are included here —
-general RacingLeagueTools app questions are covered separately.
-
 ??? question "I purchased the F1 2025 theme but haven't received it"
     Wait about an hour, then check your shared Google Drive folder and the
     inbox for the email address you used at checkout. Delivery normally
@@ -33,10 +29,6 @@ general RacingLeagueTools app questions are covered separately.
     Open theme options → driver global → Driver Limit: 22.
     Open app options and ensure drivers to display is set
     to zero (infinite).
-
-*Compiled from community chat, May 2026. This list will grow as more chat
-history is reviewed — treat it as a starting point rather than a complete
-reference.*
 
 <div class="checker-divider"></div>
 
