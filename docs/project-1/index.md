@@ -21,6 +21,7 @@ out.
 
 ## Links {: .f1-heading }
 
+- [FAQ](faq.md)
 - [Installation & Setup](installation.md)
 - [Gallery](gallery.md)
 - [Known Bugs](known-bugs.md)

@@ -76,6 +76,7 @@ nav:
   - Home: index.md
   - 2025:
       - Overview: f1-2025-theme/index.md
+      - FAQ: f1-2025-theme/faq.md
       - Installation:
           - Setup: f1-2025-theme/installation.md
           - App Render Locations: f1-2025-theme/app-render-locations.md
@@ -84,6 +85,7 @@ nav:
       - Known Bugs: f1-2025-theme/known-bugs.md
   - 2026:
       - Overview: project-1/index.md
+      - FAQ: project-1/faq.md
       - Installation:
           - Setup: project-1/installation.md
           - App Render Locations: project-1/app-render-locations.md
@@ -91,6 +93,7 @@ nav:
       - Known Bugs: project-1/known-bugs.md
   - 2027:
       - Overview: 2027/index.md
+      - FAQ: 2027/faq.md
       - Installation:
           - Setup: 2027/installation.md
           - App Render Locations: 2027/app-render-locations.md
