@@ -1,9 +1,9 @@
 # 2025 Known Bugs
 
-!!! note "Known Limitations" 
-    The theme was built before the driver naming system was introduced natively inside the app in v9.8 and therefore any changes will not be reflected in the theme. Instead, use the theme's in-built naming system.
+???+ note "Known Limitations" 
+     The theme was built before the driver naming system was introduced natively inside the app in v9.8 and therefore any changes will not be reflected in the theme. Instead, use the theme's in-built naming system located in theme options.
 
-!!! bug
+??? bug
     | Bug | Status | Notes |
     | --- | --- | --- |
     | No known bugs | n/a | n/a |
