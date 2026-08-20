@@ -4,7 +4,7 @@ Sourced from real questions asked in the Discord community (May 2026 chat
 sample). Only questions specific to the F1 2025 theme are included here —
 general RacingLeagueTools app questions are covered separately.
 
-??? question "I purchased the F1 2025 theme but haven't received it — what should I do?"
+??? question "I purchased the F1 2025 theme but haven't received it"
     Wait about an hour, then check your shared Google Drive folder and the
     inbox for the email address you used at checkout. Delivery normally
     lands there within that window. Still nothing after an hour? Get in
@@ -23,7 +23,7 @@ general RacingLeagueTools app questions are covered separately.
     should be a 1:1 ratio. To resize how it renders on the graphics
     themselves, go to **Theme Options → Theme global → Logo size**.
 
-??? question "I copied my F1 25 championship's car set to build a new championship, but editing a car changes it in both places — why?"
+??? question "I copied my F1 25 championship's car set to build a new championship, but editing a car changes it in both places"
     Copying a car set creates a **linked** duplicate. Editing a car
     anywhere it was copied edits it everywhere. If you want a fully
     independent set to build from scratch, use "Create New" instead of
