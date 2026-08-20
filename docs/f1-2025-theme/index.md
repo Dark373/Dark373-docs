@@ -32,9 +32,9 @@ the official Formula One graphics.
 
 ## Copyright Notice {: .f1-heading }
 
-© 2025 Adam Kessels (Dark373). All rights reserved.
+© 2025 Dark373. All rights reserved.
 
-This code is the intellectual property of Adam Kessels and is protected
+This code is the intellectual property of Dark373 and is protected
 under the Copyright, Designs and Patents Act 1988 and international
 copyright laws. Unauthorized copying, distribution, modification, or use of
 this code, in whole or in part, without explicit written permission from
@@ -42,9 +42,9 @@ the copyright owner is strictly prohibited.
 
 **Permitted use:** No part of this work may be reproduced, distributed,
 adapted, or otherwise used in whole or in part without prior written
-permission from Adam Kessels, except as permitted under the Copyright,
+permission from Dark373, except as permitted under the Copyright,
 Designs and Patents Act 1988 (such as for the purposes of fair dealing or
-for private study or research). In these circumstances, Adam Kessels must
+for private study or research). In these circumstances, Dark373 must
 be acknowledged as the owner of the work in any copies made or extracts
 taken.
 
