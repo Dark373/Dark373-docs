@@ -45,9 +45,6 @@ beginning with "Media" or "Broadcast" refers to a type of render that can
 be switched. Check the [Gallery](gallery.md) to see which renders are
 hidden behind this setting.
 
-*Session Top 3* is a good example: Broadcast and Media are two different
-layouts for the same render.
-
 ## Enabling the theme {: .f1-heading }
 
 Make the theme active from **Renderer themes → Manage themes...**, then
