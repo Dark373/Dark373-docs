@@ -19,7 +19,7 @@ the official Formula One graphics.
   <div class="stat"><span class="stat-label">Author</span><span class="stat-value">Dark373</span></div>
   <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.2.1</span></div>
   <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.6 HF-2+</span></div>
-  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">35</span></div>
+  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">38</span></div>
   <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">65h</span></div>
 </div>
 
@@ -32,7 +32,7 @@ the official Formula One graphics.
 
 ## Copyright Notice {: .f1-heading }
 
-© 2025 Adam Kessels. All rights reserved.
+© 2025 Adam Kessels (Dark373). All rights reserved.
 
 This code is the intellectual property of Adam Kessels and is protected
 under the Copyright, Designs and Patents Act 1988 and international
