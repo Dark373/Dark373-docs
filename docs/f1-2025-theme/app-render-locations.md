@@ -22,12 +22,6 @@ caption for each render type.
 | Standings | Team standings → Overall | **Render team standings** |
 | Standings | Ratings → Overall | **Render deep ratings** |
 | Standings | Teammates | **Render teammates** |
-| Global statistics | Drivers → Overall | **Render drivers statistics** |
-| Global statistics | Drivers → Driver Details | **Render driver statistics** |
-| Global statistics | Teams → Overall | **Render teams statistics** |
-| Global statistics | Teams → Team Details | **Render team statistics** |
-| Global statistics | Tracks → Overall | **Render tracks statistics** |
-| Global statistics | Tracks → Track Details | **Render track statistics** |
 
 <div class="checker-divider"></div>
 

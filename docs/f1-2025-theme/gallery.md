@@ -10,7 +10,7 @@ and Standings. Click any image to zoom in.
 ![F1 2025 Theme render 04](gallery-images/render-04.webp){: width=1400 height=1361 loading=lazy data-location="Calendar and seasons" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 05](gallery-images/render-05.webp){: width=1221 height=1400 loading=lazy data-location="Session Results -> Statistics tab -> Defense Rating" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 06](gallery-images/render-06.webp){: width=1400 height=494 loading=lazy data-location="Session Results -> Race tab" data-theme="TODO: which theme option enables/affects it" }
-![F1 2025 Theme render 07](gallery-images/render-07.webp){: width=1120 height=1400 loading=lazy data-location="Global statistics -> Teams -> Team Details" data-theme="TODO: which theme option enables/affects it" }
+![F1 2025 Theme render 07](gallery-images/render-07.webp){: width=1120 height=1400 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 08](gallery-images/render-08.webp){: width=1400 height=575 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 09](gallery-images/render-09.webp){: width=1400 height=1005 loading=lazy data-location="Penalties -> Penalties summary tab" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 10](gallery-images/render-10.webp){: width=1121 height=1400 loading=lazy data-location="Session Results -> Race tab (Fastest Lap Award)" data-theme="TODO: which theme option enables/affects it" }
@@ -41,7 +41,7 @@ and Standings. Click any image to zoom in.
 ![F1 2025 Theme render 35](gallery-images/render-35.webp){: width=1400 height=1088 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 36](gallery-images/render-36.webp){: width=1400 height=542 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="TODO: which theme option enables/affects it" }
 ![F1 2025 Theme render 37](gallery-images/render-37.webp){: width=1400 height=1090 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="TODO: which theme option enables/affects it" }
-![F1 2025 Theme render 38](gallery-images/render-38.webp){: width=1400 height=1274 loading=lazy data-location="Global statistics -> Teams -> Team Details" data-theme="TODO: which theme option enables/affects it" }
+![F1 2025 Theme render 38](gallery-images/render-38.webp){: width=1400 height=1274 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="TODO: which theme option enables/affects it" }
 </div>
 
 !!! note
