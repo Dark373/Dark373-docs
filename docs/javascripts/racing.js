@@ -108,7 +108,8 @@
     var input = document.getElementById("f1-gate-input");
     var submit = document.getElementById("f1-gate-submit");
     var error = document.getElementById("f1-gate-error");
-    if (!input || !submit || !error) return;
+    if (!input || !submit || !error || submit.dataset.f1GateBound) return;
+    submit.dataset.f1GateBound = "1";
 
     input.focus();
 
@@ -137,8 +138,19 @@
       submit.disabled = true;
       error.textContent = "";
 
-      window.crypto.subtle
-        .importKey("raw", new TextEncoder().encode(value), { name: "PBKDF2" }, false, ["deriveKey"])
+      // Wrapped in Promise.resolve().then(...) rather than calling
+      // importKey() directly: some engines throw synchronously here
+      // instead of returning a rejected promise for certain inputs, and a
+      // sync throw at the start of a chain like this would skip the
+      // .catch() below entirely, leaving submit.disabled stuck true and
+      // nothing ever shown to the user. Deferring the call into a .then()
+      // guarantees any failure — sync or async — always reaches .catch().
+      Promise.resolve()
+        .then(function () {
+          return window.crypto.subtle.importKey("raw", new TextEncoder().encode(value), { name: "PBKDF2" }, false, [
+            "deriveKey",
+          ]);
+        })
         .then(function (baseKey) {
           return window.crypto.subtle.deriveKey(
             {
