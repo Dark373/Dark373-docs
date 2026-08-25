@@ -1,10 +1,11 @@
 # 2026 Known Bugs
 
-| Bug | Status | Notes |
-| --- | --- | --- |
-| Placeholder bug description | Open | Add notes here |
+??? bug
+    | Bug | Status | Notes |
+    | --- | --- | --- |
+    | No known bugs | n/a | n/a |
 
-Found something else? Report it below.
+Found something? Report it below.
 
 <div class="checker-divider"></div>
 
