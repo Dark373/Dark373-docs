@@ -2,17 +2,32 @@
 
 Most renders don't appear on the "Render Graphics" menu at the top of the
 app; the following locations across the app give you access to the full
-rendering potential of the theme.
+rendering potential of the theme. Captions below match RLT's own default
+caption for each render type.
 
-| Area | Where to find it |
-| --- | --- |
-| **Session Results** | Drop-down menu on the right-hand side. |
-| **Calendar** | Buttons at the top right-hand side. |
-| **Driver** | Right-click on the desired driver → *Render driver info*. |
-| **Line-ups** | Buttons at the top right-hand side. |
-| **Penalties** | Right-click on the desired driver, and buttons on the right-hand side. |
-| **Penalties Summary** | Button at the top right-hand side. |
-| **Standings** | Top right-hand side drop-down menus (Driver standings / Team standings). |
+| Section | Tab / sub-tab | Render caption |
+| --- | --- | --- |
+| Session Results | Race tab | **Render results** |
+| Session Results | Qual tab | **Render results** |
+| Session Results | Sprint tab | **Render results** |
+| Session Results | Statistics tab (next to the Race tab) | Buttons on toolbar (one per session stat) |
+| Calendar and seasons | — | **Render calendar** |
+| Drivers and line-ups | Drivers tab (right-click a driver) | **Render driver info** |
+| Drivers and line-ups | Line-Ups tab | Buttons on toolbar |
+| Penalties | Penalties tab, toolbar | **Render last event's penalties** |
+| Penalties | Penalties tab, right-click a row | **Render penalties** |
+| Penalties | Penalties summary tab | **Render season's penalty statistics** |
+| Standings | Driver standings → Overall | **Render driver standings** |
+| Standings | Driver standings → Render stats menu | Buttons on menu (one per season stat) |
+| Standings | Team standings → Overall | **Render team standings** |
+| Standings | Ratings → Overall | **Render deep ratings** |
+| Standings | Teammates | **Render teammates** |
+| Global statistics | Drivers → Overall | **Render drivers statistics** |
+| Global statistics | Drivers → Driver Details | **Render driver statistics** |
+| Global statistics | Teams → Overall | **Render teams statistics** |
+| Global statistics | Teams → Team Details | **Render team statistics** |
+| Global statistics | Tracks → Overall | **Render tracks statistics** |
+| Global statistics | Tracks → Track Details | **Render track statistics** |
 
 <div class="checker-divider"></div>
 
