@@ -5,6 +5,8 @@
 
 # 2026 Overview {: .f1-title }
 
+*Created by Solar.*
+
 > Placeholder page. Replace this with a real project name and description.
 
 ## What it is {: .f1-heading }
