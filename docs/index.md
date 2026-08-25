@@ -32,7 +32,7 @@
 
     <p class="f1-mega-hero-sub">
       Custom themes and layouts for <strong>Racing League Tool (RLT)</strong>, built with the
-      Flex Renderer — overlays, standings boards, and broadcast graphics for sim racing
+      Flex Renderer — results, standings, and much more graphics for sim racing
       leagues.
     </p>
 
