@@ -41,7 +41,7 @@ and Standings. Click any image to zoom in.
 ![F1 2025 Theme render 35](gallery-images/render-35.webp){: width=1400 height=1088 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Background Colour Theme: Light" }
 ![F1 2025 Theme render 36](gallery-images/render-36.webp){: width=1400 height=542 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="Background Colour Theme: Grey; Render Type: Broadcast; Driver Avatars: Team Logo; Display Driver or Team Leader: Team Leader; Render Data Table: true" }
 ![F1 2025 Theme render 37](gallery-images/render-37.webp){: width=1400 height=1090 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Background Colour Theme: Light" }
-![F1 2025 Theme render 38](gallery-images/render-38.webp){: width=1400 height=1274 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="Team colours baked into the Head-to-Head layout, not driven by Background Colour Theme" }
+![F1 2025 Theme render 38](gallery-images/render-38.webp){: width=1400 height=1274 loading=lazy data-location="Standings -> Team standings -> Overall" data-theme="Team colours set by the Head-to-Head layout, not driven by Background Colour Theme" }
 </div>
 
 !!! note
