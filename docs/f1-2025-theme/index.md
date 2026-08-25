@@ -26,8 +26,9 @@ the official Formula One graphics.
 ## Links {: .f1-heading }
 
 - [FAQ](faq.md)
-- [Installation & Setup](installation.md)
-- [Theme Options](theme-options.md)
+- [Installing](installation.md)
+- [Setup](theme-options.md)
+- [App Render Locations](app-render-locations.md)
 - [Gallery](gallery.md)
 - [Known Bugs](known-bugs.md)
 

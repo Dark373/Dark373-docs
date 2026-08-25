@@ -1,4 +1,4 @@
-# 2027 Setup
+# 2027 Installing
 
 ## COMING SOON... {: .f1-heading }
 

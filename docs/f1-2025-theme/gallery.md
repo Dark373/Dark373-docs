@@ -46,7 +46,7 @@ and Standings. Click any image to zoom in.
 
 !!! note
     Some renders come in two layouts, Broadcast and Media, selected via
-    the theme options. See [Theme Options](theme-options.md#broadcast-vs-media)
+    the theme options. See [Setup](theme-options.md#broadcast-vs-media)
     for details.
 
 !!! tip "Filling in the hover captions"

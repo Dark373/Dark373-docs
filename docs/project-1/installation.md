@@ -1,4 +1,4 @@
-# 2026 Setup
+# 2026 Installing
 
 > Placeholder page. Replace this with real installation/update instructions
 > once this theme is ready.

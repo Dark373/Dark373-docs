@@ -1,4 +1,4 @@
-# 2025 Setup
+# 2025 Installing
 
 ## Installing and updates {: .f1-heading }
 
@@ -16,6 +16,11 @@ shared Google Drive.
 
 1. Delete the existing theme folder.
 2. Follow the installation process again.
+
+## Enabling the theme {: .f1-heading }
+
+Make the theme active from **Renderer themes → Manage themes...**, then
+open **Renderer themes → Current theme options...** to configure it.
 
 <div class="checker-divider"></div>
 
