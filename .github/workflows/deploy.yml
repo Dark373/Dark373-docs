@@ -35,6 +35,27 @@ jobs:
           restore-keys: |
             mkdocs-
 
+      # Social cards (docs/index.md, each theme's Overview page, etc. via
+      # the `social` plugin) are rendered with cairosvg, which needs these
+      # system libraries — not just the Python packages in requirements.txt.
+      - name: Install system dependencies for social cards
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+
+      # Caches both the rendered card PNGs and the webfonts the social
+      # plugin downloads from Google Fonts on first use — without this,
+      # every deploy re-fetches fonts and re-renders every card from
+      # scratch. Keyed per-commit so a cache always saves; restore-keys
+      # falls back to the most recent prior cache either way.
+      - name: Cache social card assets
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: social-cards-${{ github.sha }}
+          restore-keys: |
+            social-cards-
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 

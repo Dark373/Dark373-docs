@@ -1,3 +1,10 @@
+---
+title: 2025 Overview
+social:
+  cards_layout_options:
+    background_color: "#a238ff"
+---
+
 <div class="f1-hero">
   <span class="f1-hero-kicker">Round <em>01</em> · 2025 Theme</span>
   <span class="f1-hero-flag">🏁</span>

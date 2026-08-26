@@ -1,3 +1,10 @@
+---
+title: 2027 Overview
+social:
+  cards_layout_options:
+    background_color: "#b8860b"
+---
+
 <div class="f1-hero">
   <span class="f1-hero-kicker">Round <em>03</em> · 2027 Theme</span>
   <span class="f1-hero-flag">🏁</span>

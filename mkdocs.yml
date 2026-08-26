@@ -47,6 +47,10 @@ extra_javascript:
 
 plugins:
   - search
+  - social:
+      cards_layout_options:
+        background_color: "#ff1947"
+        color: "#ffffff"
   - glightbox:
       touchNavigation: true
       loop: false
