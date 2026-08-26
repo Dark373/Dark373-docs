@@ -47,9 +47,121 @@ Every release of the F1 2026 theme, newest first.
 
 </div>
 
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">Beta 1.2.1 - Hotfix</span>
+<span class="f1-release-badge f1-release-badge--pre">Pre-release</span>
 </div>
 
-Versions before 1.3.0 predate this changelog.
+- Fixed the team logo duplicating in "Team Logo" avatar mode; the background team logo is now hidden outside Driver Avatar mode
+- Fixed Session Pole's league logo positioning
+- Removed an unused, disabled gradient overlay on Session Pole
+- Fixed Session Pole's text gradient using the wrong colour variable
+- Session Variable Information's background gradient now colourises by default using the secondary colour
+- Session Variable Information's Custom Colour option now sets the team secondary colour directly, instead of just toggling colourise
+- Added Light mode support to Session Variable Information's background
+- Centre-aligned Session Variable Information's subtext
+- More consistent subtext spacing on Session Variable Information
+- Fixed a "variable name not specified" error on the Drivers'/Constructors' Championship standings when Coloured Position Text is enabled, and gave the position-change column a default font colour
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">Beta 1.2</span>
+<span class="f1-release-badge f1-release-badge--pre">Pre-release</span>
+<span class="f1-release-date">14 Jul 2026</span>
+</div>
+
+- Added Standings Drivers Champion render
+- Added a Variable Information render (Winner/Podium/Fastest/DOTD/Best Moment/Position)
+- Added Deep Ratings Driver and Deep Ratings Season renders
+- Added Session Front Row, Session Pole, and Session Tyre Strategy renders
+- Added Statistics Driver Season render
+- Added Teammates Individual render
+- The Deep Ratings change indicator now shows "=" instead of a gap when nothing changed
+- The broadcast results subheader width is now configurable per layout
+- Updated the broadcast avatar, media results, statistics, and broadcast results styles
+- Updated the driver name fallback logic
+- Added pole time to the top-left of the render
+- Added 2026-season backgrounds
+- Added a "best moment" option to the Variable Information render, with custom naming and sizing
+- Added missing render headers and head-to-head statistics text
+- Fixed a "cannot resolve to a number" error on Most Laps Led and DOTD in Variable Information
+- Fixed the rating-change indicator leaving a large gap when there was nothing to show
+- Fixed several broken data bindings across results and standings renders
+- Fixed a wrong data reference on Statistics Driver Season
+- Fixed a duplicate trigger on Session Pole
+- Fixed a naming bug on the Tyre Strategy render
+- Fixed formatting and description typos in the theme's config files
+- Various other minor fixes
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">Beta 1.1</span>
+<span class="f1-release-badge f1-release-badge--pre">Pre-release</span>
+<span class="f1-release-date">20 Jun 2026</span>
+</div>
+
+- Added a team-limit theme option
+- Fixed driver numbers not persisting on driver standings
+- Fixed the tyre stint text's font colour
+- Added a coloured position-change option
+- Added a colourised league logo option
+- Added a logo-sizing option
+- Fixed non-functional custom avatars on the line-up render
+- Added footer points info
+- Fixed the reserve logo rendering when no team is defined
+- Fixed fastest-lap tyre margins on qualifying results
+- Removed the lap-count number on fastest-lap tyres on qualifying results
+- Fixed stint-column alignment on race results
+- Added a best-moment footer to the race results render, with a public option to show it
+- Fixed driver naming conventions on the line-up render
+- Added the Fastest Sector qualifying render
+- Added the Circuit Data race render
+- Added standings progress on driver standings
+- Added standings progress on team standings
+- The team standings avatar now reflects the leading driver
+- Resized George's avatar
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">Beta 1</span>
+<span class="f1-release-badge f1-release-badge--pre">Pre-release</span>
+<span class="f1-release-date">8 Jun 2026</span>
+</div>
+
+- Initial public beta — 5 renders, feedback requested on the reworked theme options and database compatibility
+- Resized every render and adjusted sizing/margins throughout
+- Added a 3-tier colour scheme for the top 3
+- Reworked theme options into subcategories
+- Colour scheme now follows the season colour instead of the category colour
+- Podium banner colour (P1/P2/P3) is now controlled by the season colour
+- Banner font colour now reflects the season's tertiary colour
+- Avatar display no longer shifts to fill the space when there's no avatar image
+- Added a gradient property for the avatar layer mask
+- Reworked the driver name elements on the avatar display
+- Moved the circuit name into the header, to reflect real life
+- Avatar data can now be switched from winner to fastest lap, etc.
+- New API additions expand the data available on driver standings
+- Avatar display now shows every driver in a team at once on team standings
+- Added an outline font, contributed by @lilracer1
+- Line-up now supports up to 4 drivers per team
+- Added livery support to the line-up render
+- Line-up now auto-calculates from the database
+- Various other tweaks
+
+</div>
+
+</div>
 
 <div class="checker-divider"></div>
 
