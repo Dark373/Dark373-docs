@@ -95,6 +95,7 @@ nav:
           - Setup: f1-2025-theme/theme-options.md
       - App Render Locations: f1-2025-theme/app-render-locations.md
       - Gallery: f1-2025-theme/gallery.md
+      - Changelog: f1-2025-theme/changelog.md
       - Known Limitations: f1-2025-theme/known-bugs.md
   - 2026:
       - Overview: project-1/index.md
