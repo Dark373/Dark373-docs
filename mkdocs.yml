@@ -3,6 +3,7 @@ site_description: Documentation for Racing League Tool (RLT) Flex Renderer theme
 site_url: https://dark373.github.io/Dark373-docs/
 repo_name: Dark373/Dark373-docs
 repo_url: https://github.com/Dark373/Dark373-docs
+copyright: Site built by Solar
 
 theme:
   name: material
