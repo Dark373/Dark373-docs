@@ -104,6 +104,7 @@ nav:
           - Installing: project-1/installation.md
       - App Render Locations: project-1/app-render-locations.md
       - Gallery: project-1/gallery.md
+      - Changelog: project-1/changelog.md
       - Known Limitations: project-1/known-bugs.md
   - 2027:
       - Overview: 2027/index.md

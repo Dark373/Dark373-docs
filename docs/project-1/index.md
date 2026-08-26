@@ -33,6 +33,7 @@ out.
 - [Installing](installation.md)
 - [App Render Locations](app-render-locations.md)
 - [Gallery](gallery.md)
+- [Changelog](changelog.md)
 - [Known Limitations](known-bugs.md)
 
 <div class="checker-divider"></div>
