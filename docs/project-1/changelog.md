@@ -1,7 +1,5 @@
 # 2026 Changelog
 
-Every release of the F1 2026 theme, newest first.
-
 <div class="f1-changelog" markdown="1">
 
 <div class="f1-release" markdown="1">
@@ -72,7 +70,7 @@ Every release of the F1 2026 theme, newest first.
 <div class="f1-release-head">
 <span class="f1-release-version">Beta 1.2</span>
 <span class="f1-release-badge f1-release-badge--pre">Pre-release</span>
-<span class="f1-release-date">14 Jul 2026</span>
+<span class="f1-release-date">17 Jul 2026</span>
 </div>
 
 - Added Standings Drivers Champion render

@@ -1,8 +1,5 @@
 # 2025 Changelog
 
-Every release of the F1 2025 theme, newest first — mirrors the GitHub
-Releases history for this theme.
-
 <div class="f1-changelog" markdown="1">
 
 <div class="f1-release" markdown="1">
