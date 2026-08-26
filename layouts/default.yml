@@ -153,14 +153,21 @@ definitions:
       {{ config.theme.icon.logo | x }}
     {%- endif -%}
 
-# Meta tags
+# Meta tags. og:image/twitter:image carry a ?v= cache-buster off
+# extra.card_version (mkdocs.yml) - Discord (and others) cache the fetched
+# image by its own URL, separately from the page, and that URL is otherwise
+# identical on every deploy since it's just the page path. Re-crawling the
+# page alone (e.g. sharing it with a dummy ?query on the page URL) doesn't
+# help - the image URL inside is unchanged, so the stale cached image gets
+# served again. Bump card_version whenever the card's look changes and it
+# becomes a genuinely new URL.
 tags:
 
   # Open Graph
   og:type: website
   og:title: *page_title_with_site_name
   og:description: *page_description
-  og:image: "{{ image.url }}"
+  og:image: "{{ image.url }}?v={{ config.extra.card_version | default('1') }}"
   og:image:type: "{{ image.type }}"
   og:image:width: "{{ image.width }}"
   og:image:height: "{{ image.height }}"
@@ -170,7 +177,7 @@ tags:
   twitter:card: summary_large_image
   twitter:title: *page_title_with_site_name
   twitter:description: *page_description
-  twitter:image: "{{ image.url }}"
+  twitter:image: "{{ image.url }}?v={{ config.extra.card_version | default('1') }}"
 
 # -----------------------------------------------------------------------------
 # Specification

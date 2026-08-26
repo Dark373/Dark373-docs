@@ -40,6 +40,13 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+extra:
+  # Cache-buster appended to every social card image URL (see
+  # layouts/default.yml) - bump this any time the card's look changes, so
+  # Discord/Twitter/etc. can't keep serving a stale cached image for what
+  # looks like the same URL.
+  card_version: "2"
+
 extra_css:
   - stylesheets/extra.css
 
