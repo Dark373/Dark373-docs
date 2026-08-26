@@ -1,5 +1,5 @@
 ---
-title: 2027 Overview
+title: 2027 Theme
 social:
   cards_layout_options:
     background_color: "#b8860b"

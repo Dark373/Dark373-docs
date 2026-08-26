@@ -1,5 +1,5 @@
 ---
-title: 2025 Overview
+title: 2025 Theme
 social:
   cards_layout_options:
     background_color: "#a238ff"

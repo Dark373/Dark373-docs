@@ -1,5 +1,5 @@
 ---
-title: 2026 Overview
+title: 2026 Theme
 social:
   cards_layout_options:
     background_color: "#2f6fed"
