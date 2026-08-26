@@ -28,6 +28,37 @@ html.f1-section-yellow {
   --f1-accent: #b8860b;
 }
 
+/* The "?" / question admonition (used for every FAQ entry) ships from
+   Material in a fixed yellow-green that has nothing to do with this site's
+   palette. Re-point it at --f1-accent so it rides the same per-section
+   colour as everything else - red by default, purple/blue/green/gold on
+   the sections that set the classes above. Only the colours change here,
+   not the icon - selectors are copied at the same specificity as
+   Material's own so normal cascade order (this file loads after
+   Material's bundled CSS) is enough to win, no !important needed. */
+.md-typeset .admonition.question,
+.md-typeset details.question {
+  border-color: var(--f1-accent);
+}
+.md-typeset .admonition.question:focus-within,
+.md-typeset details.question:focus-within {
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--f1-accent) 10%, transparent);
+}
+.md-typeset .question > .admonition-title,
+.md-typeset .question > summary {
+  background-color: color-mix(in srgb, var(--f1-accent) 10%, transparent);
+}
+.md-typeset .question > .admonition-title::before,
+.md-typeset .question > summary::before {
+  background-color: var(--f1-accent);
+}
+.md-typeset .question > .admonition-title::after,
+.md-typeset .question > summary::after {
+  /* The collapse-arrow chevron on a collapsible (???) question block -
+     ships the same fixed green as everything else above. */
+  color: var(--f1-accent);
+}
+
 /* Bullet points, but racing-themed: cars, a checkered flag, a wheel,
    cycling every three items so a long list doesn't repeat the same icon
    back to back. ::marker keeps this to actual <li> bullets — ordered
