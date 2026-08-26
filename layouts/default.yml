@@ -53,9 +53,9 @@ definitions:
   # texture_image; falls back to the red/homepage variant if unset.
   - &texture_image >-
     {%- if layout.texture_image -%}
-      {{ config.docs_dir }}/assets/images/social-card-texture/{{ layout.texture_image }}.png
+      {{ config.docs_dir }}/assets/images/social-card-texture/{{ layout.texture_image }}.webp
     {%- else -%}
-      {{ config.docs_dir }}/assets/images/social-card-texture/red.png
+      {{ config.docs_dir }}/assets/images/social-card-texture/red.webp
     {%- endif -%}
 
   # Text color (default: white)
