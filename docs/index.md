@@ -3,6 +3,7 @@ title: RLT Themes
 social:
   cards_layout_options:
     background_color: "#ff1947"
+    texture_image: red
 ---
 
 <div class="f1-mega-hero-kicker-row">

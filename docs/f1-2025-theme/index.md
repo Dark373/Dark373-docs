@@ -3,6 +3,7 @@ title: 2025 Theme
 social:
   cards_layout_options:
     background_color: "#a238ff"
+    texture_image: purple
 ---
 
 <div class="f1-hero">

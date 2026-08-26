@@ -47,9 +47,16 @@ definitions:
       }[primary] or "#4051b5" }}
     {%- endif -%}
 
-  # Texture overlay, sits on top of the solid background colour
+  # Texture overlay, sits on top of the solid background colour - a
+  # pre-tinted (shade of that page's own accent, not black) and
+  # pre-shifted-right variant, picked per page via cards_layout_options.
+  # texture_image; falls back to the red/homepage variant if unset.
   - &texture_image >-
-    {{ config.docs_dir }}/assets/images/social-card-texture.png
+    {%- if layout.texture_image -%}
+      {{ config.docs_dir }}/assets/images/social-card-texture/{{ layout.texture_image }}.png
+    {%- else -%}
+      {{ config.docs_dir }}/assets/images/social-card-texture/red.png
+    {%- endif -%}
 
   # Text color (default: white)
   - &color >-

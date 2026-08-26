@@ -3,6 +3,7 @@ title: 2027 Theme
 social:
   cards_layout_options:
     background_color: "#b8860b"
+    texture_image: gold
 ---
 
 <div class="f1-hero">

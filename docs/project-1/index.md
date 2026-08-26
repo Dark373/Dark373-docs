@@ -3,6 +3,7 @@ title: 2026 Theme
 social:
   cards_layout_options:
     background_color: "#2f6fed"
+    texture_image: blue
 ---
 
 <div class="f1-hero">
