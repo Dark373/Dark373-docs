@@ -30,7 +30,7 @@ the official Formula One graphics.
 - [Setup](theme-options.md)
 - [App Render Locations](app-render-locations.md)
 - [Gallery](gallery.md)
-- [Known Bugs](known-bugs.md)
+- [Known Limitations](known-bugs.md)
 
 ## Copyright Notice {: .f1-heading }
 

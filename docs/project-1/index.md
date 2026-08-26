@@ -25,7 +25,7 @@ out.
 - [Installing](installation.md)
 - [App Render Locations](app-render-locations.md)
 - [Gallery](gallery.md)
-- [Known Bugs](known-bugs.md)
+- [Known Limitations](known-bugs.md)
 
 <div class="checker-divider"></div>
 

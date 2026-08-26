@@ -83,7 +83,7 @@ nav:
           - Setup: f1-2025-theme/theme-options.md
       - App Render Locations: f1-2025-theme/app-render-locations.md
       - Gallery: f1-2025-theme/gallery.md
-      - Known Bugs: f1-2025-theme/known-bugs.md
+      - Known Limitations: f1-2025-theme/known-bugs.md
   - 2026:
       - Overview: project-1/index.md
       - FAQ: project-1/faq.md
@@ -91,7 +91,7 @@ nav:
           - Installing: project-1/installation.md
       - App Render Locations: project-1/app-render-locations.md
       - Gallery: project-1/gallery.md
-      - Known Bugs: project-1/known-bugs.md
+      - Known Limitations: project-1/known-bugs.md
   - 2027:
       - Overview: 2027/index.md
       - FAQ: 2027/faq.md

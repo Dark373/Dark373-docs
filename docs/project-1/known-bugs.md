@@ -1,11 +1,10 @@
-# 2026 Known Bugs
+# 2026 Known Limitations
 
-??? bug
-    | Bug | Status | Notes |
-    | --- | --- | --- |
-    | No known bugs | n/a | n/a |
+This page covers by-design limitations, not bugs, so you don't waste a
+report on something that isn't actually broken. Bugs are tracked in the
+Discord bug-report forum, not here — spotted one? Report it below.
 
-Found something? Report it below.
+No known limitations yet.
 
 <div class="checker-divider"></div>
 
