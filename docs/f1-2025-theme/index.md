@@ -2,7 +2,7 @@
 title: 2025 Theme
 social:
   cards_layout_options:
-    background_color: "#a238ff"
+    background_color: "#591f8c"
     texture_image: purple
 ---
 

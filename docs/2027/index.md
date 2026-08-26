@@ -2,7 +2,7 @@
 title: 2027 Theme
 social:
   cards_layout_options:
-    background_color: "#b8860b"
+    background_color: "#654a06"
     texture_image: gold
 ---
 

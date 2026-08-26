@@ -2,7 +2,7 @@
 title: 2026 Theme
 social:
   cards_layout_options:
-    background_color: "#2f6fed"
+    background_color: "#1a3d82"
     texture_image: blue
 ---
 

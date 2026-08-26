@@ -2,7 +2,7 @@
 title: RLT Themes
 social:
   cards_layout_options:
-    background_color: "#ff1947"
+    background_color: "#8c0d27"
     texture_image: red
 ---
 
