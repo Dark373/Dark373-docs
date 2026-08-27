@@ -14,7 +14,7 @@ without permission.
 
 ## Delivery {: .f1-heading }
 
-Everything sold here is a digital theme nothing is shipped. After
+Everything sold here is a digital theme, so nothing is shipped. After
 checkout, delivery is via a shared Google Drive folder plus an email to
 the address used at checkout, and normally lands within about an hour.
 If it's been longer than that, get in touch below.
