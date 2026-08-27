@@ -102,6 +102,7 @@ nav:
       - FAQ: project-1/faq.md
       - Installation:
           - Installing: project-1/installation.md
+          - Setup: project-1/theme-options.md
       - App Render Locations: project-1/app-render-locations.md
       - Gallery: project-1/gallery.md
       - Changelog: project-1/changelog.md

@@ -31,6 +31,7 @@ out.
 
 - [FAQ](faq.md)
 - [Installing](installation.md)
+- [Setup](theme-options.md)
 - [App Render Locations](app-render-locations.md)
 - [Gallery](gallery.md)
 - [Changelog](changelog.md)
