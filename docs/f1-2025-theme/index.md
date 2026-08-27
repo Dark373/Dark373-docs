@@ -74,8 +74,7 @@ with the use of this code.
 Due to the nature of this work, the buyer agrees there will be no refunds
 after purchasing the work. All applications for permission to reproduce
 any part of this work should be addressed to
-<!-- TODO: replace with your real contact email -->
-[your-email@example.com](mailto:your-email@example.com).
+[dark373themes@gmail.com](mailto:dark373themes@gmail.com).
 
 The moral rights of the author(s) under the Copyright, Designs and Patents
 Act 1988 are unaffected by the rights granted in this Copyright Notice.

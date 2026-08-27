@@ -92,8 +92,7 @@ Need a hand? Email me, but please check the forum first, since most
 questions are already answered there. I read every message, but with
 everything else going on, replies can take up to **7 working days**.
 
-<!-- TODO: replace with your real contact email -->
-[your-email@example.com](mailto:your-email@example.com)
+[dark373themes@gmail.com](mailto:dark373themes@gmail.com)
 </div>
 
 <div class="f1-reveal" markdown="1">
