@@ -114,4 +114,6 @@ More projects will be added here over time.
 ## Support {: .f1-heading }
 
 --8<-- "buttons.md"
+
+See [Terms & Policies](policies.md) for delivery, refunds, and licensing.
 </div>
