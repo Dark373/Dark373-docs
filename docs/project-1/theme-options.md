@@ -1,7 +1,7 @@
 # 2026 Setup
 
 Most of this theme is controlled from RLT's own UI. A few effects go
-further and read or edit the theme's own files directly — those sections
+further and read or edit the theme's own files directly: those sections
 are marked and kept separate below.
 
 ## Customising the Theme {: .f1-heading }
@@ -21,13 +21,19 @@ next render.
 | `LogoSize` | Integer | Pixel height of the league logo in the broadcast header |
 | `CustomTyreImages` | Bool | Use custom tyre compound images (see Custom Tyre Images below) |
 
-## Season Colouring (Custom Colour Mode) {: .f1-heading }
+## Custom Colour Mode {: .f1-heading }
 
-Setting `BackgroundColour` to **Custom Colour** switches the theme into
-season-driven colour mode. It reads three colour values directly from
-the RLT season record instead of using the built-in palette.
+Setting `BackgroundColour` to **Custom Colour** moves the theme off its
+built-in palette and onto real colour values instead. Which record it
+reads from, the season or the team, depends on the specific layout
+being rendered: season-wide renders (standings, calendar, and similar)
+pull from the season, while per-team and per-driver renders pull from
+that driver's team. Either way it's the same three fields underneath.
 
-Set these in RLT: **Season Settings → Colours**
+No JSON edits required: the mapping is handled by the
+`globals/global_vars.json` entries covered in Deeper Edits below.
+
+**Season colours**, set in RLT: **Season Settings → Colours**
 
 | Season field | Role | Typical value |
 | --- | --- | --- |
@@ -35,11 +41,17 @@ Set these in RLT: **Season Settings → Colours**
 | `SecondaryColor` | Secondary accents, gradient layers | Team secondary colour |
 | `TertiaryColor` | Foreground text, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#0F1017` |
 
-`TertiaryColor` must be readable on top of `Color`, so pick white or
-near-black unless your primary is a very pale hue.
+**Team colours**, set in RLT: **Database → Team tab**, per team
 
-No JSON edits required: the mapping is handled by the
-`globals/global_vars.json` entries covered in Deeper Edits below.
+| Team field | Role | Typical value |
+| --- | --- | --- |
+| `Color` | Main background / panel fill | Team primary brand colour |
+| `SecondaryColor` | Secondary accents, gradient layers | Team secondary colour |
+| `TertiaryColor` | Foreground text, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#0F1017` |
+
+`TertiaryColor` must be readable on top of `Color`, so pick white or
+near-black unless your primary is a very pale hue. This applies
+whichever source a given layout draws from.
 
 ??? note "Light & Dark Team Logo Variants"
     The theme loads two logo variants per team and switches between them
