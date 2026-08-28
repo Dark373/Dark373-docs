@@ -273,13 +273,13 @@ whichever source a given layout draws from.
 
     **Things to leave alone**
 
-    - `StyleName`: renaming it breaks every layout that references it
-    - `<fg>`, `<fg1>`, `<FgSecondName>`: these are colour values
-      injected at render time, replace them with a literal and the
-      colour stops responding to the theme
-    - `RenderIf: "{Item.Driver.IsDisplayNameMultiPart}"`: present on
-      every second-name-line style, controls whether the line shows
-      at all
+    1. `StyleName`: renaming it breaks every layout that references it
+    2. `<fg>`, `<fg1>`, `<FgSecondName>`: these are colour values
+       injected at render time, replace them with a literal and the
+       colour stops responding to the theme
+    3. `RenderIf: "{Item.Driver.IsDisplayNameMultiPart}"`: present on
+       every second-name-line style, controls whether the line shows
+       at all
 
 ??? note "Localisation"
     **Quick word edits**
