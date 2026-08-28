@@ -47,7 +47,7 @@ No JSON edits required: the mapping is handled by the
 | --- | --- | --- |
 | `Color` | Main background / panel fill | Team primary brand colour |
 | `SecondaryColor` | Secondary accents, gradient layers | Team secondary colour |
-| `TertiaryColor` | Font colour, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#0000000` |
+| `TertiaryColor` | Font colour, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#000000` |
 
 `TertiaryColor` must be readable on top of `Color`, so pick white or
 near-black unless your primary is a very pale hue. This applies
