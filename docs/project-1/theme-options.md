@@ -8,23 +8,23 @@ are marked and kept separate below.
 
 ### Public Properties (no JSON editing required)
 
-In RLT: **Season → Theme Settings → Properties**. Changes apply on the
+In RLT: **Renderer themes → Current theme options...**. Changes apply on the
 next render.
 
 | Property | Type | What it does |
 | --- | --- | --- |
 | `BackgroundColour` | Enum | Overall style: Dark / Grey / Light / Purple / Custom Colour / No Background |
 | `BackgroundVariant` | Enum | Which background texture file loads; swap backgrounds without changing colour mode |
-| `ThemeCategory` | String | League category whose data is shown on multi-category overlays |
+| `ThemeCategory` | String | League category or season name data shown on layouts |
 | `PosJumpColour` | Bool | Enables coloured +/− position-change indicators |
 | `LeagueLogoColorised` | Bool | Tints the championship logo to match the theme accent |
-| `LogoSize` | Integer | Pixel height of the league logo in the broadcast header |
+| `LogoSize` | Integer | Pixel height of the league logo |
 | `CustomTyreImages` | Bool | Use custom tyre compound images (see Custom Tyre Images below) |
 
 ## Custom Colour Mode {: .f1-heading }
 
 Setting `BackgroundColour` to **Custom Colour** moves the theme off its
-built-in palette and onto real colour values instead. Which record it
+built-in palette and onto user defined colour values instead. Which record it
 reads from, the season or the team, depends on the specific layout
 being rendered: season-wide renders (standings, calendar, and similar)
 pull from the season, while per-team and per-driver renders pull from
@@ -33,13 +33,13 @@ that driver's team. Either way it's the same three fields underneath.
 No JSON edits required: the mapping is handled by the
 `globals/global_vars.json` entries covered in Deeper Edits below.
 
-**Season colours**, set in RLT: **Season Settings → Colours**
+**Season colours**, set in RLT: **Edit season → Additional options → Colours**
 
 | Season field | Role | Typical value |
 | --- | --- | --- |
 | `Color` | Main background / panel fill | Team primary brand colour |
 | `SecondaryColor` | Secondary accents, gradient layers | Team secondary colour |
-| `TertiaryColor` | Foreground text, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#0F1017` |
+| `TertiaryColor` | Font colour, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#000000` |
 
 **Team colours**, set in RLT: **Database → Team tab**, per team
 
@@ -47,28 +47,27 @@ No JSON edits required: the mapping is handled by the
 | --- | --- | --- |
 | `Color` | Main background / panel fill | Team primary brand colour |
 | `SecondaryColor` | Secondary accents, gradient layers | Team secondary colour |
-| `TertiaryColor` | Foreground text, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#0F1017` |
+| `TertiaryColor` | Font colour, labels, icon tints | High-contrast value, usually `#FFFFFF` or `#0000000` |
 
 `TertiaryColor` must be readable on top of `Color`, so pick white or
 near-black unless your primary is a very pale hue. This applies
 whichever source a given layout draws from.
 
 ??? note "Light & Dark Team Logo Variants"
-    The theme loads two logo variants per team and switches between them
+    The theme loads logo variants per team and switches between them
     based on the rendering surface. RLT picks variants by appending
     `__variantname` (double underscore) to the base filename.
 
     **Naming**
 
-    The base filename comes from the team's Name or UniqueId in RLT,
-    with dots and spaces replaced by underscores. Matching is
+    The base filename comes from the team's UniqueId in RLT where matching is
     case-insensitive.
 
     ```text
     images/logotypes/teams/
-      red_bull_racing.png          # default / fallback
-      red_bull_racing__light.png   # used on dark backgrounds
-      red_bull_racing__dark.png    # used on light backgrounds
+      red.bull.2026.png          # default / fallback
+      red.bull.2026__light.png   # used on dark backgrounds
+      red.bull.2026__dark.png    # used on light backgrounds
     ```
 
     **Where to place files**
@@ -107,17 +106,16 @@ whichever source a given layout draws from.
 
     !!! tip
         The `LeagueLogoColorised` property (above) controls whether the
-        championship logo is tinted to match the theme accent. Disable
-        it if using a full-colour logo.
+        championship logo is tinted to match the theme accent which requires
+        a black logo for true colour. Disable it if using a full-colour logo.
 
 ??? note "Custom Tyre Images"
     **Step 1: Enable.** In RLT Theme Settings, set `CustomTyreImages`
     to true.
 
-    **Step 2: Add files.** Place PNG images in `user/images/tyres/`
-    (or `images/tyres/` inside the theme folder). Filenames must
-    exactly match the `TyresType` compound names; capitalisation
-    matters:
+    **Step 2: Add files.** Place PNG images in `theme/images/logotypes/tyres/`
+    inside the theme folder. Filenames must exactly match the `TyresType` 
+    compound names; capitalisation matters:
 
     ```text
     user/images/tyres/
@@ -151,11 +149,7 @@ whichever source a given layout draws from.
     "PoleColouredFG": "E046E0",  // pole positions: magenta
     "DOTDColouredFG": "FF7F27"   // DOTD count: orange
     ```
-
-    In the layout these are referenced as `"fg": "{P1ColouredFG}"` next
-    to the wins data column: change the hex value here and every
-    standings table updates.
-
+    
     **Tyre compound colours**
 
     These control the colour of the compound letter/abbreviation text
@@ -223,9 +217,6 @@ whichever source a given layout draws from.
     "80DeepRatingDriverCards":  "B450B4",  // 80-89: purple
     "100DeepRatingDriverCards": "FA50FA"   // 100: bright pink
     ```
-
-    The theme picks the right entry by taking the rating's level value,
-    dividing by 10, and using that as a lookup prefix.
 
     **Date format**
 
@@ -347,7 +338,7 @@ whichever source a given layout draws from.
        formats:
        ```json
        "Vars": {
-         "PenaltyDateFormat": "dd. MMMM yyyy"
+         "PenaltyDateFormat": "dd MMMM yyyy"
        }
        ```
     5. In RLT: **Season → Theme Settings → Localisation** → select your
