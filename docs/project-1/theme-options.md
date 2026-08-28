@@ -53,6 +53,281 @@ No JSON edits required: the mapping is handled by the
 near-black unless your primary is a very pale hue. This applies
 whichever source a given layout draws from.
 
+## All Public Properties {: .f1-heading }
+
+The table above covers this theme's core global settings. Everything else in RLT's Theme Settings panel is grouped below by category, exactly as it's grouped in the app itself, collapsed by default since there's a lot of it.
+
+??? note "Driver Global (5 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Name Casing** | Normal | Changes the casing of characters. Choices: Normal, Upper Case, Lower Case. |
+    | **Position Limit** | 22 (min 1) | Limit the amount of drivers shown on renders. |
+    | **Start Position** | 1 (min 1) | Determines which position continuous lists of drivers/teams starts from. Example: a value of 5 means certain renders will start from P5 instead of P1. |
+    | **Driver Avatars** | Driver Avatar | Choose whether or not to use driver avatars on certain renders. Choices: Driver Avatar, Team Logo, Car Livery, Do Not Render. |
+    | **Driver Race Numbers** | On | Toggles driver race numbers. |
+
+
+??? note "Team Global (4 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Team Limit** | 11 (min 1) | Limit the amount of teams shown on renders. |
+    | **Render Team Names** | On | Renders team names. |
+    | **Team Logos and Liveries** | Team Logos | Changes Logos/Vendors to Liveries. Choices: Team Logos, Car Liveries. |
+    | **Team Name Coloured Font** | Off | Changes font colour for team names. |
+
+
+??? note "Race Results (19 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Driver Race Award Type** | Winner | Chooses the driver race award type. Choices: Winner, Fastest Lap, DOTD, Top Speed, Most Overtakes, Most Laps Led. |
+
+    **Race Column Options**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Penalties** | Number + String | Renders penalties. Choices: Number + String, Number Only, Do Not Render. |
+    | **Render Fastest Lap** | On | Renders fastest lap. |
+    | **Render Laps** | On | Renders laps. |
+    | **Render Grid Position** | On | Renders grid position. |
+    | **Render Pit Stops** | On | Renders pit stops. |
+    | **Render Maximum Speed** | On | Renders maximum speed. |
+    | **Render Overtakes** | On | Renders overtakes. |
+    | **Render Positions Lost** | On | Renders positions lost. |
+    | **Render Lead Laps** | On | Renders lead laps. |
+    | **Render Lead Distance** | On | Renders lead distance. |
+    | **Render Race Distance %** | On | Renders race distance %. |
+    | **Render Stints** | On | Renders stints. |
+    | **Render Fastest Lap Footer** | On | Renders fastest lap footer. |
+    | **Render Driver Of The Day Footer** | On | Renders driver of the day footer. |
+    | **Render Most Laps Led Footer** | On | Renders most laps led footer. |
+    | **Render Best Moment Footer** | On | Renders best moment footer. |
+    | **Best Moment String** | "MOMENT" | Maximum 9 Characters. |
+
+    **Circuit Data**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Circuit Data** | Fastest Sectors | Chooses the circuit data. Choices: Fastest Sectors, MaxSpeed, LeadLaps, OvertakesCount, LosePositionsCount. |
+
+
+??? note "Qualifying Results (10 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Type** | Broadcast | Affects Qualifying results only, due to a lack of layout versions available. Choices: Broadcast, Media. |
+    | **Q2 Knockout Start Position** | 11 (min 0) | The first grid position eliminated in Q2 (e.g. 11 if the top 10 advance to Q3). Controls the 'Q2' separator placement. |
+    | **Q1 Knockout Start Position** | 17 (min 0) | The first grid position eliminated in Q1 (e.g. 17 if 16 drivers advance to Q2). Controls the 'Q1' separator placement. |
+
+    **Qualifying Column Options**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Points** | On | Renders points. |
+    | **Render Time Gap** | On | Renders time gap. |
+    | **Render Sector Times** | On | Renders sector times. |
+    | **Render Penalties** | On | Renders penalties. |
+    | **Render Laps** | On | Renders laps. |
+    | **Render Maximum Speed** | On | Renders maximum speed. |
+    | **Render Tyre** | On | Renders tyre. |
+
+
+??? note "Variable Data (4 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Variable Data** | Winner (P1) | Chooses the variable data. Choices: Winner (P1), Podium (P2), Podium (P3), Fastest, DOTD, Best Moment, Most Laps Led, Position. |
+    | **Best Moment Definition** | "CLEANEST" | Sets the best moment definition. |
+    | **Best Moment String Font Size** | 170 | Sets the best moment string font size. |
+    | **Position Value** | 4 | Sets the position value. |
+
+
+??? note "The Grid (1 option)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Time** | Off | Renders time. |
+
+
+??? note "Standings (40 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Progress Standings** | Do Not Render | Chooses the progress standings. Choices: Points, Position, PenaltyPoints, PenaltyTimeSum, Do Not Render. |
+    | **Render Incomplete Events on Progress Standings** | Off | Renders all events including incompleted events on standings progress. |
+    | **Coloured Text** | Off | Enables coloured text on the standings table. |
+    | **Media Team Coloured Background** | Off | Renders team colours as the background on media standings. |
+    | **Driver Standings Award Type** | Leader | Chooses the driver standings award type. Choices: Leader. |
+
+    **Standings Column Options**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Standings Data Table** | On | Only affects the data table of Media Standings renders. |
+    | **Render Position Change** | On | Only affects Media Standings renders. |
+    | **Render Points Gained** | On | Renders points gained. |
+    | **Render Interval** | On | Renders interval. |
+    | **Render Gap To Leader** | On | Renders gap to leader. |
+    | **Render Podium Counts** | On | Renders podium counts. |
+    | **Render Top 5 Count** | On | Renders top 5 count. |
+    | **Render Top 10 Count** | On | Renders top 10 count. |
+    | **Render Best Race Position** | On | Renders best race position. |
+    | **Render Worst Race Position** | On | Renders worst race position. |
+    | **Render Average Race Position** | On | Renders average race position. |
+    | **Render Best Qualifying Position** | On | Renders best qualifying position. |
+    | **Render Worst Qualifying Position** | On | Renders worst qualifying position. |
+    | **Render Average Qualifying Position** | On | Renders average qualifying position. |
+    | **Render Average Position Change** | On | Renders average position change. |
+    | **Render Fastest Lap Count** | On | Renders fastest lap count. |
+    | **Render Pole Count** | On | Renders pole count. |
+    | **Render Driver Of The Day Count** | On | Renders driver of the day count. |
+    | **Render Best Top Speed** | On | Renders best top speed. |
+    | **Render Total Overtakes** | On | Renders total overtakes. |
+    | **Render Average Overtakes Per Race** | On | Renders average overtakes per race. |
+    | **Render Total Positions Lost** | On | Renders total positions lost. |
+    | **Render Average Positions Lost Per Race** | On | Renders average positions lost per race. |
+    | **Render Lap Finish %** | On | Renders lap finish %. |
+    | **Render Laps Led** | On | Renders laps led. |
+    | **Render Lead Distance** | On | Renders lead distance. |
+    | **Render Rounds Lead Count** | On | Renders rounds lead count. |
+    | **Render Total Penalty Time** | On | Renders total penalty time. |
+    | **Render Total Penalty Points** | On | Renders total penalty points. |
+    | **Render DNF Count** | On | Renders DNF count. |
+    | **Render DSQ Count** | On | Renders DSQ count. |
+    | **Render Average Points Per Race** | On | Renders average points per race. |
+    | **Render Scoring Rate** | On | Renders scoring rate. |
+    | **Render Events Participated** | On | Renders events participated. |
+
+    **Constructors Champion**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Amount of Drivers to Display** | 2 (min 2, max 4) | Determines the amount of drivers displayed on the constructors champion render. |
+
+
+??? note "Line-ups (3 options)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Background Colour For Second Panel** | Dark | Changes the colour theme of certain backgrounds. Choices: Dark, Grey, Light, Purple, No Background. |
+    | **Team To Render** | 1 (min 1) | Select which team to render (1 = first team, 2 = second, etc). |
+    | **Display Livery** | On | Toggles display livery. |
+
+
+??? note "Statistics (63 options)"
+    **Global**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Global Progression Value** | Points | Option for Team Standings in global statistics. Choices: Points, Wins, Podiums, Top5, Top10. |
+    | **Coloured Text** | Off | Enables coloured text on global/multiseason statistics tables. |
+    | **Driver Sort On Team Details** | Points | Option to change how the top drivers of a team are ordered. Choices: SeasonsCount, RacesCount, EventsCount, Points, Wins, Podiums, Poles. |
+    | **Number Of Drivers On Team Details** | 2 (min 2, max 4) | Option to change the number of drivers displayed on Team Details render. |
+
+    **Participation Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Total Qualifications** | Off | Renders total qualifications. |
+    | **Render Total Major Races** | Off | Renders total major races. |
+    | **Render Total Major Qualifications** | Off | Renders total major qualifications. |
+    | **Render Total Races Finished** | Off | Renders total races finished. |
+    | **Render Race Completion Rate** | Off | Renders race completion rate. |
+    | **Render Event Completion Rate** | Off | Renders event completion rate. |
+
+    **Points Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Average Points Per Season** | Off | Renders average points per season. |
+    | **Render Average Points Per Race** | Off | Renders average points per race. |
+    | **Render Average Points Per Event** | Off | Renders average points per event. |
+    | **Render Best Season Points** | Off | Renders best season points. |
+    | **Render Worst Season Points** | Off | Renders worst season points. |
+    | **Render Best Race Points** | Off | Renders best race points. |
+    | **Render Scoring Races Count** | Off | Renders scoring races count. |
+    | **Render Scoring Rate** | Off | Renders scoring rate. |
+
+    **Standings Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Best Standings Position** | Off | Renders best standings position. |
+    | **Render Worst Standings Position** | Off | Renders worst standings position. |
+    | **Render Average Standings Position** | Off | Renders average standings position. |
+    | **Render Runner Up Finishes** | Off | Renders runner up finishes. |
+    | **Render Top Three Standings Finishes** | Off | Renders top three standings finishes. |
+    | **Render Top Five Standings Finishes** | Off | Renders top five standings finishes. |
+    | **Render Total Rounds Leading** | Off | Renders total rounds leading. |
+
+    **Positions Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Worst Race Position** | Off | Renders worst race position. |
+    | **Render Race P2 Finishes** | Off | Renders race P2 finishes. |
+    | **Render Race P3 Finishes** | Off | Renders race P3 finishes. |
+    | **Render Average Grid Position** | Off | Renders average grid position. |
+    | **Render Average Position Change** | Off | Renders average position change. |
+    | **Render Best Qualifying Position** | Off | Renders best qualifying position. |
+    | **Render Worst Qualifying Position** | Off | Renders worst qualifying position. |
+    | **Render Qualifying P2 Finishes** | Off | Renders qualifying P2 finishes. |
+    | **Render Qualifying P3 Finishes** | Off | Renders qualifying P3 finishes. |
+
+    **Race Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Total Overtakes** | Off | Renders total overtakes. |
+    | **Render Average Overtakes Per Race** | Off | Renders average overtakes per race. |
+
+    **Discipline Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Dsq Count** | Off | Renders dsq count. |
+    | **Render Clean Races Count** | Off | Renders clean races count. |
+    | **Render Total Stewards Penalty Seconds** | Off | Renders total stewards penalty seconds. |
+    | **Render Average Stewards Penalty Seconds Per Race** | Off | Renders average stewards penalty seconds per race. |
+
+    **Track Details**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Render Events Count** | On | Renders events count. |
+    | **Render Seasons Count** | On | Renders seasons count. |
+    | **Render Average Pit Stops** | On | Renders average pit stops. |
+    | **Render Average Overtakes** | On | Renders average overtakes. |
+    | **Render Average Duration** | On | Renders average duration. |
+    | **Render Maximum Speed** | On | Renders maximum speed. |
+    | **Render Total Safety Cars** | On | Renders total safety cars. |
+    | **Render Total Virtual Safety Cars** | On | Renders total virtual safety cars. |
+    | **Render Average Safety Cars Per Race** | On | Renders average safety cars per race. |
+    | **Render Average Virtual Safety Cars Per Race** | On | Renders average virtual safety cars per race. |
+    | **Render Race Lap Record** | On | Renders race lap record. |
+    | **Render Race Lap Record Season** | On | Renders race lap record season. |
+    | **Render Most Wins Driver** | On | Renders most wins driver. |
+    | **Render Most Podiums Driver** | On | Renders most podiums driver. |
+    | **Render Qualifying Lap Record** | On | Renders qualifying lap record. |
+    | **Render Qualifying Lap Record Season** | On | Renders qualifying lap record season. |
+    | **Render Most Poles Driver** | On | Renders most poles driver. |
+
+    **Ratings**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Season Rating Value** | RacePace | Chooses the season rating value. Choices: RacePace, Consistency, Attack, Defense. |
+    | **Card View** | Panel | Switches between a single driver card and a multi-driver panel. Choices: Panel, Individual. |
+    | **Individual Driver To Display** | 1 (min 1) | Select which driver to display on the individual card view. |
+    | **Driver Card Row Count** | 5 (min 1) | Amount of rows to display for driver ratings panel. |
+    | **Driver Card Column Count** | 5 (min 1) | Amount of columns to display for driver ratings panel. |
+
+    **Head 2 Head**
+
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Individual Statistic** | TeamPoints | Selects which statistic is displayed on the H2H individual stat render. Choices: TeamPoints, EventsForTeam, RacesForTeam, QualsForTeam, BestRacePosition, BestQualPosition, CountP1, CountP3, CountQualP1, WinsString, LossesString, DrawsString, WinPercentageString. |
+
+
+??? note "Penalty (1 option)"
+    | Option | Default | What it does |
+    | --- | --- | --- |
+    | **Date Format** | Day Month | Chooses the date format. Choices: Day Month, Day Month Year, Month Day, Month Day Year, Day/Month/Year, Month/Day/Year. |
+
 ??? note "Light & Dark Team Logo Variants"
     The theme loads logo variants per team and switches between them
     based on the rendering surface. RLT picks variants by appending
