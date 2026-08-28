@@ -243,6 +243,53 @@ whichever source a given layout draws from.
     used as a variable name, which then resolves to the actual format
     string above.
 
+??? note "Styles"
+    A style is a named set of properties (font, size, colour, padding,
+    alignment) defined once and applied to many blocks across the
+    theme. Changing a value in a style updates every block that uses
+    it, across every layout.
+
+    Styles live in the `styles/` folder, split into five files by
+    area:
+
+    ```text
+    styles/
+      BroadcastResults.json   # broadcast results rows and session graphics
+      MediaResults.json       # media standings, The Grid, session fastest
+      NameStyles.json         # driver name rendering across all graphics
+      Statistics.json         # statistics tables, track details, deep ratings
+      Penalty.json            # penalty decision documents
+    ```
+
+    Each entry looks like this. The `StyleName` is the identifier
+    layouts use to pull it in, everything else is what gets applied:
+
+    ```json
+    {
+      "StyleName": "BroadcastTime",
+      "Foreground": "<fg>",
+      "FontName":   "{FontKHRegular}",
+      "FontSize":   32,
+      "Padding":    "35,0",
+      "Margin":     "0,2,0,0"
+    }
+    ```
+
+    Since everything is named after what it controls
+    (`BroadcastPos`, `MediaStandingsPoints`, `TheGridTeamLogoStyle`,
+    `PenaltyHeaderTextStyle`, and so on), find the graphic you want to
+    change, locate the matching style name, and edit the value there.
+
+    **Things to leave alone**
+
+    - `StyleName`: renaming it breaks every layout that references it
+    - `<fg>`, `<fg1>`, `<FgSecondName>`: these are colour values
+      injected at render time, replace them with a literal and the
+      colour stops responding to the theme
+    - `RenderIf: "{Item.Driver.IsDisplayNameMultiPart}"`: present on
+      every second-name-line style, controls whether the line shows
+      at all
+
 ??? note "Localisation"
     **Quick word edits**
 
