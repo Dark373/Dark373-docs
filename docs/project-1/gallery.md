@@ -1,8 +1,9 @@
 # 2026 Gallery
 
-52 renders across Broadcast & Media Variable Data, Race and Qualifying
+57 renders across Broadcast & Media Variable Data, Race and Qualifying
 Results, Championship Standings, Line-ups, Multiseason Statistics, Ratings,
-the Grid and Penalties. Click any image to zoom in.
+the Grid, Speed Trap & Fastest Sectors, and Penalties. Click any image to
+zoom in.
 
 <div class="gallery-grid" markdown="1">
 ![Broadcast Variable Data: Best Moment](gallery-images/broadcast-variable-data-best-moment.webp){: width=1400 height=788 loading=lazy }
@@ -11,11 +12,14 @@ the Grid and Penalties. Click any image to zoom in.
 ![Broadcast Variable Data: Podium](gallery-images/broadcast-variable-data-podium.webp){: width=1400 height=788 loading=lazy }
 ![Broadcast Variable Data](gallery-images/broadcast-variable-data.webp){: width=1400 height=788 loading=lazy }
 ![Constructors' Championship: Leaders](gallery-images/constructors-championship-leaders.webp){: width=1400 height=789 loading=lazy }
+![Constructors' Championship: Season Progress](gallery-images/constructors-championship-season-progress.webp){: width=1400 height=760 loading=lazy }
 ![Driver Media: Progress Standings](gallery-images/driver-media-progress-standings.webp){: width=1400 height=947 loading=lazy }
 ![Driver Media: Standings](gallery-images/driver-media-standings.webp){: width=1080 height=1350 loading=lazy }
 ![Driver Standings: Champion & Leader](gallery-images/driver-standings-champion-leader.webp){: width=919 height=1149 loading=lazy }
 ![Driver Standings: Champion](gallery-images/driver-standings-champion.webp){: width=919 height=1149 loading=lazy }
 ![Drivers' Championship: Leader](gallery-images/drivers-championship-leader.webp){: width=1400 height=633 loading=lazy }
+![Drivers' Championship: Season Progress](gallery-images/drivers-championship-season-progress.webp){: width=1400 height=670 loading=lazy }
+![Fastest Sectors](gallery-images/fastest-sectors.webp){: width=1200 height=1200 loading=lazy }
 ![Line-up: Williams](gallery-images/lineup-williams.webp){: width=622 height=1200 loading=lazy }
 ![Media: Qualifying Results](gallery-images/media-qual-results.webp){: width=1120 height=1400 loading=lazy }
 ![Media: Race Results](gallery-images/media-race-results.webp){: width=1120 height=1400 loading=lazy }
@@ -31,6 +35,7 @@ the Grid and Penalties. Click any image to zoom in.
 ![Multiseason Track Overall](gallery-images/multiseason-track-overall.webp){: width=1400 height=1200 loading=lazy }
 ![Penalty](gallery-images/penalty.webp){: width=989 height=1400 loading=lazy }
 ![Qualifying Classification: Fastest](gallery-images/qualifying-classification-fastest.webp){: width=1400 height=803 loading=lazy }
+![Qualifying Classification: Full Grid](gallery-images/qualifying-classification-full-grid.webp){: width=1388 height=1400 loading=lazy }
 ![Qualifying Results: Fastest Top 3](gallery-images/quali-results-fastest-top-3.webp){: width=1120 height=1400 loading=lazy }
 ![Qualifying Results: Front Row](gallery-images/qualifying-results-front-row.webp){: width=1120 height=1400 loading=lazy }
 ![Qualifying Results: Pole Position](gallery-images/qualifying-results-pole.webp){: width=919 height=1149 loading=lazy }
@@ -45,6 +50,7 @@ the Grid and Penalties. Click any image to zoom in.
 ![Race Results Variable Data: Driver of the Day](gallery-images/race-results-variable-data-dotd.webp){: width=919 height=1149 loading=lazy }
 ![Race Results Variable Data: Best Moment](gallery-images/race-results-varibale-data-bestmoment.webp){: width=919 height=1149 loading=lazy }
 ![Season Stats](gallery-images/season-stats.webp){: width=1195 height=1246 loading=lazy }
+![Speed Trap](gallery-images/speed-trap.webp){: width=1014 height=1400 loading=lazy }
 ![Standings Ratings: Driver Rating Card](gallery-images/standings-ratings-driver-rating-card.webp){: width=800 height=1214 loading=lazy }
 ![Standings Ratings: Season Deep Ratings](gallery-images/standings-ratings-season-deep-ratings.webp){: width=811 height=1314 loading=lazy }
 ![Standings: Teammates](gallery-images/standings-teammates.webp){: width=919 height=1149 loading=lazy }
