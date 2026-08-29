@@ -21,17 +21,9 @@ own active development. That meant a longer wait than planned, and I
 appreciate your patience with it. I think it was worth the wait. I hope you
 enjoy the theme.
 
-## What it is {: .f1-heading }
-
-A short description of this RLT Flex Renderer theme/layout goes here: what
-it's for, which series or league it was built for, and what makes it stand
-out.
-
-## Features {: .f1-heading }
-
-- Feature one
-- Feature two
-- Feature three
+!!! info "Trademark disclaimer"
+    See the disclaimer on the [homepage](../index.md); it covers this and
+    every other RLT theme on this site.
 
 ## At a glance {: .f1-heading }
 
