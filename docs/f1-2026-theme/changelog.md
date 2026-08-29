@@ -5,8 +5,19 @@
 <div class="f1-release" markdown="1">
 
 <div class="f1-release-head">
-<span class="f1-release-version">v1.3.1 - hotfix</span>
+<span class="f1-release-version">v1.0</span>
 <span class="f1-release-badge f1-release-badge--latest">Latest</span>
+<span class="f1-release-date">1 Sept 2026</span>
+</div>
+
+- Main release is published
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">v1.3.1 - hotfix</span>
 <span class="f1-release-date">6 Aug 2026</span>
 </div>
 
