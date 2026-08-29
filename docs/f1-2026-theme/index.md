@@ -100,6 +100,10 @@ any part of this work should be addressed to
 The moral rights of the author(s) under the Copyright, Designs and Patents
 Act 1988 are unaffected by the rights granted in this Copyright Notice.
 
+## Credits {: .f1-heading }
+
+- **lilracer1**: provided the F1OutlineNumbers font
+
 <div class="checker-divider"></div>
 
 ## Support {: .f1-heading }
