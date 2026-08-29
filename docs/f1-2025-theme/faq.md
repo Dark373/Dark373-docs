@@ -1,5 +1,10 @@
 # 2025 FAQ
 
+??? question "Team logos aren't showing up on some renders"
+    This mostly affects renders that use logotype variants, most often
+    Team/Driver Standings and Session Results. Restart the app first. If
+    that doesn't fix it, restart your PC or laptop.
+
 ??? question "I purchased the F1 2025 theme but haven't received it"
     Wait about an hour, then check your shared Google Drive folder and the
     inbox for the email address you used at checkout. Delivery normally
