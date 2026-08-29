@@ -33,8 +33,8 @@ out.
   <div class="stat"><span class="stat-label">Author</span><span class="stat-value">Dark373</span></div>
   <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.0</span></div>
   <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.8 HF-1</span></div>
-  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">51</span></div>
-  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">TBC</span></div>
+  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">52</span></div>
+  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">177h</span></div>
 </div>
 
 ## Links {: .f1-heading }
