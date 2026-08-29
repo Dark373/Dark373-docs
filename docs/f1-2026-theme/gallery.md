@@ -1,6 +1,6 @@
 # 2026 Gallery
 
-52 renders across Broadcast & Media Variable Data, Race and Qualifying
+72 renders across Broadcast & Media Variable Data, Race and Qualifying
 Results, Championship Standings, Line-ups, Multiseason Statistics, Ratings,
 Session Statistics, the Grid, Speed Trap & Fastest Sectors, and Penalties.
 Click any image to zoom in.
