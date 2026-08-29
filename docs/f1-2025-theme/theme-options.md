@@ -31,7 +31,7 @@ colours. Tertiary colours are used as font colours throughout the theme.
 1. Prepare your custom avatars using a canvas with equal height and width
    (you may need to adjust the canvas size to get the perfect fit).
 2. Rename the images to match the driver's name in the app.
-3. Place the images in `<app_root_folder>/images/driver_avatars/` (create
+3. Place the images in `<theme_root_folder>/images/driver_avatars/` (create
    the folder if it doesn't already exist).
 
 Using the default avatars as a guide, try lining your image up against the
@@ -45,12 +45,12 @@ the theme's defaults were built though, so two small additions cover
 them:
 
 1. **Driver avatars.** Add a PNG for each Audi and Cadillac driver to
-   `<app_root_folder>/images/driver_avatars/`, named after the team plus
+   `<theme_root_folder>/images/driver_avatars/`, named after the team plus
    their seat position: `Audi_1.png`, `Audi_2.png`, `Cadillac_1.png`,
    `Cadillac_2.png`.
 2. **Light logo variant (optional).** Want a light version of either
    team's logo too? Add a 256×256 PNG with a `__light` suffix to
-   `<app_root_folder>/images/logotypes/teams/`.
+   `<theme_root_folder>/images/logotypes/teams/`.
 
 That's the whole list. Everything else on this page still applies as-is.
 
