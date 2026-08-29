@@ -99,7 +99,7 @@ everything else going on, replies can take up to **7 working days**.
 ## Projects {: .f1-heading }
 
 - [2025](f1-2025-theme/index.md): overview, installation, theme options, gallery, and known bugs
-- [2026](project-1/index.md): overview, installation, gallery, and known bugs
+- [2026](f1-2026-theme/index.md): overview, installation, gallery, and known bugs
 - [2027](2027/index.md): coming soon
 - [Commissions](commissions/index.md): coming soon
 

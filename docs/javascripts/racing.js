@@ -247,7 +247,7 @@
   function applySectionAccent() {
     var html = document.documentElement;
     var purple = /\/f1-2025-theme\//.test(location.pathname);
-    var blue = !purple && /\/project-1\//.test(location.pathname);
+    var blue = !purple && /\/f1-2026-theme\//.test(location.pathname);
     var green = !purple && !blue && /\/commissions\//.test(location.pathname);
     var yellow = !purple && !blue && !green && /\/2027\//.test(location.pathname);
     html.classList.toggle("f1-section-purple", purple);

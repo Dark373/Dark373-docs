@@ -98,15 +98,15 @@ nav:
       - Changelog: f1-2025-theme/changelog.md
       - Known Limitations: f1-2025-theme/known-bugs.md
   - 2026:
-      - Overview: project-1/index.md
-      - FAQ: project-1/faq.md
+      - Overview: f1-2026-theme/index.md
+      - FAQ: f1-2026-theme/faq.md
       - Installation:
-          - Installing: project-1/installation.md
-          - Setup: project-1/theme-options.md
-      - App Render Locations: project-1/app-render-locations.md
-      - Gallery: project-1/gallery.md
-      - Changelog: project-1/changelog.md
-      - Known Limitations: project-1/known-bugs.md
+          - Installing: f1-2026-theme/installation.md
+          - Setup: f1-2026-theme/theme-options.md
+      - App Render Locations: f1-2026-theme/app-render-locations.md
+      - Gallery: f1-2026-theme/gallery.md
+      - Changelog: f1-2026-theme/changelog.md
+      - Known Limitations: f1-2026-theme/known-bugs.md
   - 2027:
       - Overview: 2027/index.md
       - FAQ: 2027/faq.md
