@@ -1,9 +1,9 @@
 # 2026 Gallery
 
-57 renders across Broadcast & Media Variable Data, Race and Qualifying
+72 renders across Broadcast & Media Variable Data, Race and Qualifying
 Results, Championship Standings, Line-ups, Multiseason Statistics, Ratings,
-the Grid, Speed Trap & Fastest Sectors, and Penalties. Click any image to
-zoom in.
+Session Statistics, the Grid, Speed Trap & Fastest Sectors, and Penalties.
+Click any image to zoom in.
 
 <div class="gallery-grid" markdown="1">
 ![Broadcast Variable Data: Best Moment](gallery-images/broadcast-variable-data-best-moment.webp){: width=1400 height=788 loading=lazy }
@@ -50,6 +50,21 @@ zoom in.
 ![Race Results Variable Data: Driver of the Day](gallery-images/race-results-variable-data-dotd.webp){: width=919 height=1149 loading=lazy }
 ![Race Results Variable Data: Best Moment](gallery-images/race-results-varibale-data-bestmoment.webp){: width=919 height=1149 loading=lazy }
 ![Season Stats](gallery-images/season-stats.webp){: width=1195 height=1246 loading=lazy }
+![Season Stats: Broadcast Avg Grid to Finish Change](gallery-images/season-stats-broadcast-avg-grid-finish-change.webp){: width=851 height=744 loading=lazy }
+![Session Stats: Attack Rating (Broadcast)](gallery-images/session-stats-broadcast-attack-rating.webp){: width=1400 height=1277 loading=lazy }
+![Session Stats: Attack Rating (Media)](gallery-images/session-stats-media-attack-rating.webp){: width=1400 height=1333 loading=lazy }
+![Session Stats: Consistency Rating (Broadcast)](gallery-images/session-stats-broadcast-consistency-rating.webp){: width=1400 height=1231 loading=lazy }
+![Session Stats: Consistency Rating (Media)](gallery-images/session-stats-media-consistency-rating.webp){: width=1400 height=1265 loading=lazy }
+![Session Stats: Defense Rating (Broadcast)](gallery-images/session-stats-broadcast-defense-rating.webp){: width=1400 height=1269 loading=lazy }
+![Session Stats: Defense Rating (Media)](gallery-images/session-stats-media-defense-rating.webp){: width=1400 height=1333 loading=lazy }
+![Session Stats: Longest Stints (Broadcast)](gallery-images/session-stats-broadcast-longest-stints.webp){: width=1400 height=970 loading=lazy }
+![Session Stats: Longest Stints (Media)](gallery-images/session-stats-media-longest-stints.webp){: width=1400 height=1014 loading=lazy }
+![Session Stats: Pure Race Pace (Broadcast)](gallery-images/session-stats-broadcast-pure-race-pace.webp){: width=1400 height=1005 loading=lazy }
+![Session Stats: Pure Race Pace (Media)](gallery-images/session-stats-media-pure-race-pace.webp){: width=1400 height=1013 loading=lazy }
+![Session Stats: Top Battles (Broadcast)](gallery-images/session-stats-broadcast-top-battles.webp){: width=1400 height=957 loading=lazy }
+![Session Stats: Top Battles (Media)](gallery-images/session-stats-media-top-battles.webp){: width=1400 height=764 loading=lazy }
+![Session Stats: Top Fastest Laps (Broadcast)](gallery-images/session-stats-broadcast-top-fastest-laps.webp){: width=1400 height=920 loading=lazy }
+![Session Stats: Top Fastest Laps (Media)](gallery-images/session-stats-media-top-fastest-laps.webp){: width=1400 height=891 loading=lazy }
 ![Speed Trap](gallery-images/speed-trap.webp){: width=1014 height=1400 loading=lazy }
 ![Standings Ratings: Driver Rating Card](gallery-images/standings-ratings-driver-rating-card.webp){: width=800 height=1214 loading=lazy }
 ![Standings Ratings: Season Deep Ratings](gallery-images/standings-ratings-season-deep-ratings.webp){: width=811 height=1314 loading=lazy }
