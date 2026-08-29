@@ -73,6 +73,14 @@ html.f1-section-yellow {
   content: "🛞  ";
 }
 
+/* pymdownx.tasklist items (checkbox lists) are still <li> under the hood,
+   so the emoji markers above would otherwise print right next to
+   Material's own checkbox indicator - same class of bug as the gallery
+   caption fix elsewhere in this file, same fix. */
+.md-typeset .task-list-item::marker {
+  content: "" !important;
+}
+
 /* Reusable image gallery grid — a masonry layout (CSS multi-column, not
    CSS Grid) so images keep their native aspect ratio instead of being
    cover-cropped into uniform tiles. Wrap a block of Markdown images in a
