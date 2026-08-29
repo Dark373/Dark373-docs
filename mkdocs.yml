@@ -48,10 +48,10 @@ extra:
   card_version: "3"
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css?v=3
 
 extra_javascript:
-  - javascripts/racing.js
+  - javascripts/racing.js?v=3
 
 plugins:
   - search
