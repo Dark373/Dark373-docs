@@ -233,7 +233,11 @@ html.f1-section-yellow {
 }
 
 .f1-gallery-panel ul li::marker {
-  content: "";
+  /* !important earns its keep here: the site-wide emoji markers above
+     include an :nth-child(3n+2)/(3n+3) variant, which outranks this
+     plain-specificity reset on every 2nd/3rd caption line - the emoji
+     was winning the cascade and overlapping the "•" bullet below. */
+  content: "" !important;
 }
 
 .f1-gallery-panel ul li::before {
