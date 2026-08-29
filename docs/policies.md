@@ -12,6 +12,12 @@ licence to use the theme within Racing League Tools, not ownership of the
 underlying work, and it may not be resold, redistributed, or reproduced
 without permission.
 
+## Credit & Attribution {: .f1-heading }
+
+If you post renders made with one of these themes publicly, whether on
+Discord, social media, or anywhere else, a credit back to Dark373 is
+always appreciated, though not required.
+
 ## Delivery {: .f1-heading }
 
 Everything sold here is a digital theme, so nothing is shipped. After
