@@ -39,7 +39,6 @@ enjoy the theme.
 
 ??? note "Roadmap"
     - [ ] Calendar
-    - [ ] Official Driver Lineup
     - [ ] Driver Lineup (list)
     - [ ] Qualifying time graph
     - [ ] Standings Spotlight
