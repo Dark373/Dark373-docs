@@ -15,7 +15,7 @@ without permission.
 ## Credit & Attribution {: .f1-heading }
 
 If you post renders made with one of these themes publicly, whether on
-Discord, social media, or anywhere else, a credit back to Dark373 is
+Discord, social media, or anywhere else, a credit back to me (Dark373) is
 always appreciated, though not required. It's the main way other people
 find these themes in the first place.
 
