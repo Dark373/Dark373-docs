@@ -132,8 +132,8 @@ html.f1-section-yellow {
 
 /* Solid accent-coloured ring (no blur, so it reads as a defined border
    rather than a soft glow) plus a dark lift shadow for depth. Uses the
-   same --f1-accent that already colours this section (purple on 2025,
-   blue on 2026, etc. — see applySectionAccent in racing.js), so the
+   same --f1-accent that already colours this section (blue on 2025,
+   purple on 2026, etc. — see applySectionAccent in racing.js), so the
    hover treatment matches whichever theme the gallery belongs to. */
 .gallery-grid img:hover {
   transform: scale(1.02);

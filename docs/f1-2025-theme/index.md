@@ -2,8 +2,8 @@
 title: 2025 Theme
 social:
   cards_layout_options:
-    background_color: "#591f8c"
-    texture_image: purple
+    background_color: "#1a3d82"
+    texture_image: blue
 ---
 
 <div class="f1-hero">

@@ -232,8 +232,8 @@
   }
 
   /* ------------------------------------------------------------------
-   * Per-section accent colour: red on the homepage, purple on the 2025
-   * project, blue on the 2026 project, green on Commissions. Tried
+   * Per-section accent colour: red on the homepage, blue on the 2025
+   * project, purple on the 2026 project, green on Commissions. Tried
    * switching Material's own `data-md-color-accent` attribute first,
    * since it ships full CSS for every named accent colour — but
    * Material's compiled stylesheet re-declares --md-accent-fg-color
@@ -246,8 +246,8 @@
    * ------------------------------------------------------------------ */
   function applySectionAccent() {
     var html = document.documentElement;
-    var purple = /\/f1-2025-theme\//.test(location.pathname);
-    var blue = !purple && /\/f1-2026-theme\//.test(location.pathname);
+    var blue = /\/f1-2025-theme\//.test(location.pathname);
+    var purple = !blue && /\/f1-2026-theme\//.test(location.pathname);
     var green = !purple && !blue && /\/commissions\//.test(location.pathname);
     var yellow = !purple && !blue && !green && /\/2027\//.test(location.pathname);
     html.classList.toggle("f1-section-purple", purple);
