@@ -14,4 +14,4 @@
 
 [:material-cash-fast: Get 2025 License &middot; £8](https://buy.stripe.com/7sYeVf77Q5NJ39n4Wh3oA01){ .md-button .md-button--primary }
 
-[:material-cash-fast: Get 2026 License &middot; £22](https://buy.stripe.com/28EcN7csa8ZV6lzagB3oA02){ .md-button .md-button--primary }
+[:material-cash-fast: Get 2026 License &middot; £22](https://buy.stripe.com/5kQ8wR77Q5NJ7pD3Sd3oA04){ .md-button .md-button--primary }
