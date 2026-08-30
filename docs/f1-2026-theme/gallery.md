@@ -85,33 +85,6 @@ Click any image to zoom in.
     the theme options. See [Setup](theme-options.md#customising-the-theme)
     for the Public Properties that drive them.
 
-!!! tip "Filling in the hover captions"
-    Hover (or tab to focus) any image above: a two-tab panel appears —
-    **Render Location** and **Theme Option**. To edit one, find that
-    image's line in this file (`docs/f1-2026-theme/gallery.md`) and edit
-    its `data-location="..."` and `data-theme="..."` values. Keep the
-    whole attribute on one line — attr_list attributes can't span
-    multiple lines, so a literal line break inside the quotes won't
-    parse as a list (it just gets treated as part of the text, or
-    breaks the line entirely).
-
-    **Plain text** — one line, shows as-is:
-
-    ```
-    data-location="Session Results -> drop-down menu, right-hand side"
-    ```
-
-    **A bulleted list** — separate items with `;` and it renders as real
-    bullet points instead of a single line:
-
-    ```
-    data-theme="Background Colour Theme: Custom Colour; Name: Test"
-    ```
-
-    Both attributes are optional — an image with neither set just falls
-    back to generic placeholder text instead of an empty panel. Same
-    pattern works in any other project's Gallery page too.
-
 <div class="checker-divider"></div>
 
 ## Support {: .f1-heading }
