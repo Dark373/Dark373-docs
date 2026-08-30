@@ -16,7 +16,7 @@ social:
 The largest and most complex theme ever created for Racing League Tools,
 featuring graphics inspired by the 2026 F1 season, allowing you to maximise
 the potential of RLT. It took nearly three times as long to build as the
-previous theme, 177 hours against 65, partly because it grew alongside RLT's
+previous theme, 180 hours against 65, partly because it grew alongside RLT's
 own active development. That meant a longer wait than planned, and I
 appreciate your patience with it. I think it was worth the wait. I hope you
 enjoy the theme.
@@ -32,7 +32,7 @@ enjoy the theme.
   <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.0</span></div>
   <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.8 HF-1</span></div>
   <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">52</span></div>
-  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">177h</span></div>
+  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">180h</span></div>
 </div>
 
 ## What's Next {: .f1-heading }
