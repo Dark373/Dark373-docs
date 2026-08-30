@@ -37,35 +37,37 @@ enjoy the theme.
 
 ## What's New in 2026 {: .f1-heading }
 
-Compared to the 2025 theme, this release goes further in almost every
-direction — more renders, deeper customisation, and a fair bit of
+Compared to the 2025 theme, this theme goes further in almost every
+direction, more renders, deeper customisation, and a fair bit of
 groundwork for what's still to come.
 
 **New render types**
 
 - Speed Trap and Fastest Sectors renders
 - Broadcast and media render types for stats
-- Broadcast Season Stats card
+- Front Row
+- Speed Master
 - Brand new Ratings, Multiseason, and Teammates statistics renders, built
   around the app's newer data
+- And more!
 
 **Redesigned & rebuilt**
 
-- Graphic redesign across similar renders — Race Results driver avatars
+- Graphic redesign across similar renders: Race Results driver avatars
   now fade seamlessly into the background, and the underlying code is
   more robust and better suited to a wider range of databases
-- Custom tyre images
+- Custom tyre images support
 
 **Deeper customisation**
 
 - Logo variant support
 - `global_vars.json` for global styling control
-- A more developed styles system overall
-- Localisation support
+- A more developed styles system overall (no more code digging)
+- Full localisation support
 - Support for the 2026 grid, including Audi and Cadillac (see
   [Setup](../f1-2025-theme/theme-options.md#2026-season-grid-changes-audi-cadillac))
 
-Overall, the theme is more complex and customisable than any before it —
+Overall, the theme is more complex and customisable than any before it,
 reflected in the scope: 157 public properties versus 117, and 52 renders
 versus 38.
 
