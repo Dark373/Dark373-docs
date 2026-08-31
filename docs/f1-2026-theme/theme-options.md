@@ -361,6 +361,8 @@ template**. Build a template from the available tokens (`{Name}`,
 updates live, and whatever you set here is what the theme renders
 everywhere a driver name appears.
 
+![Driver display settings, showing the display name template, token list, presets, and a live preview](setup-images/driver-display-template.png){: width=737 height=595 loading=lazy }
+
 ## All Public Properties {: .f1-heading }
 
 The table above covers this theme's core global settings. Everything else in RLT's Theme Settings panel is grouped below by category, exactly as it's grouped in the app itself, collapsed by default since there's a lot of it.
