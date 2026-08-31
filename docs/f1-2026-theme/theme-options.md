@@ -347,6 +347,20 @@ whichever source a given layout draws from.
     Localisation files can be shared independently: other admins just
     drop the `.json` into their `localizations/` folder and it appears
     in the language picker.
+## Driver Display Names {: .f1-heading }
+
+Where the 2025 theme has a Naming Conventions property to choose which
+name fields are used, 2026 doesn't — that part now lives in the app
+itself, league-wide, and the theme just renders whatever it's given. Name
+Casing is still a theme property (see Driver Global below).
+
+Set it under **League → Drivers → Driver display → Display name
+template**. Build a template from the available tokens (`{Name}`,
+`{FirstName}`, `{LastName}`, `{InGameName}`, `{ShortName}`, `{BadgeName}`,
+`{RaceNumber}`, `{FirstInitial}`), or pick one of the presets. The preview
+updates live, and whatever you set here is what the theme renders
+everywhere a driver name appears.
+
 ## All Public Properties {: .f1-heading }
 
 The table above covers this theme's core global settings. Everything else in RLT's Theme Settings panel is grouped below by category, exactly as it's grouped in the app itself, collapsed by default since there's a lot of it.
