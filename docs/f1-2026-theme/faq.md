@@ -1,5 +1,8 @@
 # 2026 FAQ
 
+??? question "How long does it take for the confirmation email to come through after purchase?"
+    About an hour.
+
 ??? question "Team logos aren't showing up on some renders"
     This mostly affects renders that use logotype variants, most often
     Team/Driver Standings and Session Results. Restart the app first. If
