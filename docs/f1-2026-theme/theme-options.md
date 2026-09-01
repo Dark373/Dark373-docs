@@ -234,6 +234,22 @@ whichever source a given layout draws from.
     used as a variable name, which then resolves to the actual format
     string above.
 
+    **Broadcast team names**
+
+    Broadcast-render team names pull from their own set of vars, one
+    per team, using the `{TEAM}EngineSupplier` key — the team name
+    uppercased as stored in RLT, with `EngineSupplier` appended:
+
+    ```json
+    "MCLARENEngineSupplier":      "McLAREN MERCEDES",
+    "RED BULLEngineSupplier":     "RED BULL RACING FORD RBPT",
+    "ASTON MARTINEngineSupplier": "ASTON MARTIN ARAMCO HONDA"
+    ```
+
+    Add or edit an entry per team to control exactly what prints on
+    broadcast-type renders. Media renders and everything else still
+    use the driver/team names covered under Localisation below.
+
 ??? note "Styles"
     A style is a named set of properties (font, size, colour, padding,
     alignment) defined once and applied to many blocks across the
@@ -304,19 +320,21 @@ whichever source a given layout draws from.
     Change the value on the right to reword the label. The key on the
     left must stay unchanged: it's what the layout looks up.
 
-    **Team name display** works the same way. Every team name that
-    appears in the graphics goes through this map, so you can control
-    the exact formatting:
+    **Driver and team name display** works the same way. Every driver
+    and team name that appears in the graphics goes through this map,
+    so you can fix capitalisation or reword individual names without
+    touching anything else. This covers media renders and everything
+    else theme-wide; for broadcast-specific team names, see Broadcast
+    Team Names under Deeper Edits below instead.
 
     ```json
-    "RED BULL": "RED BULL RACING FORD RBPT",
     "MCLAREN":  "McLAREN",
-    "FERRARI":  "FERRARI"
+    "MCDONALD": "McDONALD",
+    "RESERVE":  "RESERVE"
     ```
 
-    The key is the team's name uppercased as stored in RLT; the value
-    is what actually prints. This is where you add engine supplier
-    suffixes, fix capitalisation, or shorten long names.
+    The key is the name uppercased as stored in RLT (driver surname
+    or team name); the value is what actually prints.
 
     **Creating a full new localisation**
 
