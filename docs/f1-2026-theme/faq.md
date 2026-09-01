@@ -10,6 +10,19 @@
     to the graphic in 2026. The 2025 version will adapt to 2026 championship
     seaons.
 
+??? question "How do I render the full grid or more than 20/22 drivers instead of just the top 10 or one team?"
+    Two settings control this together:
+
+    1. **In RLT:** Season → Options → Standings & Statistics → set
+       "Show top X drivers in standings" to `0` (0 = all drivers).
+       Toggle "Show reserves in standings" and "Show archived drivers
+       in standings" here too if you want them counted.
+    2. **In the theme:** Theme Options → Driver Global → **Position
+       Limit** → set to the number of drivers you want rendered (e.g.
+       `22` for a full grid).
+
+    ![RLT season options, Standings & Statistics tab](faq-images/season-options-standings.png){: width=1165 height=917 loading=lazy }
+
 <div class="checker-divider"></div>
 
 ## Support {: .f1-heading }
