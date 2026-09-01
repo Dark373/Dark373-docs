@@ -297,6 +297,8 @@ whichever source a given layout draws from.
        every second-name-line style, controls whether the line shows
        at all
 
+<a id="localisation"></a>
+
 ??? note "Localisation"
     **Quick word edits**
 

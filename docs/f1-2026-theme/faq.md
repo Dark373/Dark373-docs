@@ -26,6 +26,13 @@
 
     ![RLT season options, Standings & Statistics tab](faq-images/season-options-standings.png){: width=1165 height=917 loading=lazy }
 
+??? question "Will the theme have other language support (Spanish, Italian, etc.)?"
+    Not out of the box, but you can build your own — see
+    [Localisation](theme-options.md#localisation) on the Setup page.
+    Localisation files are just JSON, so once translated they can be
+    shared with the community, and I'll gladly link to any that get
+    made.
+
 <div class="checker-divider"></div>
 
 ## Support {: .f1-heading }
