@@ -5,8 +5,22 @@
 <div class="f1-release" markdown="1">
 
 <div class="f1-release-head">
-<span class="f1-release-version">v1.0</span>
+<span class="f1-release-version">v1.0.1</span>
 <span class="f1-release-badge f1-release-badge--latest">Latest</span>
+<span class="f1-release-date">2 Sept 2026</span>
+</div>
+
+- Line-ups: fixed both layers stacking
+- Race Results Broadcast: fixed penalty time binding from `PenaltiesDetails.TotalPenaltyTime` to the correct `PenaltyTimeStringLeftPart`
+- Statistics: moved race number text behind avatar image so it renders as a background element
+- BroadcastResults: added Custom Colour triggers for header shape fills and logo colorise targets
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">v1.0</span>
 <span class="f1-release-date">31 Aug 2026</span>
 </div>
 
