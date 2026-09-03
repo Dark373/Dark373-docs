@@ -26,7 +26,7 @@ next render.
 1. Prepare your custom avatars using a canvas with equal height and width
    (you may need to adjust the canvas size to get the perfect fit).
 2. Rename the images to match the driver's name in the app.
-3. Place the images in `<theme_root_folder>/images/driver_avatars/` (create
+3. Place the images in `user/images/driver_avatars/` (create
    the folder if it doesn't already exist).
 
 Using the default avatars as a guide, try lining your image up against the
