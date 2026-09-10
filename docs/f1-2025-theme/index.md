@@ -31,6 +31,12 @@ the official Formula One graphics.
   <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">65h</span></div>
 </div>
 
+## What's Next {: .f1-heading }
+
+??? note "Roadmap"
+    - [ ] Detachment of broadcast and media renders from theme options where possible
+    - [ ] Bug fixes for app v9.8
+
 ## Links {: .f1-heading }
 
 - [FAQ](faq.md)
