@@ -5,8 +5,20 @@
 <div class="f1-release" markdown="1">
 
 <div class="f1-release-head">
-<span class="f1-release-version">v1.2.1</span>
+<span class="f1-release-version">v1.2.2</span>
 <span class="f1-release-badge f1-release-badge--latest">Latest</span>
+<span class="f1-release-date">12 Sept 2026</span>
+</div>
+
+- Fixed media race and qualifying tables
+- Fixed duplicating statistics on team h2h render
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">v1.2.1</span>
 <span class="f1-release-date">24 Feb 2026</span>
 </div>
 
