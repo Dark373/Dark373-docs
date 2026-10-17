@@ -1,7 +1,7 @@
 # 2026 FAQ
 
 ??? question "How long does it take for my order to be approved?"
-    There's no fixed window — orders are checked and approved manually.
+    There's no fixed window: orders are checked and approved manually.
     Once approved, the theme is added to your app automatically; no file
     to download or place yourself.
 

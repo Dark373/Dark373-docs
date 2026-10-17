@@ -2,7 +2,7 @@
 
 ## Installing and updates {: .f1-heading }
 
-Delivery now runs through RLT's own in-app theme marketplace — there's no
+Delivery now runs through RLT's own in-app theme marketplace. There's no
 more downloading a ZIP from Google Drive.
 
 **Getting the theme:**
@@ -15,14 +15,14 @@ more downloading a ZIP from Google Drive.
    unlocks automatically inside RLT. If it doesn't match, the order is
    confirmed manually instead, which can take a little longer.
 
-**Updates** are delivered through RLT too — when one's available, confirm
+**Updates** are delivered through RLT too. When one's available, confirm
 you want to update and RLT downloads it automatically. No manual file
 handling either way.
 
 !!! info "Encryption & sharing"
     Themes are now encrypted. Only RLT profiles on the same cloud storage
     can use the theme, and only within the database that cloud storage is
-    linked to — sharing it outside that setup won't work.
+    linked to. Sharing it outside that setup won't work.
 
 ## Enabling the theme {: .f1-heading }
 
