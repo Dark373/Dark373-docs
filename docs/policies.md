@@ -22,9 +22,8 @@ find these themes in the first place.
 ## Delivery {: .f1-heading }
 
 Everything sold here is a digital theme, so nothing is shipped. After
-checkout, delivery is via a shared Google Drive folder plus an email to
-the address used at checkout, and normally lands within about an hour.
-If it's been longer than that, get in touch below.
+checkout, please wait for me to check and approve the request. After 
+being approved, the theme will automatically be added to your app.
 
 ## Refunds, Returns & Cancellations {: .f1-heading }
 
