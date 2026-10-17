@@ -2,20 +2,26 @@
 
 ## Installing and updates {: .f1-heading }
 
-After purchasing, the theme ZIP file archive can be found within your
-shared Google Drive.
+Delivery now runs through RLT's own in-app theme marketplace — there's no
+more downloading a ZIP from Google Drive.
 
-**Installing:**
+**Getting the theme:**
 
-1. Download the ZIP file.
-2. Place the ZIP file into this folder:
-   `C:\RacingLeagueTools_v096_portable\user\themes`
-3. Open the app.
+1. Sign into RLT (a profile is required).
+2. Create an order on the theme from within RLT. This generates an order
+   code.
+3. Go to checkout and enter that order code when prompted.
+4. If the code matches your order, it's confirmed instantly and the theme
+   unlocks automatically inside RLT. If it doesn't match, the order is
+   confirmed manually instead, which can take a little longer.
 
-**Updating:**
+**Updates** are delivered the same way, automatically, through RLT —
+there's nothing to manually download or replace.
 
-1. Delete the existing theme folder.
-2. Follow the installation process again.
+!!! info "Encryption & sharing"
+    Themes are now encrypted. Only RLT profiles on the same cloud storage
+    can use the theme, and only within the database that cloud storage is
+    linked to — sharing it outside that setup won't work.
 
 ## Enabling the theme {: .f1-heading }
 
