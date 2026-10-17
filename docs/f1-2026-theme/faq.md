@@ -1,7 +1,9 @@
 # 2026 FAQ
 
-??? question "How long does it take for the confirmation email to come through after purchase?"
-    About an hour.
+??? question "How long does it take for my order to be approved?"
+    There's no fixed window — orders are checked and approved manually.
+    Once approved, the theme is added to your app automatically; no file
+    to download or place yourself.
 
 ??? question "Why don't driver names appear when rendering results or lineups?"
     Ensure your app version is v9.8 or higher.

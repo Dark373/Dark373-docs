@@ -5,14 +5,15 @@
     Team/Driver Standings and Session Results. Restart the app first. If
     that doesn't fix it, restart your PC or laptop.
 
-??? question "How long does it take for the confirmation email to come through after purchase?"
-    About an hour.
+??? question "How long does it take for my order to be approved?"
+    There's no fixed window — orders are checked and approved manually.
+    Once approved, the theme is added to your app automatically; no file
+    to download or place yourself.
 
 ??? question "I purchased the F1 2025 theme but haven't received it"
-    Wait about an hour, then check your shared Google Drive folder and the
-    inbox for the email address you used at checkout. Delivery normally
-    lands there within that window. Still nothing after an hour? Get in
-    touch below.
+    Orders are approved manually, so there's no fixed delivery window.
+    Once approved the theme is added to your app automatically. If it's
+    been a while and nothing's shown up, get in touch below.
 
 ??? question "How much does the F1 2025 theme cost?"
     £8 (GBP).
