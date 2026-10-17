@@ -15,8 +15,9 @@ more downloading a ZIP from Google Drive.
    unlocks automatically inside RLT. If it doesn't match, the order is
    confirmed manually instead, which can take a little longer.
 
-**Updates** are delivered the same way, automatically, through RLT —
-there's nothing to manually download or replace.
+**Updates** are delivered through RLT too — when one's available, confirm
+you want to update and RLT downloads it automatically. No manual file
+handling either way.
 
 !!! info "Encryption & sharing"
     Themes are now encrypted. Only RLT profiles on the same cloud storage
