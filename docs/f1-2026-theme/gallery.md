@@ -1,6 +1,6 @@
 # 2026 Gallery
 
-72 renders across Broadcast & Media Variable Data, Race and Qualifying
+77 renders across Broadcast & Media Variable Data, Race and Qualifying
 Results, Championship Standings, Line-ups, Multiseason Statistics, Ratings,
 Session Statistics, the Grid, Speed Trap & Fastest Sectors, and Penalties.
 Click any image to zoom in.
@@ -78,6 +78,11 @@ Click any image to zoom in.
 ![Standings: Teammates](gallery-images/standings-teammates.webp){: width=919 height=1149 loading=lazy data-location="Standings -> Teammates" data-theme="Background Colour Theme: Custom Colour (team colour)" }
 ![Race Results Media (Sprint)](gallery-images/race-results-media-sprint-session.webp){: width=1248 height=1400 loading=lazy data-location="Session Results -> Sprint tab" data-theme="Render Type: Media; Background Colour Theme: Dark" }
 ![Session Stats: Top Battles (Broadcast)](gallery-images/session-stats-broadcast-top-battles.webp){: width=1400 height=957 loading=lazy data-location="Session Results -> Statistics tab -> Top Battles" data-theme="Background Colour Theme: Dark" }
+![Line-Ups: Full Grid](gallery-images/lineups-full-grid.webp){: width=1400 height=1292 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Rebuilt main Line-ups layout, every team's drivers in one grid; Background Colour Theme: Custom Colour (team colour)" }
+![Line-Ups: Entry List](gallery-images/lineups-entry-list.webp){: width=489 height=1400 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Entry List layout; Background Colour Theme: Custom Colour (team colour)" }
+![Line-Ups: Entry List (with photos)](gallery-images/lineups-entry-list-photos.webp){: width=1400 height=1381 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Entry List layout with driver photos, including the Reserves layout; Background Colour Theme: Dark" }
+![Standings Spotlight: Championship Leader](gallery-images/standings-spotlight-leader.webp){: width=1080 height=1350 loading=lazy data-location="Standings -> Drivers Tab -> Standings Spotlight" data-theme="Championship Leader variant; Background Colour Theme: Custom Colour (team colour)" }
+![Calendar: Official (two-column)](gallery-images/calendar-official.webp){: width=1340 height=1340 loading=lazy data-location="Calendar and seasons -> Render calendar" data-theme="Official Calendar layout, two-column mode, Full Qualifying badge shown; Background Colour Theme: Dark" }
 </div>
 
 !!! note
