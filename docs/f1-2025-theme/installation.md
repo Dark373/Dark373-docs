@@ -1,5 +1,10 @@
 # 2025 Installing
 
+!!! success "Already own this theme?"
+    You'll regain access automatically. Sign into RLT using the same
+    email you purchased with, or add that email as a secondary email on
+    your RLT profile, and the theme becomes available again.
+
 ## Installing and updates {: .f1-heading }
 
 Delivery now runs through RLT's own in-app theme marketplace. There's no
