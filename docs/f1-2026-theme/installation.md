@@ -1,9 +1,11 @@
 # 2026 Installing
 
 !!! success "Already own this theme?"
-    You'll regain access automatically. Sign into RLT using the same
-    email you purchased with, or add that email as a secondary email on
-    your RLT profile, and the theme becomes available again.
+    You'll regain access. Sign into RLT using the same email you
+    purchased with, or add that email as a secondary email on your RLT
+    profile. This isn't instant: access is restored once RLT's team runs
+    a script on their end, so don't worry if it doesn't appear right
+    away.
 
 ## Installing and updates {: .f1-heading }
 
