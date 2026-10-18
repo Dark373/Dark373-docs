@@ -76,10 +76,10 @@ There's also a public [Roadmap](#whats-next) below for what's still planned.
 ## What's Next {: .f1-heading }
 
 ??? note "Roadmap"
-    - [ ] Calendar
+    - [x] Calendar
     - [ ] Driver Lineup (list)
     - [ ] Qualifying time graph
-    - [ ] Standings Spotlight
+    - [x] Standings Spotlight
     - [ ] Starting Lineup v1
     - [ ] Starting Lineup v2
     - [ ] Team standings v2

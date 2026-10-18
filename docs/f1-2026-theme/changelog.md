@@ -19,6 +19,7 @@
 - Added an Entry List Reserves layout, with a setting for how many reserve columns to show
 - Added an Individual Line-ups layout (the old single-team line-up moved here)
 - Rebuilt the main Line-ups layout as a full grid of every team's drivers
+- Added a Standings Spotlight render — championship leader callout card
 
 **Calendar**
 
@@ -57,7 +58,7 @@
 - Added new styles for line-up panels and the entry list
 - Reorganised settings into new categories: Calendar, Individual Line-ups, Entry List, DOTD and Graph
 
-6 new renders, 200 hours total spent.
+7 new renders, 200 hours total spent.
 
 </div>
 
