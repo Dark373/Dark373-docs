@@ -5,8 +5,66 @@
 <div class="f1-release" markdown="1">
 
 <div class="f1-release-head">
-<span class="f1-release-version">v1.0.1</span>
+<span class="f1-release-version">v1.1.0</span>
 <span class="f1-release-badge f1-release-badge--latest">Latest</span>
+<span class="f1-release-date">18 Oct 2026</span>
+</div>
+
+**New layouts**
+
+- Added a Calendar layout
+- Added an Official Calendar layout, with one- or two-column modes
+- Added an Entry List line-ups layout
+- Added an Entry List line-ups layout for teams with 2+ drivers
+- Added an Entry List Reserves layout, with a setting for how many reserve columns to show
+- Added an Individual Line-ups layout (the old single-team line-up moved here)
+- Rebuilt the main Line-ups layout as a full grid of every team's drivers
+
+**Calendar**
+
+- New settings: grey out past events, show the event winner, and highlight Sprint or Full Qualifying events
+- Added Sprint and Full Qualifying badges and backgrounds
+- Added a "Mystery GP" flag for random tracks
+- Added labels for break weeks
+
+**Standings**
+
+- Added Wins/P2/P3, Fastest Lap and Pole count columns to the Drivers and Constructors Championship standings
+- Added the same count columns to a new table layer on the Media Drivers and Media Constructors standings
+- Removed the "P" prefix from best, worst and average position values
+
+**Multiseason Statistics**
+
+- New "Individual Data" mode that shows one chosen overall stat column (52 options), on both broadcast and media layouts
+- Separate options for which value the Driver and Team graphs show (Points, Wins, Podiums, Top 5, Top 10)
+- Resized the Driver Graph value text, tightened spacing and made the avatar follow the avatar setting
+- Added a Poles column (fastest qualifying lap driver and time) to Track Details
+- First and last visit dates on Track Details now show as dd/MM/yy
+- Removed the "P" prefix from position values in Driver and Team Details
+
+**Session results**
+
+- Fastest lap tyres in broadcast results can now use custom tyre images
+- Added an option to turn the Driver of the Day image on or off
+- Session Variable Data Media now uses white highlight text instead of the team's tertiary colour
+- "The Grid" headers now use a separate `THEGRID` text key
+
+**Theme and localisation**
+
+- Track logos now use the "Outline" variant instead of "Alternative"
+- Months now show in full (e.g. JANUARY), with separate keys for short names
+- Added localisation strings for the calendar, the new stat column headers and "Front Row"
+- Added new styles for line-up panels and the entry list
+- Reorganised settings into new categories: Calendar, Individual Line-ups, Entry List, DOTD and Graph
+
+6 new renders, 200 hours total spent.
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">v1.0.1</span>
 <span class="f1-release-date">2 Sept 2026</span>
 </div>
 
