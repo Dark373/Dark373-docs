@@ -48,7 +48,7 @@ extra:
   card_version: "3"
 
 extra_css:
-  - stylesheets/extra.css?v=3
+  - stylesheets/extra.css?v=4
 
 extra_javascript:
   - javascripts/racing.js?v=4
