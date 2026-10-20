@@ -419,10 +419,30 @@
       { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
 
+    // Fallback safety net: some WebKit builds (notably iOS Safari) have
+    // been seen to never fire IntersectionObserver callbacks for targets
+    // laid out inside a CSS multi-column container (exactly what
+    // .gallery-grid uses - see extra.css) — the element's computed
+    // geometry inside a `columns` box doesn't always get picked up by the
+    // observer's intersection math, so entries for gallery images can
+    // simply never arrive on that platform. Pairing the observer with a
+    // plain timer means an element that scrolled past without ever being
+    // reported as intersecting still reveals itself shortly after being
+    // armed, rather than staying stuck at opacity 0 forever. 1.2s is well
+    // past the 0.7s CSS transition and past typical observer callback
+    // latency, so it only ever kicks in for the broken case.
+    function forceRevealFallback(el) {
+      if (!el.classList.contains("f1-revealed")) {
+        el.classList.add("f1-revealed");
+        observer.unobserve(el);
+      }
+    }
+
     els.forEach(function (el) {
       el.dataset.f1RevealBound = "1";
       el.classList.add("f1-reveal-armed");
       observer.observe(el);
+      setTimeout(forceRevealFallback, 1200, el);
     });
   }
 
