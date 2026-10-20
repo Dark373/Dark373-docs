@@ -16,7 +16,7 @@ social:
 The largest and most complex theme ever created for Racing League Tools,
 featuring graphics inspired by the 2026 F1 season, allowing you to maximise
 the potential of RLT. It took nearly three times as long to build as the
-previous theme, 180 hours against 65, partly because it grew alongside RLT's
+previous theme, 200 hours against 65, partly because it grew alongside RLT's
 own active development. That meant a longer wait than planned, and I
 appreciate your patience with it. I think it was worth the wait. I hope you
 enjoy the theme.
@@ -29,10 +29,10 @@ enjoy the theme.
 
 <div class="stat-strip">
   <div class="stat"><span class="stat-label">Author</span><span class="stat-value">Dark373</span></div>
-  <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.0.1</span></div>
-  <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">9.8 HF-1</span></div>
-  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">52</span></div>
-  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">180h</span></div>
+  <div class="stat"><span class="stat-label">Version</span><span class="stat-value">1.1.0</span></div>
+  <div class="stat"><span class="stat-label">RLT Version</span><span class="stat-value">0.9.9</span></div>
+  <div class="stat"><span class="stat-label">Renders</span><span class="stat-value">59</span></div>
+  <div class="stat"><span class="stat-label">Dev Time</span><span class="stat-value">200h</span></div>
 </div>
 
 ## What's New in 2026 {: .f1-heading }
@@ -77,17 +77,9 @@ There's also a public [Roadmap](#whats-next) below for what's still planned.
 
 ??? note "Roadmap"
     - [x] Calendar
-    - [ ] Driver Lineup (list)
-    - [ ] Qualifying time graph
+    - [x] Driver Lineups
     - [x] Standings Spotlight
-    - [ ] Starting Lineup v1
-    - [ ] Starting Lineup v2
-    - [ ] Team standings v2
-    - [ ] Session roundup
-    - [ ] Driver standings graph
-    - [ ] Team standings graph
-    - [ ] In Contention
-    - [ ] Head 2 Head comparison
+    - [ ] Graph add-on
 
 ## Links {: .f1-heading }
 

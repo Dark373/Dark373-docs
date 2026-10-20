@@ -58,8 +58,6 @@
 - Added new styles for line-up panels and the entry list
 - Reorganised settings into new categories: Calendar, Individual Line-ups, Entry List, DOTD and Graph
 
-7 new renders, 200 hours total spent.
-
 </div>
 
 <div class="f1-release" markdown="1">
