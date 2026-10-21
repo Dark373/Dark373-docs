@@ -1,15 +1,22 @@
 mkdocs-material[imaging]>=9.5
 mkdocs-glightbox>=0.4
 
-# Pinned below >=9.5 / >=0.4: Markdown 3.11.2 (a transitive dependency,
-# not listed directly above) silently breaks md_in_html's parsing of
-# Markdown image syntax inside a `<div markdown="1">` block - every
-# `![...](...)` line compiles to a blank line instead of an <img> tag or
-# even literal fallback text, with no warning from `mkdocs build --strict`.
-# Confirmed by diffing the exact installed versions between a working
-# local build (Markdown 3.11.1) and a broken CI build (3.11.2) - nothing
-# else differed. Un-pin once a fixed Markdown release is confirmed not to
-# regress this (test both docs/f1-2025-theme/gallery.md and
-# docs/f1-2026-theme/gallery.md compile to the expected <img> counts
-# before removing this pin).
-Markdown<3.11.2
+# Pinned below >=0.4: selectolax 1.0.1 (a transitive dependency of
+# mkdocs-glightbox, not listed directly above) has a real regression in
+# its Lexbor HTML parser/serializer. mkdocs-glightbox's on_post_page hook
+# uses selectolax to post-process the already-rendered page HTML (to
+# wrap each <img> in a lightbox <a> link); under 1.0.1, a <p> containing
+# many sibling <img> tags (both galleries' .gallery-grid, 38/82 images in
+# one shared <p>) gets its content silently dropped down to blank lines
+# during that pass, with no warning from `mkdocs build --strict`. Markdown
+# conversion itself is unaffected (confirmed in isolation with the
+# `markdown` library directly, same content, same extensions - correct
+# every time); this is purely a selectolax/glightbox post-processing bug.
+# An initial fix attempt wrongly pinned Markdown<3.11.2 instead - that
+# was a coincidental correlation, not the actual cause (confirmed by
+# reproducing the failure with Markdown 3.11.1 too, and fixing it by
+# pinning only selectolax, with Markdown left unpinned).
+# Un-pin once a fixed selectolax release is confirmed not to regress this
+# (test both docs/f1-2025-theme/gallery.md and docs/f1-2026-theme/gallery.md
+# compile to the expected <img> counts - 38 and 82 - before removing this).
+selectolax<1.0.1
