@@ -5,8 +5,20 @@
 <div class="f1-release" markdown="1">
 
 <div class="f1-release-head">
-<span class="f1-release-version">v1.1.0</span>
+<span class="f1-release-version">v1.1.1</span>
 <span class="f1-release-badge f1-release-badge--latest">Latest</span>
+<span class="f1-release-date">21 Oct 2026</span>
+</div>
+
+- Added a Number of Columns setting to the Calendar, replacing the fixed 7 columns (default 2)
+- Fixed line-up driver avatars hiding when the avatar setting was on, and showing when it was off
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">v1.1.0</span>
 <span class="f1-release-date">18 Oct 2026</span>
 </div>
 
