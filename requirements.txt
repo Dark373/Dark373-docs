@@ -1,2 +1,15 @@
 mkdocs-material[imaging]>=9.5
 mkdocs-glightbox>=0.4
+
+# Pinned below >=9.5 / >=0.4: Markdown 3.11.2 (a transitive dependency,
+# not listed directly above) silently breaks md_in_html's parsing of
+# Markdown image syntax inside a `<div markdown="1">` block - every
+# `![...](...)` line compiles to a blank line instead of an <img> tag or
+# even literal fallback text, with no warning from `mkdocs build --strict`.
+# Confirmed by diffing the exact installed versions between a working
+# local build (Markdown 3.11.1) and a broken CI build (3.11.2) - nothing
+# else differed. Un-pin once a fixed Markdown release is confirmed not to
+# regress this (test both docs/f1-2025-theme/gallery.md and
+# docs/f1-2026-theme/gallery.md compile to the expected <img> counts
+# before removing this pin).
+Markdown<3.11.2

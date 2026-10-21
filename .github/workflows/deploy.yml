@@ -64,24 +64,12 @@ jobs:
 
       # Regression guard: both galleries' markdown="1" raw-HTML block must
       # actually compile its images into real <img> tags. This exact
-      # pattern silently broke once already (a Markdown/md_in_html version
-      # swallowed every image's content, leaving 82 empty <p></p> tags
-      # with no error from `mkdocs build --strict`) and shipped to every
-      # visitor before anyone noticed, so this fails the build loudly
-      # instead of deploying a gallery page with zero images on it again.
-      - name: TEMP DEBUG 2 - dump 2025 gallery output
-        run: |
-          echo "=== pwd and site tree check ==="
-          ls -la site/f1-2025-theme/gallery/
-          echo "=== file size ==="
-          wc -c site/f1-2025-theme/gallery/index.html
-          echo "=== gallery-grid marker count ==="
-          grep -c 'gallery-grid' site/f1-2025-theme/gallery/index.html || echo "0"
-          echo "=== raw content around gallery-grid (2500 chars) ==="
-          python3 -c 'content = open("site/f1-2025-theme/gallery/index.html").read(); idx = content.find("gallery-grid"); print(repr(content[idx-20:idx+2500]) if idx != -1 else "MARKER NOT FOUND AT ALL")'
-          echo "=== source gallery.md first 10 lines as checked out ==="
-          sed -n "1,12p" docs/f1-2025-theme/gallery.md
-
+      # pattern silently broke once already (an unpinned transitive
+      # Markdown release regressed md_in_html's parsing of image syntax
+      # inside a <div markdown="1"> block - every image line compiled to
+      # a blank line, no warning from `mkdocs build --strict`) and shipped
+      # to every visitor before anyone noticed, so this fails the build
+      # loudly instead of deploying a gallery page with zero images again.
       - name: Verify galleries actually contain images
         run: |
           for f in site/f1-2025-theme/gallery/index.html site/f1-2026-theme/gallery/index.html; do
