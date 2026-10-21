@@ -62,20 +62,23 @@ jobs:
       - name: Build site
         run: mkdocs build --strict
 
-      - name: TEMP DEBUG - inspect gallery output and dependency versions
+      # Regression guard: both galleries' markdown="1" raw-HTML block must
+      # actually compile its images into real <img> tags. This exact
+      # pattern silently broke once already (a Markdown/md_in_html version
+      # swallowed every image's content, leaving 82 empty <p></p> tags
+      # with no error from `mkdocs build --strict`) and shipped to every
+      # visitor before anyone noticed, so this fails the build loudly
+      # instead of deploying a gallery page with zero images on it again.
+      - name: Verify galleries actually contain images
         run: |
-          echo "=== installed versions ==="
-          pip show mkdocs mkdocs-material markdown pymdown-extensions mkdocs-glightbox 2>&1 | grep -E "^Name:|^Version:"
-          echo "=== gallery-grid presence in built HTML ==="
-          grep -c 'class="gallery-grid"' site/f1-2026-theme/gallery/index.html || echo "NOT FOUND"
-          echo "=== img tag count in gallery page ==="
-          grep -o "<img[^>]*>" site/f1-2026-theme/gallery/index.html | wc -l
-          echo "=== first img tag if any ==="
-          grep -o "<img[^>]*>" site/f1-2026-theme/gallery/index.html | head -1
-          echo "=== the-grid.webp reference check ==="
-          grep -c "the-grid.webp" site/f1-2026-theme/gallery/index.html || echo "NOT FOUND"
-          echo "=== raw bytes around gallery-grid div (first 2000 chars after marker) ==="
-          python3 -c 'content = open("site/f1-2026-theme/gallery/index.html").read(); idx = content.find("gallery-grid"); print(content[idx-50:idx+2000] if idx != -1 else "MARKER NOT FOUND AT ALL")'
+          for f in site/f1-2025-theme/gallery/index.html site/f1-2026-theme/gallery/index.html; do
+            count=$(grep -o "<img[^>]*>" "$f" | wc -l)
+            echo "$f: $count img tags"
+            if [ "$count" -eq 0 ]; then
+              echo "::error::$f has no <img> tags - gallery markdown failed to compile, aborting deploy"
+              exit 1
+            fi
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

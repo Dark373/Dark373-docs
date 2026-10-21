@@ -98,27 +98,38 @@ html.f1-section-yellow {
   margin: 1.5rem 0;
 }
 
-/* Each Markdown image lives on its own line with a blank line after it
-   (see gallery.md in any project), so it compiles to its own <p> — one
-   per image, not one shared paragraph for the whole grid. That used to
-   rely on display:contents to unwrap a single shared <p> instead, but
-   that combination (display:contents + absolutely-positioned descendants,
-   i.e. .f1-gallery-caption below) is a known-fragile one in WebKit: it's
-   been seen to fail to generate boxes for the contents at all on iOS
-   Safari, making the *entire* gallery disappear rather than just looking
-   wrong — a single point of failure for every image in the grid. Letting
-   each <p> be the actual column-flow child sidesteps the whole class of
-   bug; no promotion trick required. */
+/* Consecutive Markdown image lines with no blank line between them compile
+   into ONE shared <p> holding every image, not one <p> per image (confirmed
+   by inspecting actual build output, not assumed) — so without this rule,
+   every image would flow as ordinary inline content inside that single
+   paragraph instead of being packed into the gallery's columns.
+   display:contents removes the <p>'s own box from the layout tree
+   entirely, promoting its children (glightbox's <a> wrappers) to
+   participate in the column layout directly — without requiring gallery
+   authors to remember blank lines between every image.
+   A blank-line-per-image / one-<p>-per-image restructure was tried here
+   instead (to dodge a separate WebKit display:contents+absolutely-
+   positioned-descendant bug — see below), but the installed Markdown /
+   md_in_html version turned out to silently drop every image's content
+   when a <div markdown="1"> contains multiple blank-line-separated
+   paragraphs — confirmed by inspecting actual CI build output, which
+   showed 82 empty <p></p> tags instead of img tags. That broke the
+   gallery for 100% of visitors (not just iOS), so this reverts back to
+   the single-shared-paragraph + display:contents approach, which is
+   solid everywhere except the narrower iOS Safari case. */
 .gallery-grid p {
-  margin: 0;
-  break-inside: avoid;
+  display: contents;
 }
 
-/* The actual column item is the <p> above; this just controls the
-   glightbox wrapper's own box and spacing within it. */
+/* The actual column item: glightbox's own wrapper, not the <img> — an <a>
+   is inline by default, and an inline element (even after display:contents
+   promotes it into the column flow) doesn't get its own break-inside
+   control the way a block box does, so a tall image could get split
+   across two columns without this. */
 .gallery-grid a.glightbox {
   position: relative;
   display: block;
+  break-inside: avoid;
   margin-bottom: 0.75rem;
 }
 
