@@ -6,9 +6,9 @@ Session Statistics, the Grid, Speed Trap & Fastest Sectors, and Penalties.
 Click any image to zoom in.
 
 <div class="gallery-grid" markdown="1">
-![Line-Ups: Full Grid](gallery-images/lineups-full-grid.webp){: width=1400 height=1292 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Rebuilt main Line-ups layout, every team's drivers in one grid; Background Colour Theme: Custom Colour (team colour)" }
-![Line-Ups: Entry List](gallery-images/lineups-entry-list.webp){: width=489 height=1400 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Entry List layout; Background Colour Theme: Custom Colour (team colour)" }
-![Line-Ups: Entry List (with photos)](gallery-images/lineups-entry-list-photos.webp){: width=1400 height=1381 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Entry List layout with driver photos; Background Colour Theme: Dark" }
+![Line-Ups: Full Grid](gallery-images/lineups-full-grid.webp){: width=1400 height=1292 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Background Colour Theme: Dark" }
+![Line-Ups: Entry List](gallery-images/lineups-entry-list.webp){: width=489 height=1400 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Background Colour Theme: Dark" }
+![Line-Ups: Entry List (with photos)](gallery-images/lineups-entry-list-photos.webp){: width=1400 height=1381 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Entry List layout with driver photos; Reserve Column Count: 4; Background Colour Theme: Dark" }
 ![Line-Ups: Entry List (Reserves)](gallery-images/lineups-entry-list-reserves.webp){: width=1190 height=956 loading=lazy data-location="Drivers and line-ups -> Line-Ups tab" data-theme="Entry List Reserves layout; Background Colour Theme: Dark" }
 ![Standings Spotlight: Championship Leader](gallery-images/standings-spotlight-leader.webp){: width=1080 height=1350 loading=lazy data-location="Standings -> Drivers Tab -> Standings Spotlight" data-theme="Championship Leader variant; Background Colour Theme: Custom Colour (team colour)" }
 ![Standings Spotlight: No Change](gallery-images/standings-spotlight-no-change.webp){: width=1080 height=1350 loading=lazy data-location="Standings -> Drivers Tab -> Standings Spotlight" data-theme="Position-change variant, no change; Background Colour Theme: Custom Colour (team colour)" }
