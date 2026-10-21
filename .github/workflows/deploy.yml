@@ -67,7 +67,7 @@ jobs:
           echo "=== installed versions ==="
           pip show mkdocs mkdocs-material markdown pymdown-extensions mkdocs-glightbox 2>&1 | grep -E "^Name:|^Version:"
           echo "=== gallery-grid presence in built HTML ==="
-          grep -c "class=\"gallery-grid\"" site/f1-2026-theme/gallery/index.html || echo "NOT FOUND"
+          grep -c 'class="gallery-grid"' site/f1-2026-theme/gallery/index.html || echo "NOT FOUND"
           echo "=== img tag count in gallery page ==="
           grep -o "<img[^>]*>" site/f1-2026-theme/gallery/index.html | wc -l
           echo "=== first img tag if any ==="
@@ -75,11 +75,7 @@ jobs:
           echo "=== the-grid.webp reference check ==="
           grep -c "the-grid.webp" site/f1-2026-theme/gallery/index.html || echo "NOT FOUND"
           echo "=== raw bytes around gallery-grid div (first 2000 chars after marker) ==="
-          python3 -c "
-content = open('site/f1-2026-theme/gallery/index.html').read()
-idx = content.find('gallery-grid')
-print(content[idx-50:idx+2000] if idx != -1 else 'MARKER NOT FOUND AT ALL')
-"
+          python3 -c 'content = open("site/f1-2026-theme/gallery/index.html").read(); idx = content.find("gallery-grid"); print(content[idx-50:idx+2000] if idx != -1 else "MARKER NOT FOUND AT ALL")'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
