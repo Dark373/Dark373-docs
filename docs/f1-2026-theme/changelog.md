@@ -5,8 +5,19 @@
 <div class="f1-release" markdown="1">
 
 <div class="f1-release-head">
-<span class="f1-release-version">v1.1.1</span>
+<span class="f1-release-version">v1.1.2</span>
 <span class="f1-release-badge f1-release-badge--latest">Latest</span>
+<span class="f1-release-date">13 Nov 2026</span>
+</div>
+
+- Added dynamic background sizes depending on Driver & Team limits in theme options (Session, Standings & Driver Statistics)
+
+</div>
+
+<div class="f1-release" markdown="1">
+
+<div class="f1-release-head">
+<span class="f1-release-version">v1.1.1</span>
 <span class="f1-release-date">21 Oct 2026</span>
 </div>
 
